@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://veltride.com/sitemap.xml
