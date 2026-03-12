@@ -62,32 +62,45 @@ const GOALS = [
   {id:"anti-aging", label:"Anti-Aging & Skin", sub:"Collagen, telomeres & cellular repair", icon:"✦",color:"#F59E0B"},
   {id:"cognitive",  label:"Cognitive",         sub:"Neuroprotection & mental clarity",      icon:"🧠",color:"#8B5CF6"},
   {id:"sexual",     label:"Sexual Health",     sub:"Libido & performance enhancement",      icon:"💊",color:"#EC4899"},
+
+  {id:"longevity",  label:"Longevity & Hormones", sub:"NAD+, peptide complexes & hormone support", icon:"⚡",color:"#F59E0B"},
 ];
 
 const PRODUCTS = [
-  {id:"vt-001",name:"Retatrutide",           dose:"10mg",      price:189.99,goals:["fat-loss"],             tag:"🔥 #1 Seller",  lotNum:"VT-001",desc:"Triple agonist (GLP-1/GIP/Glucagon). Most potent fat loss peptide on the market."},
+  {id:"vt-001",name:"Retatrutide",               dose:"10mg",     price:180.00,goals:["fat-loss"],             tag:"🔥 #1 Seller",  lotNum:"VT-001",desc:"Triple agonist (GLP-1/GIP/Glucagon). Most potent fat loss peptide on the market."},
   {id:"vt-002",name:"Tirzepatide",           dose:"10mg",      price:159.99,goals:["fat-loss"],             tag:"Top Pick",      lotNum:"VT-002",desc:"Dual GLP-1/GIP agonist. Clinical-grade fat loss with metabolic improvement."},
   {id:"vt-003",name:"Semaglutide",           dose:"5mg",       price:119.99,goals:["fat-loss"],             tag:"Bestseller",    lotNum:"VT-003",desc:"GLP-1 receptor agonist. Proven appetite suppression and fat metabolism support."},
   {id:"vt-004",name:"HGH Frag 176-191",      dose:"5mg",       price:59.99, goals:["fat-loss","anti-aging"],tag:null,            lotNum:"VT-004",desc:"Pure lipolytic GH fragment. Targets fat cells with no IGF-1 or blood sugar effects."},
   {id:"vt-005",name:"AOD-9604",              dose:"5mg",       price:54.99, goals:["fat-loss"],             tag:null,            lotNum:"VT-005",desc:"Modified GH fragment for fat oxidation. Ideal for stubborn adipose tissue."},
   {id:"vt-006",name:"CJC-1295 / DAC",        dose:"2mg",       price:54.99, goals:["muscle","anti-aging"],  tag:"Stack Fav",     lotNum:"VT-006",desc:"Long-acting GHRH analog. Elevates GH pulse amplitude for 7–10 days per dose."},
-  {id:"vt-007",name:"Ipamorelin",            dose:"5mg",       price:49.99, goals:["muscle","anti-aging"],  tag:null,            lotNum:"VT-007",desc:"Selective GHRP. No cortisol or prolactin spike. Best paired with CJC-1295."},
+  {id:"vt-007",name:"Ipamorelin",         dose:"5mg",       price:70.00, goals:["muscle","anti-aging"],  tag:null,            lotNum:"VT-007",desc:"Selective GHRP. No cortisol or prolactin spike. Best paired with CJC-1295."},
   {id:"vt-008",name:"GHRP-2",               dose:"5mg",       price:44.99, goals:["muscle"],               tag:null,            lotNum:"VT-008",desc:"Potent GH secretagogue. Strong hunger signal and GH burst. Research favourite."},
   {id:"vt-009",name:"MK-677 (Ibutamoren)",  dose:"1g powder", price:84.99, goals:["muscle","anti-aging"],  tag:"High Demand",   lotNum:"VT-009",desc:"Oral GH secretagogue. Increases IGF-1 and GH with deep sleep improvement."},
-  {id:"vt-010",name:"BPC-157",              dose:"5mg",       price:64.99, goals:["recovery","muscle"],    tag:"🏆 Fan Fav",    lotNum:"VT-010",desc:"Body protective compound. Accelerates tendon, muscle and gut tissue repair."},
-  {id:"vt-011",name:"TB-500",               dose:"5mg",       price:74.99, goals:["recovery"],             tag:"Pro Pick",      lotNum:"VT-011",desc:"Thymosin Beta-4 fragment. Systemic healing, flexibility and inflammation control."},
-  {id:"vt-012",name:"GHK-Cu",              dose:"200mg",     price:69.99, goals:["anti-aging"],           tag:"Skin Protocol", lotNum:"VT-012",desc:"Copper peptide. Stimulates collagen, reverses skin aging, promotes wound healing."},
-  {id:"vt-013",name:"Epithalon",            dose:"10mg",      price:89.99, goals:["anti-aging"],           tag:"Longevity",     lotNum:"VT-013",desc:"Telomerase activator. Extends telomere length. Core longevity protocol peptide."},
-  {id:"vt-014",name:"Semax",               dose:"30mg",      price:79.99, goals:["cognitive"],            tag:"Staff Pick",    lotNum:"VT-014",desc:"ACTH-derived nootropic. Boosts BDNF, focus and neuroprotection rapidly."},
-  {id:"vt-015",name:"Selank",              dose:"5mg",       price:69.99, goals:["cognitive"],            tag:null,            lotNum:"VT-015",desc:"Anxiolytic peptide. Reduces anxiety and enhances memory consolidation."},
+  {id:"vt-010",name:"BPC-157",            dose:"5mg",       price:70.00, goals:["recovery","muscle"],    tag:"🏆 Fan Fav",    lotNum:"VT-010",desc:"Body protective compound. Accelerates tendon, muscle and gut tissue repair."},
+  {id:"vt-011",name:"TB-500",             dose:"5mg",       price:70.00, goals:["recovery"],             tag:"Pro Pick",      lotNum:"VT-011",desc:"Thymosin Beta-4 fragment. Systemic healing, flexibility and inflammation control."},
+  {id:"vt-012",name:"GHK-Cu",             dose:"200mg",    price:60.00, goals:["anti-aging"],           tag:"Skin Protocol", lotNum:"VT-012",desc:"Copper peptide. Stimulates collagen, reverses skin aging, promotes wound healing."},
+  {id:"vt-013",name:"Epithalon",          dose:"10mg",     price:60.00, goals:["anti-aging"],           tag:"Longevity",     lotNum:"VT-013",desc:"Telomerase activator. Extends telomere length. Core longevity protocol peptide."},
+  {id:"vt-014",name:"Semax",               dose:"30mg",      price:50.00, goals:["cognitive"],            tag:"Staff Pick",    lotNum:"VT-014",desc:"ACTH-derived nootropic. Boosts BDNF, focus and neuroprotection rapidly."},
+  {id:"vt-015",name:"Selank",              dose:"5mg",       price:50.00, goals:["cognitive"],            tag:null,            lotNum:"VT-015",desc:"Anxiolytic peptide. Reduces anxiety and enhances memory consolidation."},
   {id:"vt-016",name:"PT-141 (Bremelanotide)",dose:"10mg",    price:89.99, goals:["sexual"],               tag:"🔥 Popular",    lotNum:"VT-016",desc:"Melanocortin agonist. Central nervous system-driven libido enhancement."},
   {id:"vt-017",name:"Melanotan II",         dose:"10mg",      price:64.99, goals:["sexual","fat-loss"],    tag:null,            lotNum:"VT-017",desc:"MT-II analog. Libido, tanning and appetite suppression in one compound."},
+
+  {id:"vt-018",name:"KPV",                dose:"5mg",       price:60.00,  goals:["recovery","anti-aging"], tag:null,          lotNum:"VT-018",desc:"Anti-inflammatory tripeptide. Reduces gut inflammation and supports skin healing."},
+  {id:"vt-019",name:"NAD+ 1000mg",         dose:"1000mg",    price:180.00, goals:["anti-aging","muscle","longevity"],   tag:"Energy+Longevity",lotNum:"VT-019",desc:"Nicotinamide adenine dinucleotide. Boosts cellular energy, DNA repair, and mitochondrial function."},
+  {id:"vt-020",name:"Mots-C",              dose:"10mg",      price:60.00,  goals:["muscle","fat-loss"],     tag:null,          lotNum:"VT-020",desc:"Mitochondrial-derived peptide. Improves insulin sensitivity and exercise performance."},
+  {id:"vt-021",name:"SS-31 (Elamipretide)",dose:"10mg",      price:null,   goals:["anti-aging","longevity"],            tag:"Contact Us",  lotNum:"VT-021",desc:"Mitochondria-targeting peptide. Protects cells from oxidative stress. Contact for pricing."},
+  {id:"vt-022",name:"Tesamorelin",         dose:"2mg",       price:110.00, goals:["fat-loss","muscle","longevity"],     tag:"Clinical Grade",lotNum:"VT-022",desc:"GHRH analog approved for visceral fat reduction. Potent GH release with minimal side effects."},
+  {id:"vt-023",name:"Kisspeptin-10",       dose:"5mg",       price:60.00,  goals:["sexual","muscle"],       tag:null,          lotNum:"VT-023",desc:"Hypothalamic neuropeptide. Stimulates LH and testosterone release naturally."},
+  {id:"vt-024",name:"DSIP",               dose:"5mg",       price:null,   goals:["cognitive"],             tag:"Contact Us",  lotNum:"VT-024",desc:"Delta sleep-inducing peptide. Promotes deep restorative sleep and stress reduction. Contact for pricing."},
+  {id:"vt-025",name:"Thymosin Alpha-1",    dose:"5mg",       price:80.00,  goals:["recovery","anti-aging"], tag:null,          lotNum:"VT-025",desc:"Immune-modulating peptide. Enhances T-cell function and antiviral defenses."},
+  {id:"vt-026",name:"Slupp (Oral Pills)",  dose:"per bottle",price:150.00, goals:["fat-loss"],             tag:"Oral Formula", lotNum:"VT-026",desc:"Oral peptide formula for metabolic support and fat loss. Convenient pill format."},
+  {id:"vt-027",name:"Klow",               dose:"per vial",  price:200.00, goals:["longevity","muscle","anti-aging"],   tag:null,          lotNum:"VT-027",desc:"Premium peptide complex. Contact us for full protocol details."},
 ];
 
 const BUNDLES=[
   {name:"GLP-1 Starter Stack",   items:["Semaglutide 5mg","AOD-9604 5mg"],    price:159.99,save:14.99,goal:"fat-loss", color:"#FF4B2B"},
-  {name:"GH Optimization Stack", items:["CJC-1295/DAC 2mg","Ipamorelin 5mg"], price:89.99, save:14.99,goal:"muscle",   color:"#00C6FF"},
-  {name:"Heal Fast Stack",       items:["BPC-157 5mg","TB-500 5mg"],           price:124.99,save:14.99,goal:"recovery", color:"#11998e"},
+  {name:"GH Optimization Stack", items:["CJC-1295/DAC 2mg","Ipamorelin 5mg"], price:80.00, save:14.99,goal:"muscle",   color:"#00C6FF"},
+  {name:"Heal Fast Stack",       items:["BPC-157 5mg","TB-500 5mg"],           price:130.00,save:10.00,goal:"recovery", color:"#11998e"},
 ];
 
 const WaIcon=({size=28})=>(
@@ -258,10 +271,14 @@ function App(){
               <div style={{fontSize:9,color:"#555",marginBottom:5,letterSpacing:"0.06em"}}>{p.dose} · {p.lotNum}</div>
               <div style={{fontSize:11,color:"#777",lineHeight:1.55,marginBottom:13}}>{p.desc}</div>
               <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-                <div><span style={{fontSize:18,fontWeight:700}}>${p.price.toFixed(2)}</span><span style={{fontSize:10,color:"#444",marginLeft:4}}>CAD</span></div>
-                <button onClick={()=>addToCart(p)} style={{background:added===p.id?"#11998e":gc,color:"#000",border:"none",borderRadius:10,padding:"11px 20px",fontSize:11,fontWeight:700,letterSpacing:"0.08em",minWidth:86,transition:"all 0.2s",transform:added===p.id?"scale(0.95)":"scale(1)"}}>
-                  {added===p.id?"✓ ADDED":"+ ADD"}
-                </button>
+                <div>{p.price ? <><span style={{fontSize:18,fontWeight:700}}>${p.price.toFixed(2)}</span><span style={{fontSize:10,color:"#444",marginLeft:4}}>CAD</span></> : <span style={{fontSize:12,color:"#F59E0B",fontWeight:700}}>CONTACT FOR PRICE</span>}</div>
+                {p.price ? (
+              <button onClick={()=>addToCart(p)} style={{background:added===p.id?"#11998e":gc,color:"#000",border:"none",borderRadius:10,padding:"11px 20px",fontSize:11,fontWeight:700,letterSpacing:"0.08em",minWidth:86,transition:"all 0.2s",transform:added===p.id?"scale(0.95)":"scale(1)"}}>
+                {added===p.id?"✓ ADDED":"+ ADD"}
+              </button>
+            ) : (
+              <a href={WA} target="_blank" rel="noopener noreferrer" style={{background:"#25D36620",color:"#25D366",border:"1px solid #25D36640",borderRadius:10,padding:"11px 16px",fontSize:11,fontWeight:700,letterSpacing:"0.08em",textDecoration:"none",display:"inline-block"}}>INQUIRE →</a>
+            )}
               </div>
             </div>
           ))}
