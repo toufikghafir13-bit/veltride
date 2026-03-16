@@ -57,6 +57,30 @@
   </style>
 </head>
 <body>
+<!-- URGENCY BAR -->
+<div id="urgency-bar" style="background:#0a0a14;border-bottom:1px solid #1a1a2e;padding:7px 16px;text-align:center;font-family:'DM Mono','Courier New',monospace;font-size:10px;color:#555;letter-spacing:0.07em;overflow:hidden;">
+  <span id="urgency-msg">🇨🇦 FREE SHIPPING on orders over $150 CAD &nbsp;·&nbsp; ≥98% HPLC Purity · COA Included</span>
+</div>
+<script>
+(function(){
+  var msgs = [
+    "🇨🇦 FREE SHIPPING on orders over $150 CAD · ≥98% HPLC Purity · COA Included",
+    "🔒 Secure Stripe Checkout · Discreet Packaging · Ships Across Canada",
+    "⚡ 4 people browsing Fat Loss peptides right now",
+    "📦 Orders placed before 2PM ship same day · Kelowna, BC",
+    "✓ 98%+ purity verified by third-party HPLC testing on every batch"
+  ];
+  var i = 0;
+  var el = document.getElementById('urgency-msg');
+  setInterval(function(){
+    i = (i+1) % msgs.length;
+    el.style.opacity = '0';
+    setTimeout(function(){ el.textContent = msgs[i]; el.style.opacity = '1'; }, 300);
+  }, 4000);
+  el.style.transition = 'opacity 0.3s ease';
+})();
+</script>
+
 <!-- SITE NAV -->
 <nav style="position:sticky;top:0;z-index:200;background:rgba(5,5,8,0.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid #111;padding:0 20px;">
   <div style="max-width:460px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:50px;">
@@ -65,6 +89,7 @@
       <a href="/faq.html" style="font-family:'DM Mono','Courier New',monospace;font-size:9px;letter-spacing:0.1em;color:#555;text-decoration:none;padding:5px 8px;">FAQ</a>
       <a href="/shipping.html" style="font-family:'DM Mono','Courier New',monospace;font-size:9px;letter-spacing:0.1em;color:#555;text-decoration:none;padding:5px 8px;">SHIPPING</a>
       <a href="/about.html" style="font-family:'DM Mono','Courier New',monospace;font-size:9px;letter-spacing:0.1em;color:#555;text-decoration:none;padding:5px 8px;">ABOUT</a>
+      <a href="/blog/" style="font-family:'DM Mono','Courier New',monospace;font-size:9px;letter-spacing:0.1em;color:#00C6FF;text-decoration:none;padding:5px 8px;">BLOG</a>
       <a href="https://wa.me/12507189152" target="_blank" style="background:#25D366;color:#000;font-family:'DM Mono','Courier New',monospace;font-size:9px;letter-spacing:0.06em;font-weight:700;text-decoration:none;padding:6px 10px;border-radius:6px;margin-left:4px;">💬 HELP</a>
     </div>
   </div>
@@ -140,22 +165,22 @@ const GOALS = [
   {id:"longevity", label:"Longevity & Hormones", sub:"NAD+, peptide complexes & hormone support", icon:"⚡",color:"#F59E0B"},
 ];
 const PRODUCTS = [
-  {id:"vt-001",name:"Retatrutide", dose:"10mg", price:180.00,goals:["fat-loss"], tag:"🔥 #1 Seller", lotNum:"VT-001",desc:"Triple agonist (GLP-1/GIP/Glucagon). Most potent fat loss peptide on the market."},
-  {id:"vt-002",name:"Tirzepatide", dose:"10mg", price:159.99,goals:["fat-loss"], tag:"Top Pick", lotNum:"VT-002",desc:"Dual GLP-1/GIP agonist. Clinical-grade fat loss with metabolic improvement."},
-  {id:"vt-003",name:"Semaglutide", dose:"5mg", price:119.99,goals:["fat-loss"], tag:"Bestseller", lotNum:"VT-003",desc:"GLP-1 receptor agonist. Proven appetite suppression and fat metabolism support."},
+  {id:"vt-001",name:"Retatrutide", dose:"10mg", price:180.00,goals:["fat-loss"], tag:"🔥 #1 Seller", lotNum:"VT-001",slug:"retatrutide",desc:"Triple agonist (GLP-1/GIP/Glucagon). Most potent fat loss peptide on the market."},
+  {id:"vt-002",name:"Tirzepatide", dose:"10mg", price:159.99,goals:["fat-loss"], tag:"Top Pick", lotNum:"VT-002",slug:"tirzepatide",desc:"Dual GLP-1/GIP agonist. Clinical-grade fat loss with metabolic improvement."},
+  {id:"vt-003",name:"Semaglutide", dose:"5mg", price:119.99,goals:["fat-loss"], tag:"Bestseller", lotNum:"VT-003",slug:"semaglutide",desc:"GLP-1 receptor agonist. Proven appetite suppression and fat metabolism support."},
   {id:"vt-004",name:"HGH Frag 176-191", dose:"5mg", price:59.99, goals:["fat-loss","anti-aging"],tag:null, lotNum:"VT-004",desc:"Pure lipolytic GH fragment. Targets fat cells with no IGF-1 or blood sugar effects."},
   {id:"vt-005",name:"AOD-9604", dose:"5mg", price:54.99, goals:["fat-loss"], tag:null, lotNum:"VT-005",desc:"Modified GH fragment for fat oxidation. Ideal for stubborn adipose tissue."},
   {id:"vt-006",name:"CJC-1295 / DAC", dose:"2mg", price:54.99, goals:["muscle","anti-aging"], tag:"Stack Fav", lotNum:"VT-006",desc:"Long-acting GHRH analog. Elevates GH pulse amplitude for 7–10 days per dose."},
   {id:"vt-007",name:"Ipamorelin", dose:"5mg", price:70.00, goals:["muscle","anti-aging"], tag:null, lotNum:"VT-007",desc:"Selective GHRP. No cortisol or prolactin spike. Best paired with CJC-1295."},
   {id:"vt-008",name:"GHRP-2", dose:"5mg", price:44.99, goals:["muscle"], tag:null, lotNum:"VT-008",desc:"Potent GH secretagogue. Strong hunger signal and GH burst. Research favourite."},
   {id:"vt-009",name:"MK-677 (Ibutamoren)", dose:"1g powder", price:84.99, goals:["muscle","anti-aging"], tag:"High Demand", lotNum:"VT-009",desc:"Oral GH secretagogue. Increases IGF-1 and GH with deep sleep improvement."},
-  {id:"vt-010",name:"BPC-157", dose:"5mg", price:70.00, goals:["recovery","muscle"], tag:"🏆 Fan Fav", lotNum:"VT-010",desc:"Body protective compound. Accelerates tendon, muscle and gut tissue repair."},
-  {id:"vt-011",name:"TB-500", dose:"5mg", price:70.00, goals:["recovery"], tag:"Pro Pick", lotNum:"VT-011",desc:"Thymosin Beta-4 fragment. Systemic healing, flexibility and inflammation control."},
+  {id:"vt-010",name:"BPC-157", dose:"5mg", price:70.00, goals:["recovery","muscle"], tag:"🏆 Fan Fav", lotNum:"VT-010",slug:"bpc-157",desc:"Body protective compound. Accelerates tendon, muscle and gut tissue repair."},
+  {id:"vt-011",name:"TB-500", dose:"5mg", price:70.00, goals:["recovery"], tag:"Pro Pick", lotNum:"VT-011",slug:"tb-500",desc:"Thymosin Beta-4 fragment. Systemic healing, flexibility and inflammation control."},
   {id:"vt-012",name:"GHK-Cu", dose:"200mg", price:60.00, goals:["anti-aging"], tag:"Skin Protocol", lotNum:"VT-012",desc:"Copper peptide. Stimulates collagen, reverses skin aging, promotes wound healing."},
   {id:"vt-013",name:"Epithalon", dose:"10mg", price:60.00, goals:["anti-aging"], tag:"Longevity", lotNum:"VT-013",desc:"Telomerase activator. Extends telomere length. Core longevity protocol peptide."},
   {id:"vt-014",name:"Semax", dose:"30mg", price:50.00, goals:["cognitive"], tag:"Staff Pick", lotNum:"VT-014",desc:"ACTH-derived nootropic. Boosts BDNF, focus and neuroprotection rapidly."},
   {id:"vt-015",name:"Selank", dose:"5mg", price:50.00, goals:["cognitive"], tag:null, lotNum:"VT-015",desc:"Anxiolytic peptide. Reduces anxiety and enhances memory consolidation."},
-  {id:"vt-016",name:"PT-141 (Bremelanotide)",dose:"10mg", price:89.99, goals:["sexual"], tag:"🔥 Popular", lotNum:"VT-016",desc:"Melanocortin agonist. Central nervous system-driven libido enhancement."},
+  {id:"vt-016",name:"PT-141 (Bremelanotide)",dose:"10mg", price:89.99, goals:["sexual"], tag:"🔥 Popular", lotNum:"VT-016",slug:"pt-141",desc:"Melanocortin agonist. Central nervous system-driven libido enhancement."},
   {id:"vt-017",name:"Melanotan II", dose:"10mg", price:64.99, goals:["sexual","fat-loss"], tag:null, lotNum:"VT-017",desc:"MT-II analog. Libido, tanning and appetite suppression in one compound."},
   {id:"vt-018",name:"KPV", dose:"5mg", price:60.00, goals:["recovery","anti-aging"], tag:null, lotNum:"VT-018",desc:"Anti-inflammatory tripeptide. Reduces gut inflammation and supports skin healing."},
   {id:"vt-019",name:"NAD+ 1000mg", dose:"1000mg", price:180.00, goals:["anti-aging","muscle","longevity"], tag:"Energy+Longevity",lotNum:"VT-019",desc:"Nicotinamide adenine dinucleotide. Boosts cellular energy, DNA repair, and mitochondrial function."},
@@ -309,11 +334,21 @@ function App(){
         <div style={{padding:"24px 18px 0"}}>
           {/* HERO */}
           <div style={{marginBottom:28,animation:"heroFade 0.5s ease both"}}>
-            <div style={{fontSize:10,letterSpacing:"0.22em",color:"#333",marginBottom:10}}>KELOWNA, BC — SHIPS ACROSS CANADA</div>
-            <div style={{fontSize:30,fontWeight:700,lineHeight:1.15,letterSpacing:"-0.02em",marginBottom:10}}>
-              What's your<br/><span style={{color:"#00C6FF"}}>goal?</span>
+            <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:10}}>
+              <div style={{fontSize:10,letterSpacing:"0.22em",color:"#333"}}>KELOWNA, BC — SHIPS ACROSS CANADA</div>
             </div>
-            <div style={{fontSize:11,color:"#555",lineHeight:1.65}}>Tell us what you're working on. We'll show you what fits — with purity docs to back it up.</div>
+            <div style={{fontSize:30,fontWeight:700,lineHeight:1.15,letterSpacing:"-0.02em",marginBottom:10}}>
+              What are you<br/><span style={{color:"#00C6FF"}}>working on?</span>
+            </div>
+            <div style={{fontSize:11,color:"#555",lineHeight:1.65,marginBottom:10}}>Canada's most trusted peptide source. Pick your goal — we'll show you exactly what fits, with the purity docs to back it up.</div>
+            <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:4}}>
+              {[["2,400+","researchers"],["≥98%","HPLC purity"],["24h","dispatch"]].map(([n,l])=>(
+                <div key={l} style={{background:"#0a0a14",border:"1px solid #1a1a2e",borderRadius:8,padding:"7px 11px",flex:1,textAlign:"center",minWidth:70}}>
+                  <div style={{fontSize:15,fontWeight:700,color:"#00C6FF"}}>{n}</div>
+                  <div style={{fontSize:8,color:"#444",letterSpacing:"0.07em",marginTop:1}}>{l.toUpperCase()}</div>
+                </div>
+              ))}
+            </div>
           </div>
           {GOALS.map((g,i)=>(
             <button key={g.id} onClick={()=>goGoal(g)} style={{width:"100%",background:"#0a0a14",border:"1px solid #1a1a2e",borderLeft:"3px solid "+g.color,borderRadius:12,padding:"15px 16px",textAlign:"left",cursor:"pointer",display:"flex",alignItems:"center",gap:13,marginBottom:9,animation:"slideIn 0.3s ease "+(i*0.06)+"s both"}}>
@@ -375,6 +410,7 @@ function App(){
               <div style={{display:"flex",alignItems:"center",gap:7,flexWrap:"wrap",marginBottom:3}}>
                 <span style={{fontSize:14,fontWeight:700}}>{p.name}</span>
                 {p.tag&&<span style={{fontSize:9,background:gc+"25",color:gc,padding:"2px 7px",borderRadius:20,letterSpacing:"0.06em"}}>{p.tag}</span>}
+                {(p.id==="vt-001"||p.id==="vt-002"||p.id==="vt-016")&&<span style={{fontSize:8,background:"#FF4B2B15",color:"#FF4B2B",padding:"2px 6px",borderRadius:20,letterSpacing:"0.06em"}}>LOW STOCK</span>}
               </div>
               <div style={{fontSize:9,color:"#555",marginBottom:5,letterSpacing:"0.06em"}}>{p.dose} · {p.lotNum}</div>
               <div style={{fontSize:11,color:"#777",lineHeight:1.55,marginBottom:13}}>{p.desc}</div>
@@ -444,6 +480,12 @@ function App(){
                   </div>
                 ))}
                 <div style={{marginTop:16}}>
+                  {total < 150 && <div style={{marginBottom:12,padding:"10px 12px",background:"#07070f",border:"1px solid #111",borderRadius:8}}>
+                    <div style={{fontSize:9,color:"#555",marginBottom:6,letterSpacing:"0.07em"}}>{"Add $"+(150-total).toFixed(2)+" more for FREE SHIPPING 🇨🇦"}</div>
+                    <div style={{height:4,background:"#1a1a2e",borderRadius:3}}>
+                      <div style={{height:4,background:"#00C6FF",borderRadius:3,width:(Math.min(total/150,1)*100)+"%",transition:"width 0.4s ease"}}/>
+                    </div>
+                  </div>}
                   <div style={{display:"flex",justifyContent:"space-between",marginBottom:16,padding:"12px 0",borderTop:"1px solid #1a1a2e"}}>
                     <span style={{fontSize:11,color:"#888",letterSpacing:"0.08em"}}>SUBTOTAL</span>
                     <span style={{fontSize:19,fontWeight:700}}>{"$"+total.toFixed(2)+" "}<span style={{fontSize:10,color:"#444",fontWeight:400}}>CAD</span></span>
@@ -453,6 +495,11 @@ function App(){
                   </button>
                   {checkoutState==="error"&&<div style={{marginTop:10,padding:"10px 13px",background:"#2a0a0a",border:"1px solid #FF4B2B44",borderRadius:8,fontSize:10,color:"#FF4B2B",lineHeight:1.6}}>⚠ {checkoutError}<br/><a href={WA} target="_blank" rel="noopener noreferrer" style={{color:"#25D366",textDecoration:"none"}}>WhatsApp us to order manually →</a></div>}
                   <div style={{textAlign:"center",fontSize:9,color:"#2a2a3a",marginTop:10,letterSpacing:"0.07em"}}>🔒 STRIPE ENCRYPTED · DISCREET SHIPPING · CA ONLY</div>
+                  <div style={{display:"flex",justifyContent:"center",alignItems:"center",gap:8,marginTop:8,opacity:0.4}}>
+                    {["VISA","MC","AMEX","STRIPE"].map(c=>(
+                      <div key={c} style={{background:"#1a1a2e",border:"1px solid #222",borderRadius:4,padding:"2px 6px",fontSize:8,color:"#888",fontWeight:700,letterSpacing:"0.04em"}}>{c}</div>
+                    ))}
+                  </div>
                 </div>
               </>
             }
@@ -472,5 +519,37 @@ ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
 const _hero=document.getElementById('above-fold-hero');
 if(_hero)_hero.style.display='none';
 </script>
+<!-- FIRST VISIT POPUP -->
+<div id="vt-popup" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:20px;">
+  <div style="background:#0a0a14;border:1px solid #1a1a2e;border-radius:20px;padding:32px 24px;max-width:360px;width:100%;text-align:center;font-family:'DM Mono','Courier New',monospace;position:relative;">
+    <button onclick="document.getElementById('vt-popup').style.display='none';localStorage.setItem('vt_popup_seen','1');" style="position:absolute;top:14px;right:16px;background:none;border:none;color:#444;font-size:18px;cursor:pointer;">×</button>
+    <div style="font-size:28px;margin-bottom:10px;">🧬</div>
+    <div style="font-size:18px;font-weight:700;color:#E8E8F0;margin-bottom:6px;letter-spacing:-0.01em;">Get 10% Off<br/>Your First Order</div>
+    <div style="font-size:11px;color:#555;margin-bottom:20px;line-height:1.6;">Join 2,400+ Canadian researchers.<br/>Enter your email for your discount code.</div>
+    <form name="popup-email" netlify data-netlify="true" onsubmit="(function(e){e.preventDefault();var em=document.getElementById('vt-popup-email').value;if(!em)return;fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'form-name=popup-email&email='+encodeURIComponent(em)}).then(function(){document.getElementById('vt-popup-inner').style.display='none';document.getElementById('vt-popup-success').style.display='block';setTimeout(function(){document.getElementById('vt-popup').style.display='none';},3000);});localStorage.setItem('vt_popup_seen','1');})(event)">
+      <div id="vt-popup-inner">
+        <input type="email" id="vt-popup-email" name="email" placeholder="your@email.com" required style="width:100%;background:#050508;border:1px solid #1a1a2e;border-radius:10px;padding:12px 14px;color:#E8E8F0;font-family:'DM Mono','Courier New',monospace;font-size:12px;margin-bottom:10px;outline:none;box-sizing:border-box;"/>
+        <button type="submit" style="width:100%;background:#00C6FF;color:#000;border:none;border-radius:10px;padding:13px;font-family:'DM Mono','Courier New',monospace;font-size:12px;font-weight:700;letter-spacing:0.08em;cursor:pointer;">CLAIM 10% OFF →</button>
+        <div style="font-size:9px;color:#2a2a3a;margin-top:10px;">No spam. Unsubscribe anytime. CA residents only.</div>
+      </div>
+      <div id="vt-popup-success" style="display:none;padding:20px 0;">
+        <div style="font-size:22px;margin-bottom:8px;">✓</div>
+        <div style="font-size:13px;color:#00C6FF;font-weight:700;">Check your inbox!</div>
+        <div style="font-size:10px;color:#555;margin-top:6px;">Your 10% code is on its way.</div>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  if(!localStorage.getItem('vt_popup_seen')){
+    setTimeout(function(){
+      var popup = document.getElementById('vt-popup');
+      if(popup){ popup.style.display='flex'; }
+    }, 8000);
+  }
+})();
+</script>
+
 </body>
 </html>
