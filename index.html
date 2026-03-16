@@ -32,10 +32,18 @@
     @keyframes heroFade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
     button{-webkit-tap-highlight-color:transparent;cursor:pointer;}
     a{-webkit-tap-highlight-color:transparent;}
+    .email-banner{background:#0a0a14;border-top:1px solid #1a1a2e;padding:28px 20px;text-align:center;font-family:'DM Mono','Courier New',monospace;}
+    .email-banner h3{font-size:13px;color:#E8E8F0;letter-spacing:0.08em;margin-bottom:6px;font-weight:700;}
+    .email-banner p{font-size:10px;color:#555;margin-bottom:16px;letter-spacing:0.05em;}
+    .email-banner-form{display:flex;gap:8px;max-width:380px;margin:0 auto;justify-content:center;flex-wrap:wrap;}
+    .email-banner-form input{flex:1;min-width:180px;background:#050508;border:1px solid #1a1a2e;border-radius:8px;padding:10px 14px;color:#E8E8F0;font-family:'DM Mono','Courier New',monospace;font-size:11px;outline:none;}
+    .email-banner-form input::placeholder{color:#333;}
+    .email-banner-form input:focus{border-color:#00C6FF;}
+    .email-banner-form button{background:#00C6FF;color:#000;border:none;border-radius:8px;padding:10px 18px;font-family:'DM Mono','Courier New',monospace;font-size:11px;font-weight:700;letter-spacing:0.08em;cursor:pointer;}
+    .email-banner-form button:hover{background:#33d0ff;}
   </style>
 </head>
 <body>
-
 <!-- SITE NAV -->
 <nav style="position:sticky;top:0;z-index:200;background:rgba(5,5,8,0.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid #111;padding:0 20px;">
   <div style="max-width:460px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:50px;">
@@ -49,66 +57,115 @@
   </div>
 </nav>
 
-<div id="root"></div>
+<!-- STATIC HTML FOR SEO — Google-indexable hero and product catalogue -->
+<noscript>
+  <div style="font-family:'DM Mono','Courier New',monospace;background:#050508;color:#E8E8F0;max-width:460px;margin:0 auto;padding:24px 18px;">
+    <div style="margin-bottom:28px;">
+      <div style="font-size:10px;letter-spacing:0.22em;color:#333;margin-bottom:10px;">CANADIAN RESEARCH PEPTIDES</div>
+      <h1 style="font-size:30px;font-weight:700;line-height:1.15;letter-spacing:-0.02em;margin-bottom:10px;">What's your<br/><span style="color:#00C6FF;">goal?</span></h1>
+      <p style="font-size:11px;color:#444;line-height:1.6;">Select your goal below — we'll show you the right peptides.</p>
+    </div>
+    <h2 style="font-size:16px;color:#00C6FF;margin-bottom:12px;">Research Peptides — Full Catalogue</h2>
+    <ul style="list-style:none;padding:0;">
+      <li style="margin-bottom:10px;"><strong>Retatrutide 10mg</strong> — $180.00 CAD. Triple GLP-1/GIP/Glucagon agonist. Most potent fat loss peptide.</li>
+      <li style="margin-bottom:10px;"><strong>Tirzepatide 10mg</strong> — $159.99 CAD. Dual GLP-1/GIP agonist. Clinical-grade fat loss.</li>
+      <li style="margin-bottom:10px;"><strong>Semaglutide 5mg</strong> — $119.99 CAD. GLP-1 receptor agonist. Proven appetite suppression.</li>
+      <li style="margin-bottom:10px;"><strong>BPC-157 5mg</strong> — $70.00 CAD. Body protective compound. Tissue and gut repair.</li>
+      <li style="margin-bottom:10px;"><strong>TB-500 5mg</strong> — $70.00 CAD. Thymosin Beta-4 fragment. Systemic healing and recovery.</li>
+      <li style="margin-bottom:10px;"><strong>CJC-1295 / DAC 2mg</strong> — $54.99 CAD. Long-acting GHRH analog. GH pulse elevation.</li>
+      <li style="margin-bottom:10px;"><strong>Ipamorelin 5mg</strong> — $70.00 CAD. Selective GHRP. Best paired with CJC-1295.</li>
+      <li style="margin-bottom:10px;"><strong>PT-141 (Bremelanotide) 10mg</strong> — $89.99 CAD. CNS-driven libido enhancement.</li>
+      <li style="margin-bottom:10px;"><strong>HGH Frag 176-191 5mg</strong> — $59.99 CAD. Lipolytic GH fragment for fat cells.</li>
+      <li style="margin-bottom:10px;"><strong>AOD-9604 5mg</strong> — $54.99 CAD. Modified GH fragment for fat oxidation.</li>
+      <li style="margin-bottom:10px;"><strong>GHK-Cu 200mg</strong> — $60.00 CAD. Copper peptide. Collagen and wound healing.</li>
+      <li style="margin-bottom:10px;"><strong>Epithalon 10mg</strong> — $60.00 CAD. Telomerase activator. Longevity peptide.</li>
+      <li style="margin-bottom:10px;"><strong>Semax 30mg</strong> — $50.00 CAD. ACTH-derived nootropic. BDNF and neuroprotection.</li>
+      <li style="margin-bottom:10px;"><strong>Selank 5mg</strong> — $50.00 CAD. Anxiolytic peptide. Anxiety and memory.</li>
+      <li style="margin-bottom:10px;"><strong>NAD+ 1000mg</strong> — $180.00 CAD. Cellular energy, DNA repair, mitochondrial function.</li>
+      <li style="margin-bottom:10px;"><strong>Tesamorelin 2mg</strong> — $110.00 CAD. GHRH analog approved for visceral fat reduction.</li>
+    </ul>
+    <p style="font-size:9px;color:#333;margin-top:16px;">For research purposes only. Not for human consumption. ≥98% HPLC purity. COA included.</p>
+    <p style="font-size:9px;color:#333;">© 2026 VELTRIDE · West Kelowna, BC, Canada</p>
+  </div>
+</noscript>
 
+<div id="root"></div>
 <script type="text/babel">
 const { useState, useEffect } = React;
 const WA = "https://wa.me/12507189152";
-
 const GOALS = [
-  {id:"fat-loss",   label:"Fat Loss",         sub:"GLP-1 agonists & metabolic peptides",   icon:"🔥",color:"#FF4B2B"},
-  {id:"muscle",     label:"Muscle & GH",       sub:"Growth hormone & lean mass protocols",  icon:"⚡",color:"#00C6FF"},
-  {id:"recovery",   label:"Recovery",          sub:"Tissue repair & injury healing",        icon:"🔄",color:"#11998e"},
+  {id:"fat-loss", label:"Fat Loss", sub:"GLP-1 agonists & metabolic peptides", icon:"🔥",color:"#FF4B2B"},
+  {id:"muscle", label:"Muscle & GH", sub:"Growth hormone & lean mass protocols", icon:"⚡",color:"#00C6FF"},
+  {id:"recovery", label:"Recovery", sub:"Tissue repair & injury healing", icon:"🔄",color:"#11998e"},
   {id:"anti-aging", label:"Anti-Aging & Skin", sub:"Collagen, telomeres & cellular repair", icon:"✦",color:"#F59E0B"},
-  {id:"cognitive",  label:"Cognitive",         sub:"Neuroprotection & mental clarity",      icon:"🧠",color:"#8B5CF6"},
-  {id:"sexual",     label:"Sexual Health",     sub:"Libido & performance enhancement",      icon:"💊",color:"#EC4899"},
-
-  {id:"longevity",  label:"Longevity & Hormones", sub:"NAD+, peptide complexes & hormone support", icon:"⚡",color:"#F59E0B"},
+  {id:"cognitive", label:"Cognitive", sub:"Neuroprotection & mental clarity", icon:"🧠",color:"#8B5CF6"},
+  {id:"sexual", label:"Sexual Health", sub:"Libido & performance enhancement", icon:"💊",color:"#EC4899"},
+  {id:"longevity", label:"Longevity & Hormones", sub:"NAD+, peptide complexes & hormone support", icon:"⚡",color:"#F59E0B"},
 ];
-
 const PRODUCTS = [
-  {id:"vt-001",name:"Retatrutide",               dose:"10mg",     price:180.00,goals:["fat-loss"],             tag:"🔥 #1 Seller",  lotNum:"VT-001",desc:"Triple agonist (GLP-1/GIP/Glucagon). Most potent fat loss peptide on the market."},
-  {id:"vt-002",name:"Tirzepatide",           dose:"10mg",      price:159.99,goals:["fat-loss"],             tag:"Top Pick",      lotNum:"VT-002",desc:"Dual GLP-1/GIP agonist. Clinical-grade fat loss with metabolic improvement."},
-  {id:"vt-003",name:"Semaglutide",           dose:"5mg",       price:119.99,goals:["fat-loss"],             tag:"Bestseller",    lotNum:"VT-003",desc:"GLP-1 receptor agonist. Proven appetite suppression and fat metabolism support."},
-  {id:"vt-004",name:"HGH Frag 176-191",      dose:"5mg",       price:59.99, goals:["fat-loss","anti-aging"],tag:null,            lotNum:"VT-004",desc:"Pure lipolytic GH fragment. Targets fat cells with no IGF-1 or blood sugar effects."},
-  {id:"vt-005",name:"AOD-9604",              dose:"5mg",       price:54.99, goals:["fat-loss"],             tag:null,            lotNum:"VT-005",desc:"Modified GH fragment for fat oxidation. Ideal for stubborn adipose tissue."},
-  {id:"vt-006",name:"CJC-1295 / DAC",        dose:"2mg",       price:54.99, goals:["muscle","anti-aging"],  tag:"Stack Fav",     lotNum:"VT-006",desc:"Long-acting GHRH analog. Elevates GH pulse amplitude for 7–10 days per dose."},
-  {id:"vt-007",name:"Ipamorelin",         dose:"5mg",       price:70.00, goals:["muscle","anti-aging"],  tag:null,            lotNum:"VT-007",desc:"Selective GHRP. No cortisol or prolactin spike. Best paired with CJC-1295."},
-  {id:"vt-008",name:"GHRP-2",               dose:"5mg",       price:44.99, goals:["muscle"],               tag:null,            lotNum:"VT-008",desc:"Potent GH secretagogue. Strong hunger signal and GH burst. Research favourite."},
-  {id:"vt-009",name:"MK-677 (Ibutamoren)",  dose:"1g powder", price:84.99, goals:["muscle","anti-aging"],  tag:"High Demand",   lotNum:"VT-009",desc:"Oral GH secretagogue. Increases IGF-1 and GH with deep sleep improvement."},
-  {id:"vt-010",name:"BPC-157",            dose:"5mg",       price:70.00, goals:["recovery","muscle"],    tag:"🏆 Fan Fav",    lotNum:"VT-010",desc:"Body protective compound. Accelerates tendon, muscle and gut tissue repair."},
-  {id:"vt-011",name:"TB-500",             dose:"5mg",       price:70.00, goals:["recovery"],             tag:"Pro Pick",      lotNum:"VT-011",desc:"Thymosin Beta-4 fragment. Systemic healing, flexibility and inflammation control."},
-  {id:"vt-012",name:"GHK-Cu",             dose:"200mg",    price:60.00, goals:["anti-aging"],           tag:"Skin Protocol", lotNum:"VT-012",desc:"Copper peptide. Stimulates collagen, reverses skin aging, promotes wound healing."},
-  {id:"vt-013",name:"Epithalon",          dose:"10mg",     price:60.00, goals:["anti-aging"],           tag:"Longevity",     lotNum:"VT-013",desc:"Telomerase activator. Extends telomere length. Core longevity protocol peptide."},
-  {id:"vt-014",name:"Semax",               dose:"30mg",      price:50.00, goals:["cognitive"],            tag:"Staff Pick",    lotNum:"VT-014",desc:"ACTH-derived nootropic. Boosts BDNF, focus and neuroprotection rapidly."},
-  {id:"vt-015",name:"Selank",              dose:"5mg",       price:50.00, goals:["cognitive"],            tag:null,            lotNum:"VT-015",desc:"Anxiolytic peptide. Reduces anxiety and enhances memory consolidation."},
-  {id:"vt-016",name:"PT-141 (Bremelanotide)",dose:"10mg",    price:89.99, goals:["sexual"],               tag:"🔥 Popular",    lotNum:"VT-016",desc:"Melanocortin agonist. Central nervous system-driven libido enhancement."},
-  {id:"vt-017",name:"Melanotan II",         dose:"10mg",      price:64.99, goals:["sexual","fat-loss"],    tag:null,            lotNum:"VT-017",desc:"MT-II analog. Libido, tanning and appetite suppression in one compound."},
-
-  {id:"vt-018",name:"KPV",                dose:"5mg",       price:60.00,  goals:["recovery","anti-aging"], tag:null,          lotNum:"VT-018",desc:"Anti-inflammatory tripeptide. Reduces gut inflammation and supports skin healing."},
-  {id:"vt-019",name:"NAD+ 1000mg",         dose:"1000mg",    price:180.00, goals:["anti-aging","muscle","longevity"],   tag:"Energy+Longevity",lotNum:"VT-019",desc:"Nicotinamide adenine dinucleotide. Boosts cellular energy, DNA repair, and mitochondrial function."},
-  {id:"vt-020",name:"Mots-C",              dose:"10mg",      price:60.00,  goals:["muscle","fat-loss"],     tag:null,          lotNum:"VT-020",desc:"Mitochondrial-derived peptide. Improves insulin sensitivity and exercise performance."},
-  {id:"vt-021",name:"SS-31 (Elamipretide)",dose:"10mg",      price:null,   goals:["anti-aging","longevity"],            tag:"Contact Us",  lotNum:"VT-021",desc:"Mitochondria-targeting peptide. Protects cells from oxidative stress. Contact for pricing."},
-  {id:"vt-022",name:"Tesamorelin",         dose:"2mg",       price:110.00, goals:["fat-loss","muscle","longevity"],     tag:"Clinical Grade",lotNum:"VT-022",desc:"GHRH analog approved for visceral fat reduction. Potent GH release with minimal side effects."},
-  {id:"vt-023",name:"Kisspeptin-10",       dose:"5mg",       price:60.00,  goals:["sexual","muscle"],       tag:null,          lotNum:"VT-023",desc:"Hypothalamic neuropeptide. Stimulates LH and testosterone release naturally."},
-  {id:"vt-024",name:"DSIP",               dose:"5mg",       price:null,   goals:["cognitive"],             tag:"Contact Us",  lotNum:"VT-024",desc:"Delta sleep-inducing peptide. Promotes deep restorative sleep and stress reduction. Contact for pricing."},
-  {id:"vt-025",name:"Thymosin Alpha-1",    dose:"5mg",       price:80.00,  goals:["recovery","anti-aging"], tag:null,          lotNum:"VT-025",desc:"Immune-modulating peptide. Enhances T-cell function and antiviral defenses."},
-  {id:"vt-026",name:"Slupp (Oral Pills)",  dose:"per bottle",price:150.00, goals:["fat-loss"],             tag:"Oral Formula", lotNum:"VT-026",desc:"Oral peptide formula for metabolic support and fat loss. Convenient pill format."},
-  {id:"vt-027",name:"Klow",               dose:"per vial",  price:200.00, goals:["longevity","muscle","anti-aging"],   tag:null,          lotNum:"VT-027",desc:"Premium peptide complex. Contact us for full protocol details."},
+  {id:"vt-001",name:"Retatrutide", dose:"10mg", price:180.00,goals:["fat-loss"], tag:"🔥 #1 Seller", lotNum:"VT-001",desc:"Triple agonist (GLP-1/GIP/Glucagon). Most potent fat loss peptide on the market."},
+  {id:"vt-002",name:"Tirzepatide", dose:"10mg", price:159.99,goals:["fat-loss"], tag:"Top Pick", lotNum:"VT-002",desc:"Dual GLP-1/GIP agonist. Clinical-grade fat loss with metabolic improvement."},
+  {id:"vt-003",name:"Semaglutide", dose:"5mg", price:119.99,goals:["fat-loss"], tag:"Bestseller", lotNum:"VT-003",desc:"GLP-1 receptor agonist. Proven appetite suppression and fat metabolism support."},
+  {id:"vt-004",name:"HGH Frag 176-191", dose:"5mg", price:59.99, goals:["fat-loss","anti-aging"],tag:null, lotNum:"VT-004",desc:"Pure lipolytic GH fragment. Targets fat cells with no IGF-1 or blood sugar effects."},
+  {id:"vt-005",name:"AOD-9604", dose:"5mg", price:54.99, goals:["fat-loss"], tag:null, lotNum:"VT-005",desc:"Modified GH fragment for fat oxidation. Ideal for stubborn adipose tissue."},
+  {id:"vt-006",name:"CJC-1295 / DAC", dose:"2mg", price:54.99, goals:["muscle","anti-aging"], tag:"Stack Fav", lotNum:"VT-006",desc:"Long-acting GHRH analog. Elevates GH pulse amplitude for 7–10 days per dose."},
+  {id:"vt-007",name:"Ipamorelin", dose:"5mg", price:70.00, goals:["muscle","anti-aging"], tag:null, lotNum:"VT-007",desc:"Selective GHRP. No cortisol or prolactin spike. Best paired with CJC-1295."},
+  {id:"vt-008",name:"GHRP-2", dose:"5mg", price:44.99, goals:["muscle"], tag:null, lotNum:"VT-008",desc:"Potent GH secretagogue. Strong hunger signal and GH burst. Research favourite."},
+  {id:"vt-009",name:"MK-677 (Ibutamoren)", dose:"1g powder", price:84.99, goals:["muscle","anti-aging"], tag:"High Demand", lotNum:"VT-009",desc:"Oral GH secretagogue. Increases IGF-1 and GH with deep sleep improvement."},
+  {id:"vt-010",name:"BPC-157", dose:"5mg", price:70.00, goals:["recovery","muscle"], tag:"🏆 Fan Fav", lotNum:"VT-010",desc:"Body protective compound. Accelerates tendon, muscle and gut tissue repair."},
+  {id:"vt-011",name:"TB-500", dose:"5mg", price:70.00, goals:["recovery"], tag:"Pro Pick", lotNum:"VT-011",desc:"Thymosin Beta-4 fragment. Systemic healing, flexibility and inflammation control."},
+  {id:"vt-012",name:"GHK-Cu", dose:"200mg", price:60.00, goals:["anti-aging"], tag:"Skin Protocol", lotNum:"VT-012",desc:"Copper peptide. Stimulates collagen, reverses skin aging, promotes wound healing."},
+  {id:"vt-013",name:"Epithalon", dose:"10mg", price:60.00, goals:["anti-aging"], tag:"Longevity", lotNum:"VT-013",desc:"Telomerase activator. Extends telomere length. Core longevity protocol peptide."},
+  {id:"vt-014",name:"Semax", dose:"30mg", price:50.00, goals:["cognitive"], tag:"Staff Pick", lotNum:"VT-014",desc:"ACTH-derived nootropic. Boosts BDNF, focus and neuroprotection rapidly."},
+  {id:"vt-015",name:"Selank", dose:"5mg", price:50.00, goals:["cognitive"], tag:null, lotNum:"VT-015",desc:"Anxiolytic peptide. Reduces anxiety and enhances memory consolidation."},
+  {id:"vt-016",name:"PT-141 (Bremelanotide)",dose:"10mg", price:89.99, goals:["sexual"], tag:"🔥 Popular", lotNum:"VT-016",desc:"Melanocortin agonist. Central nervous system-driven libido enhancement."},
+  {id:"vt-017",name:"Melanotan II", dose:"10mg", price:64.99, goals:["sexual","fat-loss"], tag:null, lotNum:"VT-017",desc:"MT-II analog. Libido, tanning and appetite suppression in one compound."},
+  {id:"vt-018",name:"KPV", dose:"5mg", price:60.00, goals:["recovery","anti-aging"], tag:null, lotNum:"VT-018",desc:"Anti-inflammatory tripeptide. Reduces gut inflammation and supports skin healing."},
+  {id:"vt-019",name:"NAD+ 1000mg", dose:"1000mg", price:180.00, goals:["anti-aging","muscle","longevity"], tag:"Energy+Longevity",lotNum:"VT-019",desc:"Nicotinamide adenine dinucleotide. Boosts cellular energy, DNA repair, and mitochondrial function."},
+  {id:"vt-020",name:"Mots-C", dose:"10mg", price:60.00, goals:["muscle","fat-loss"], tag:null, lotNum:"VT-020",desc:"Mitochondrial-derived peptide. Improves insulin sensitivity and exercise performance."},
+  {id:"vt-021",name:"SS-31 (Elamipretide)",dose:"10mg", price:null, goals:["anti-aging","longevity"], tag:"Contact Us", lotNum:"VT-021",desc:"Mitochondria-targeting peptide. Protects cells from oxidative stress. Contact for pricing."},
+  {id:"vt-022",name:"Tesamorelin", dose:"2mg", price:110.00, goals:["fat-loss","muscle","longevity"], tag:"Clinical Grade",lotNum:"VT-022",desc:"GHRH analog approved for visceral fat reduction. Potent GH release with minimal side effects."},
+  {id:"vt-023",name:"Kisspeptin-10", dose:"5mg", price:60.00, goals:["sexual","muscle"], tag:null, lotNum:"VT-023",desc:"Hypothalamic neuropeptide. Stimulates LH and testosterone release naturally."},
+  {id:"vt-024",name:"DSIP", dose:"5mg", price:null, goals:["cognitive"], tag:"Contact Us", lotNum:"VT-024",desc:"Delta sleep-inducing peptide. Promotes deep restorative sleep and stress reduction. Contact for pricing."},
+  {id:"vt-025",name:"Thymosin Alpha-1", dose:"5mg", price:80.00, goals:["recovery","anti-aging"], tag:null, lotNum:"VT-025",desc:"Immune-modulating peptide. Enhances T-cell function and antiviral defenses."},
+  {id:"vt-026",name:"Slupp (Oral Pills)", dose:"per bottle",price:150.00, goals:["fat-loss"], tag:"Oral Formula", lotNum:"VT-026",desc:"Oral peptide formula for metabolic support and fat loss. Convenient pill format."},
+  {id:"vt-027",name:"Klow", dose:"per vial", price:200.00, goals:["longevity","muscle","anti-aging"], tag:null, lotNum:"VT-027",desc:"Premium peptide complex. Contact us for full protocol details."},
 ];
-
 const BUNDLES=[
-  {name:"GLP-1 Starter Stack",   items:["Semaglutide 5mg","AOD-9604 5mg"],    price:159.99,save:14.99,goal:"fat-loss", color:"#FF4B2B"},
-  {name:"GH Optimization Stack", items:["CJC-1295/DAC 2mg","Ipamorelin 5mg"], price:80.00, save:14.99,goal:"muscle",   color:"#00C6FF"},
-  {name:"Heal Fast Stack",       items:["BPC-157 5mg","TB-500 5mg"],           price:130.00,save:10.00,goal:"recovery", color:"#11998e"},
+  {name:"GLP-1 Starter Stack", items:["Semaglutide 5mg","AOD-9604 5mg"], price:159.99,save:14.99,goal:"fat-loss", color:"#FF4B2B"},
+  {name:"GH Optimization Stack", items:["CJC-1295/DAC 2mg","Ipamorelin 5mg"], price:80.00, save:14.99,goal:"muscle", color:"#00C6FF"},
+  {name:"Heal Fast Stack", items:["BPC-157 5mg","TB-500 5mg"], price:130.00,save:10.00,goal:"recovery", color:"#11998e"},
 ];
-
 const WaIcon=({size=28})=>(
   <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
     <path d="M16 2C8.268 2 2 8.268 2 16c0 2.484.676 4.81 1.855 6.805L2 30l7.42-1.82A13.94 13.94 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2z" fill="#25D366"/>
     <path d="M22.5 19.5c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.19-.57-.34z" fill="#fff"/>
   </svg>
 );
+
+function EmailBanner(){
+  const [email, setEmail] = React.useState('');
+  const [submitted, setSubmitted] = React.useState(false);
+  function handleSubmit(e){
+    e.preventDefault();
+    if(email && email.includes('@')){ setSubmitted(true); }
+  }
+  if(submitted) return (
+    <div className="email-banner">
+      <div style={{fontSize:13,color:'#11998e',fontWeight:700,letterSpacing:'0.08em'}}>✓ Subscribed! Check your inbox for your 10% off code.</div>
+    </div>
+  );
+  return (
+    <div className="email-banner">
+      <h3>Get 10% off your first order — enter your email below</h3>
+      <p>Join the VELTRIDE research community. No spam, unsubscribe anytime.</p>
+      <form className="email-banner-form" onSubmit={handleSubmit}>
+        <input type="email" placeholder="your@email.com" value={email} onChange={e=>setEmail(e.target.value)} required/>
+        <button type="submit">SUBSCRIBE</button>
+      </form>
+    </div>
+  );
+}
 
 function App(){
   const [screen,setScreen]=useState("goals");
@@ -120,7 +177,6 @@ function App(){
   const [checkoutState,setCheckoutState]=useState("idle");
   const [checkoutError,setCheckoutError]=useState("");
   const [orderStatus,setOrderStatus]=useState(null);
-
   useEffect(()=>{
     const p=new URLSearchParams(window.location.search);
     const s=p.get("order");
@@ -130,13 +186,11 @@ function App(){
       if(s==="success")setCart([]);
     }
   },[]);
-
   const fp=activeGoal?PRODUCTS.filter(p=>p.goals.includes(activeGoal.id)):[];
   const fb=activeGoal?BUNDLES.filter(b=>b.goal===activeGoal.id):[];
   const total=cart.reduce((s,i)=>s+i.price*i.qty,0);
   const count=cart.reduce((s,i)=>s+i.qty,0);
   const gc=activeGoal?.color||"#00C6FF";
-
   function addToCart(p){
     setCart(prev=>{
       const ex=prev.find(i=>i.id===p.id);
@@ -155,7 +209,6 @@ function App(){
     setAdded(bp.id);setTimeout(()=>setAdded(null),1200);
   }
   function updateQty(id,d){setCart(prev=>prev.map(i=>i.id===id?{...i,qty:Math.max(0,i.qty+d)}:i).filter(i=>i.qty>0));}
-
   async function handleCheckout(){
     if(!cart.length)return;
     setCheckoutState("loading");setCheckoutError("");
@@ -166,17 +219,13 @@ function App(){
       window.location.href=data.url;
     }catch(err){setCheckoutState("error");setCheckoutError(err.message);}
   }
-
   function goGoal(g){setActiveGoal(g);setScreen("products");setTab("singles");window.scrollTo(0,0);}
   function goBack(){setScreen("goals");setActiveGoal(null);window.scrollTo(0,0);}
-
   return(
     <div style={{fontFamily:"'DM Mono','Courier New',monospace",background:"#050508",minHeight:"100vh",color:"#E8E8F0",maxWidth:460,margin:"0 auto",position:"relative"}}>
-
       {/* ORDER BANNERS */}
       {orderStatus==="success"&&<div style={{background:"#11998e",color:"#fff",textAlign:"center",padding:"14px",fontSize:12,fontWeight:700,letterSpacing:"0.06em"}}>✓ ORDER CONFIRMED — Check your email. Thank you!</div>}
       {orderStatus==="cancelled"&&<div style={{background:"#1a1a2e",color:"#888",textAlign:"center",padding:"14px",fontSize:11,letterSpacing:"0.06em"}}>Order cancelled. Cart saved. <a href={WA} style={{color:"#25D366"}}>WhatsApp us</a> if you need help.</div>}
-
       {/* SHOP HEADER */}
       <div style={{position:"sticky",top:50,zIndex:50,background:"rgba(5,5,8,0.96)",backdropFilter:"blur(14px)",WebkitBackdropFilter:"blur(14px)",borderBottom:"1px solid #111",padding:"12px 18px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
         <div>
@@ -192,7 +241,6 @@ function App(){
           </button>
         </div>
       </div>
-
       {/* GOALS SCREEN */}
       {screen==="goals"&&(
         <div style={{padding:"24px 18px 0"}}>
@@ -204,9 +252,8 @@ function App(){
             </div>
             <div style={{fontSize:11,color:"#444",lineHeight:1.6}}>Select your goal below — we'll show you the right peptides.</div>
           </div>
-
           {GOALS.map((g,i)=>(
-            <button key={g.id} onClick={()=>goGoal(g)} style={{width:"100%",background:"#0a0a14",border:`1px solid #1a1a2e`,borderLeft:`3px solid ${g.color}`,borderRadius:12,padding:"15px 16px",textAlign:"left",cursor:"pointer",display:"flex",alignItems:"center",gap:13,marginBottom:9,animation:`slideIn 0.3s ease ${i*0.06}s both`}}>
+            <button key={g.id} onClick={()=>goGoal(g)} style={{width:"100%",background:"#0a0a14",border:"1px solid #1a1a2e",borderLeft:"3px solid "+g.color,borderRadius:12,padding:"15px 16px",textAlign:"left",cursor:"pointer",display:"flex",alignItems:"center",gap:13,marginBottom:9,animation:"slideIn 0.3s ease "+(i*0.06)+"s both"}}>
               <div style={{fontSize:24,width:36,textAlign:"center"}}>{g.icon}</div>
               <div style={{flex:1}}>
                 <div style={{fontSize:13,fontWeight:600,color:"#E8E8F0"}}>{g.label}</div>
@@ -215,11 +262,9 @@ function App(){
               <div style={{color:g.color,fontSize:15}}>›</div>
             </button>
           ))}
-
           <div style={{marginTop:10,padding:"13px 16px",background:"#080810",border:"1px solid #111",borderRadius:10,display:"flex",justifyContent:"space-around",marginBottom:16}}>
             {["🇨🇦 CA Shipped","≥98% Pure","COA Included","Discreet Pack"].map(t=><div key={t} style={{fontSize:9,color:"#3a3a4a",textAlign:"center"}}>{t}</div>)}
           </div>
-
           <a href={WA} target="_blank" rel="noopener noreferrer" style={{display:"flex",alignItems:"center",gap:14,background:"#0a0a14",border:"1px solid #25D36640",borderRadius:12,padding:"15px 16px",textDecoration:"none",marginBottom:24}}>
             <div style={{background:"#25D36618",borderRadius:10,width:40,height:40,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><WaIcon size={22}/></div>
             <div style={{flex:1}}>
@@ -228,7 +273,8 @@ function App(){
             </div>
             <div style={{color:"#25D366",fontSize:15}}>›</div>
           </a>
-
+          {/* EMAIL CAPTURE BANNER */}
+          <EmailBanner/>
           {/* FOOTER LINKS */}
           <div style={{borderTop:"1px solid #0d0d1a",paddingTop:20,paddingBottom:80,textAlign:"center"}}>
             <div style={{display:"flex",justifyContent:"center",gap:20,marginBottom:14}}>
@@ -237,13 +283,12 @@ function App(){
               ))}
             </div>
             <div style={{fontSize:9,color:"#222",letterSpacing:"0.05em",lineHeight:1.7}}>
-              © 2025 VELTRIDE · West Kelowna, BC, Canada<br/>
+              © 2026 VELTRIDE · West Kelowna, BC, Canada<br/>
               For research purposes only. Not for human consumption.
             </div>
           </div>
         </div>
       )}
-
       {/* PRODUCTS SCREEN */}
       {screen==="products"&&activeGoal&&(
         <div style={{padding:"18px"}}>
@@ -251,19 +296,17 @@ function App(){
             <div style={{fontSize:11,color:"#555",letterSpacing:"0.06em",marginBottom:3}}>{fp.length} products for</div>
             <div style={{fontSize:21,fontWeight:700,color:gc}}>{activeGoal.label}</div>
           </div>
-
           {fb.length>0&&(
             <div style={{display:"flex",gap:8,marginBottom:16}}>
               {["singles","bundles"].map(t=>(
-                <button key={t} onClick={()=>setTab(t)} style={{flex:1,padding:"10px",border:tab===t?`1px solid ${gc}`:"1px solid #1a1a2e",borderRadius:8,background:tab===t?gc+"18":"#0a0a14",color:tab===t?gc:"#555",fontSize:10,fontWeight:700,cursor:"pointer",letterSpacing:"0.1em",textTransform:"uppercase"}}>
-                  {t==="singles"?`Singles (${fp.length})`:`💊 Stacks (${fb.length})`}
+                <button key={t} onClick={()=>setTab(t)} style={{flex:1,padding:"10px",border:tab===t?"1px solid "+gc:"1px solid #1a1a2e",borderRadius:8,background:tab===t?gc+"18":"#0a0a14",color:tab===t?gc:"#555",fontSize:10,fontWeight:700,cursor:"pointer",letterSpacing:"0.1em",textTransform:"uppercase"}}>
+                  {t==="singles"?"Singles ("+fp.length+")":"💊 Stacks ("+fb.length+")"}
                 </button>
               ))}
             </div>
           )}
-
           {tab==="singles"&&fp.map((p,i)=>(
-            <div key={p.id} style={{background:"#0a0a14",border:"1px solid #1a1a2e",borderRadius:14,padding:"15px",marginBottom:9,animation:`slideIn 0.22s ease ${i*0.04}s both`}}>
+            <div key={p.id} style={{background:"#0a0a14",border:"1px solid #1a1a2e",borderRadius:14,padding:"15px",marginBottom:9,animation:"slideIn 0.22s ease "+(i*0.04)+"s both"}}>
               <div style={{display:"flex",alignItems:"center",gap:7,flexWrap:"wrap",marginBottom:3}}>
                 <span style={{fontSize:14,fontWeight:700}}>{p.name}</span>
                 {p.tag&&<span style={{fontSize:9,background:gc+"25",color:gc,padding:"2px 7px",borderRadius:20,letterSpacing:"0.06em"}}>{p.tag}</span>}
@@ -271,28 +314,27 @@ function App(){
               <div style={{fontSize:9,color:"#555",marginBottom:5,letterSpacing:"0.06em"}}>{p.dose} · {p.lotNum}</div>
               <div style={{fontSize:11,color:"#777",lineHeight:1.55,marginBottom:13}}>{p.desc}</div>
               <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-                <div>{p.price ? <><span style={{fontSize:18,fontWeight:700}}>${p.price.toFixed(2)}</span><span style={{fontSize:10,color:"#444",marginLeft:4}}>CAD</span></> : <span style={{fontSize:12,color:"#F59E0B",fontWeight:700}}>CONTACT FOR PRICE</span>}</div>
+                <div>{p.price ? <><span style={{fontSize:18,fontWeight:700}}>{"$"+p.price.toFixed(2)}</span><span style={{fontSize:10,color:"#444",marginLeft:4}}>CAD</span></> : <span style={{fontSize:12,color:"#F59E0B",fontWeight:700}}>CONTACT FOR PRICE</span>}</div>
                 {p.price ? (
-              <button onClick={()=>addToCart(p)} style={{background:added===p.id?"#11998e":gc,color:"#000",border:"none",borderRadius:10,padding:"11px 20px",fontSize:11,fontWeight:700,letterSpacing:"0.08em",minWidth:86,transition:"all 0.2s",transform:added===p.id?"scale(0.95)":"scale(1)"}}>
-                {added===p.id?"✓ ADDED":"+ ADD"}
-              </button>
-            ) : (
-              <a href={WA} target="_blank" rel="noopener noreferrer" style={{background:"#25D36620",color:"#25D366",border:"1px solid #25D36640",borderRadius:10,padding:"11px 16px",fontSize:11,fontWeight:700,letterSpacing:"0.08em",textDecoration:"none",display:"inline-block"}}>INQUIRE →</a>
-            )}
+                  <button onClick={()=>addToCart(p)} style={{background:added===p.id?"#11998e":gc,color:"#000",border:"none",borderRadius:10,padding:"11px 20px",fontSize:11,fontWeight:700,letterSpacing:"0.08em",minWidth:86,transition:"all 0.2s",transform:added===p.id?"scale(0.95)":"scale(1)"}}>
+                    {added===p.id?"✓ ADDED":"+ ADD"}
+                  </button>
+                ) : (
+                  <a href={WA} target="_blank" rel="noopener noreferrer" style={{background:"#25D36620",color:"#25D366",border:"1px solid #25D36640",borderRadius:10,padding:"11px 16px",fontSize:11,fontWeight:700,letterSpacing:"0.08em",textDecoration:"none",display:"inline-block"}}>INQUIRE →</a>
+                )}
               </div>
             </div>
           ))}
-
           {tab==="bundles"&&fb.map((b,i)=>(
-            <div key={b.name} style={{background:"#0a0a14",border:`1px solid ${b.color}40`,borderRadius:14,padding:"15px",marginBottom:9,animation:`slideIn 0.22s ease ${i*0.06}s both`}}>
+            <div key={b.name} style={{background:"#0a0a14",border:"1px solid "+b.color+"40",borderRadius:14,padding:"15px",marginBottom:9,animation:"slideIn 0.22s ease "+(i*0.06)+"s both"}}>
               <div style={{display:"flex",justifyContent:"space-between",marginBottom:12}}>
                 <div>
                   <div style={{fontSize:13,fontWeight:700,marginBottom:5}}>{b.name}</div>
                   {b.items.map(it=><div key={it} style={{fontSize:10,color:"#666",marginTop:2}}>· {it}</div>)}
                 </div>
                 <div style={{textAlign:"right"}}>
-                  <div style={{fontSize:17,fontWeight:700}}>${b.price.toFixed(2)}</div>
-                  <div style={{fontSize:9,color:"#11998e",marginTop:2}}>Save ${b.save.toFixed(2)}</div>
+                  <div style={{fontSize:17,fontWeight:700}}>{"$"+b.price.toFixed(2)}</div>
+                  <div style={{fontSize:9,color:"#11998e",marginTop:2}}>Save {"$"+b.save.toFixed(2)}</div>
                 </div>
               </div>
               <button onClick={()=>addBundle(b)} style={{width:"100%",background:added==="b-"+b.name?"#11998e":b.color,color:"#000",border:"none",borderRadius:10,padding:"13px",fontSize:11,fontWeight:700,letterSpacing:"0.08em",transition:"all 0.2s"}}>
@@ -300,7 +342,6 @@ function App(){
               </button>
             </div>
           ))}
-
           <div style={{padding:"11px 14px",background:"#07070f",border:"1px solid #111",borderRadius:10,fontSize:9,color:"#333",letterSpacing:"0.04em",lineHeight:1.7,marginBottom:10}}>
             ⚠ FOR RESEARCH PURPOSES ONLY. NOT FOR HUMAN CONSUMPTION. ≥98% HPLC purity. COA included. Must be 18+.
           </div>
@@ -311,7 +352,6 @@ function App(){
           </a>
         </div>
       )}
-
       {/* CART DRAWER */}
       {cartOpen&&(
         <div style={{position:"fixed",inset:0,zIndex:300,display:"flex",flexDirection:"column",justifyContent:"flex-end"}}>
@@ -328,20 +368,20 @@ function App(){
                   <div key={item.id} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"12px 0",borderBottom:"1px solid #111"}}>
                     <div style={{flex:1,paddingRight:10}}>
                       <div style={{fontSize:12,fontWeight:600}}>{item.name}</div>
-                      <div style={{fontSize:9,color:"#555",marginTop:2}}>{item.dose} · ${item.price.toFixed(2)} ea</div>
+                      <div style={{fontSize:9,color:"#555",marginTop:2}}>{item.dose} · {"$"+item.price.toFixed(2)+" ea"}</div>
                     </div>
                     <div style={{display:"flex",alignItems:"center",gap:8}}>
                       <button onClick={()=>updateQty(item.id,-1)} style={{background:"#151520",border:"none",color:"#aaa",width:27,height:27,borderRadius:6,fontSize:15}}>−</button>
                       <span style={{fontSize:13,fontWeight:700,minWidth:20,textAlign:"center"}}>{item.qty}</span>
                       <button onClick={()=>updateQty(item.id,1)} style={{background:"#151520",border:"none",color:"#aaa",width:27,height:27,borderRadius:6,fontSize:15}}>+</button>
                     </div>
-                    <div style={{minWidth:60,textAlign:"right",fontSize:13,fontWeight:700}}>${(item.price*item.qty).toFixed(2)}</div>
+                    <div style={{minWidth:60,textAlign:"right",fontSize:13,fontWeight:700}}>{"$"+(item.price*item.qty).toFixed(2)}</div>
                   </div>
                 ))}
                 <div style={{marginTop:16}}>
                   <div style={{display:"flex",justifyContent:"space-between",marginBottom:16,padding:"12px 0",borderTop:"1px solid #1a1a2e"}}>
                     <span style={{fontSize:11,color:"#888",letterSpacing:"0.08em"}}>SUBTOTAL</span>
-                    <span style={{fontSize:19,fontWeight:700}}>${total.toFixed(2)} <span style={{fontSize:10,color:"#444",fontWeight:400}}>CAD</span></span>
+                    <span style={{fontSize:19,fontWeight:700}}>{"$"+total.toFixed(2)+" "}<span style={{fontSize:10,color:"#444",fontWeight:400}}>CAD</span></span>
                   </div>
                   <button onClick={handleCheckout} disabled={checkoutState==="loading"} style={{width:"100%",background:checkoutState==="loading"?"#0a2a3a":"#00C6FF",color:checkoutState==="loading"?"#00C6FF":"#000",border:checkoutState==="loading"?"1px solid #00C6FF33":"none",borderRadius:14,padding:"17px",fontSize:13,fontWeight:700,letterSpacing:"0.1em",display:"flex",alignItems:"center",justifyContent:"center",gap:10,transition:"all 0.2s"}}>
                     {checkoutState==="loading"?<><span style={{display:"inline-block",width:15,height:15,border:"2px solid #00C6FF44",borderTop:"2px solid #00C6FF",borderRadius:"50%",animation:"spin 0.8s linear infinite"}}></span>PROCESSING…</>:"CHECKOUT →"}
@@ -354,7 +394,6 @@ function App(){
           </div>
         </div>
       )}
-
       {/* FLOATING WA */}
       {!cartOpen&&(
         <a href={WA} target="_blank" rel="noopener noreferrer" title="WhatsApp us" style={{position:"fixed",bottom:22,right:18,zIndex:250,background:"#25D366",borderRadius:"50%",width:52,height:52,display:"flex",alignItems:"center",justifyContent:"center",textDecoration:"none",animation:"waPulse 2.5s ease-in-out infinite"}}>
