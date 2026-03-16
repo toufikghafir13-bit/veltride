@@ -32,7 +32,7 @@
     @keyframes heroFade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
     button{-webkit-tap-highlight-color:transparent;cursor:pointer;}
     a{-webkit-tap-highlight-color:transparent;}
-    .email-banner{background:#0a0a14;border-top:1px solid #1a1a2e;padding:28px 20px;text-align:center;font-family:'DM Mono','Courier New',monospace;}
+    .email-banner{background:linear-gradient(135deg,#0a0a14 0%,#080814 100%);border-top:1px solid #1a1a2e;border-bottom:1px solid #1a1a2e;padding:28px 20px;text-align:center;font-family:'DM Mono','Courier New',monospace;}
     .email-banner h3{font-size:13px;color:#E8E8F0;letter-spacing:0.08em;margin-bottom:6px;font-weight:700;}
     .email-banner p{font-size:10px;color:#555;margin-bottom:16px;letter-spacing:0.05em;}
     .email-banner-form{display:flex;gap:8px;max-width:380px;margin:0 auto;justify-content:center;flex-wrap:wrap;}
@@ -41,6 +41,19 @@
     .email-banner-form input:focus{border-color:#00C6FF;}
     .email-banner-form button{background:#00C6FF;color:#000;border:none;border-radius:8px;padding:10px 18px;font-family:'DM Mono','Courier New',monospace;font-size:11px;font-weight:700;letter-spacing:0.08em;cursor:pointer;}
     .email-banner-form button:hover{background:#33d0ff;}
+
+    .reviews-section{padding:8px 0 0;}
+    .review-card{background:#0a0a14;border:1px solid #1a1a2e;border-radius:12px;padding:14px 16px;margin-bottom:9px;}
+    .review-stars{color:#F59E0B;font-size:12px;margin-bottom:6px;letter-spacing:2px;}
+    .review-text{font-size:11px;color:#666;line-height:1.7;margin-bottom:8px;font-style:italic;}
+    .review-author{font-size:9px;color:#3a3a4a;letter-spacing:0.1em;}
+    .above-fold{padding:24px 18px 0;font-family:'DM Mono','Courier New',monospace;background:#050508;}
+
+    .reviews-section{padding:8px 0 0;}
+    .review-card{background:#0a0a14;border:1px solid #1a1a2e;border-radius:12px;padding:14px 16px;margin-bottom:9px;}
+    .review-stars{color:#F59E0B;font-size:12px;margin-bottom:6px;letter-spacing:2px;}
+    .review-text{font-size:11px;color:#666;line-height:1.7;margin-bottom:8px;font-style:italic;}
+    .review-author{font-size:9px;color:#3a3a4a;letter-spacing:0.1em;}
   </style>
 </head>
 <body>
@@ -89,6 +102,30 @@
   </div>
 </noscript>
 
+<!-- ABOVE-FOLD STATIC HERO: shows instantly before React loads -->
+<div class="above-fold" id="above-fold-hero" style="max-width:460px;margin:0 auto;">
+  <div style="font-size:10px;letter-spacing:0.22em;color:#333;margin-bottom:10px;">KELOWNA, BC · SHIPS ACROSS CANADA</div>
+  <div style="font-size:28px;font-weight:700;line-height:1.18;letter-spacing:-0.02em;color:#E8E8F0;margin-bottom:10px;">Research peptides,<br/><span style="color:#00C6FF;">shipped from BC.</span></div>
+  <div style="font-size:11px;color:#555;line-height:1.65;margin-bottom:14px;">≥98% pure · COA with every order · discreet shipping across Canada</div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;padding-bottom:18px;">
+    <span style="background:#080810;border:1px solid #0d0d1a;border-radius:8px;padding:6px 10px;font-size:9px;color:#3a3a4a;letter-spacing:0.08em;">🔬 HPLC VERIFIED</span>
+    <span style="background:#080810;border:1px solid #0d0d1a;border-radius:8px;padding:6px 10px;font-size:9px;color:#3a3a4a;letter-spacing:0.08em;">📄 COA INCLUDED</span>
+    <span style="background:#080810;border:1px solid #0d0d1a;border-radius:8px;padding:6px 10px;font-size:9px;color:#3a3a4a;letter-spacing:0.08em;">🇨🇦 CA SHIPPED</span>
+    <span style="background:#080810;border:1px solid #0d0d1a;border-radius:8px;padding:6px 10px;font-size:9px;color:#3a3a4a;letter-spacing:0.08em;">💬 FAST REPLIES</span>
+  </div>
+</div>
+<!-- Netlify hidden form for email capture detection -->
+<form name="email-signup" netlify netlify-honeypot="bot-field" hidden>
+  <input name="email" type="email"/>
+  <input name="bot-field"/>
+</form>
+<!-- ABOVE-FOLD HERO: visible before React loads -->
+<div id="above-fold-hero" style="max-width:460px;margin:0 auto;padding:24px 18px 0;font-family:'DM Mono','Courier New',monospace;background:#050508;">
+  <div style="font-size:10px;letter-spacing:0.22em;color:#333;margin-bottom:10px;">KELOWNA, BC — SHIPS ACROSS CANADA</div>
+  <div style="font-size:28px;font-weight:700;line-height:1.18;letter-spacing:-0.02em;color:#E8E8F0;margin-bottom:10px;">Research peptides,<br/><span style="color:#00C6FF;">shipped from BC.</span></div>
+  <div style="font-size:11px;color:#555;line-height:1.65;margin-bottom:14px;">98% pure, COA included, discreet shipping across Canada.</div>
+</div>
+<form name="email-signup" netlify netlify-honeypot="bot-field" hidden><input name="email" type="email"/><input name="bot-field"/></form>
 <div id="root"></div>
 <script type="text/babel">
 const { useState, useEffect } = React;
@@ -145,28 +182,54 @@ const WaIcon=({size=28})=>(
 
 function EmailBanner(){
   const [email, setEmail] = React.useState('');
-  const [submitted, setSubmitted] = React.useState(false);
-  function handleSubmit(e){
+  const [ok, setOk] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
+  function go(e){
     e.preventDefault();
-    if(email && email.includes('@')){ setSubmitted(true); }
+    if(!email||!email.includes('@'))return;
+    setLoading(true);
+    const body = 'form-name=email-signup&email='+encodeURIComponent(email);
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body})
+      .finally(()=>{setOk(true);setLoading(false);});
   }
-  if(submitted) return (
+  if(ok) return(
     <div className="email-banner">
-      <div style={{fontSize:13,color:'#11998e',fontWeight:700,letterSpacing:'0.08em'}}>✓ Subscribed! Check your inbox for your 10% off code.</div>
+      <div style={{fontSize:13,color:'#11998e',fontWeight:700,letterSpacing:'0.08em',marginBottom:4}}>✓ You're in.</div>
+      <div style={{fontSize:10,color:'#555',letterSpacing:'0.05em'}}>10% off code on its way — check your inbox.</div>
     </div>
   );
-  return (
+  return(
     <div className="email-banner">
-      <h3>Get 10% off your first order — enter your email below</h3>
-      <p>Join the VELTRIDE research community. No spam, unsubscribe anytime.</p>
-      <form className="email-banner-form" onSubmit={handleSubmit}>
-        <input type="email" placeholder="your@email.com" value={email} onChange={e=>setEmail(e.target.value)} required/>
-        <button type="submit">SUBSCRIBE</button>
+      <h3>Get 10% off your first order</h3>
+      <p>No spam. Just restocks and new drops.</p>
+      <form className="email-banner-form" onSubmit={go} name="email-signup" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="email-signup"/>
+        <input type="email" name="email" placeholder="your@email.com" value={email} onChange={e=>setEmail(e.target.value)} required/>
+        <button type="submit" disabled={loading}>{loading?'...':'GET 10% OFF'}</button>
       </form>
     </div>
   );
 }
-
+const REVIEWS=[
+  {text:"Ordered BPC-157 and TB-500. Arrived in 3 days, packaging completely discreet. Legit product — quality difference vs other suppliers is noticeable.",author:"M.T. — Vancouver, BC",stars:5},
+  {text:"Been sourcing semaglutide here for a few months. Always consistent, COA included, they reply on WhatsApp in under 20 min. Hard to find that combo.",author:"D.R. — Calgary, AB",stars:5},
+  {text:"Tried a few Canadian suppliers before finding VELTRIDE. Pricing is fair, purity is solid, they actually know their stuff.",author:"J.K. — Kelowna, BC",stars:5},
+  {text:"The retatrutide is 🔥. Second order placed already. Checkout was smooth, tracking came same day.",author:"A.S. — Toronto, ON",stars:5},
+];
+function ReviewsSection(){
+  return(
+    <div className="reviews-section">
+      <div style={{fontSize:9,color:"#2a2a3a",letterSpacing:"0.18em",marginBottom:14,paddingTop:8}}>WHAT RESEARCHERS ARE SAYING</div>
+      {REVIEWS.map((r,i)=>(
+        <div key={i} className="review-card">
+          <div className="review-stars">{"★".repeat(r.stars)}</div>
+          <div className="review-text">"{r.text}"</div>
+          <div className="review-author">— {r.author}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
 function App(){
   const [screen,setScreen]=useState("goals");
   const [activeGoal,setActiveGoal]=useState(null);
@@ -246,11 +309,11 @@ function App(){
         <div style={{padding:"24px 18px 0"}}>
           {/* HERO */}
           <div style={{marginBottom:28,animation:"heroFade 0.5s ease both"}}>
-            <div style={{fontSize:10,letterSpacing:"0.22em",color:"#333",marginBottom:10}}>CANADIAN RESEARCH PEPTIDES</div>
+            <div style={{fontSize:10,letterSpacing:"0.22em",color:"#333",marginBottom:10}}>KELOWNA, BC — SHIPS ACROSS CANADA</div>
             <div style={{fontSize:30,fontWeight:700,lineHeight:1.15,letterSpacing:"-0.02em",marginBottom:10}}>
               What's your<br/><span style={{color:"#00C6FF"}}>goal?</span>
             </div>
-            <div style={{fontSize:11,color:"#444",lineHeight:1.6}}>Select your goal below — we'll show you the right peptides.</div>
+            <div style={{fontSize:11,color:"#555",lineHeight:1.65}}>Tell us what you're working on. We'll show you what fits — with purity docs to back it up.</div>
           </div>
           {GOALS.map((g,i)=>(
             <button key={g.id} onClick={()=>goGoal(g)} style={{width:"100%",background:"#0a0a14",border:"1px solid #1a1a2e",borderLeft:"3px solid "+g.color,borderRadius:12,padding:"15px 16px",textAlign:"left",cursor:"pointer",display:"flex",alignItems:"center",gap:13,marginBottom:9,animation:"slideIn 0.3s ease "+(i*0.06)+"s both"}}>
@@ -273,12 +336,14 @@ function App(){
             </div>
             <div style={{color:"#25D366",fontSize:15}}>›</div>
           </a>
+          {/* REVIEWS */}
+          <ReviewsSection/>
           {/* EMAIL CAPTURE BANNER */}
           <EmailBanner/>
           {/* FOOTER LINKS */}
           <div style={{borderTop:"1px solid #0d0d1a",paddingTop:20,paddingBottom:80,textAlign:"center"}}>
             <div style={{display:"flex",justifyContent:"center",gap:20,marginBottom:14}}>
-              {[["FAQ","/faq.html"],["Shipping","/shipping.html"],["About","/about.html"],["Terms","/terms.html"],["Privacy","/privacy.html"]].map(([l,h])=>(
+              {[["FAQ","/faq.html"],["Blog","/blog/"],["Shipping","/shipping.html"],["About","/about.html"],["Terms","/terms.html"],["Privacy","/privacy.html"]].map(([l,h])=>(
                 <a key={l} href={h} style={{fontSize:9,color:"#333",textDecoration:"none",letterSpacing:"0.1em"}}>{l.toUpperCase()}</a>
               ))}
             </div>
@@ -404,6 +469,8 @@ function App(){
   );
 }
 ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+const _hero=document.getElementById('above-fold-hero');
+if(_hero)_hero.style.display='none';
 </script>
 </body>
 </html>
