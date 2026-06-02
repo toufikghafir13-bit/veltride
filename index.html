@@ -4,572 +4,736 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>The Peptide Labs | High-Purity Research Peptides Canada</title>
-<meta name="description" content="The Peptide Labs is a trusted Canadian source for highly purified research peptides. 99% purity guaranteed. Free shipping over $150."/>
+<meta name="description" content="Canada's most trusted source for 99% pure research peptides. BPC-157, Semaglutide, Tirzepatide and more. Free shipping over $150."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:'Inter',sans-serif;background:#f7f7f7;color:#111;}
+body{font-family:'Inter',sans-serif;background:#f7f7f7;color:#111;line-height:1.5;}
 a{text-decoration:none;color:inherit;}
 ul{list-style:none;}
-img{max-width:100%;}
+img{max-width:100%;height:auto;display:block;}
+button{cursor:pointer;font-family:inherit;}
 
-/* TOP BAR */
-.top-bar{background:#111;color:#fff;font-size:13px;padding:8px 0;overflow:hidden;}
-.top-bar-inner{display:flex;align-items:center;gap:24px;padding:0 20px;}
-.social-icons{display:flex;gap:10px;flex-shrink:0;}
-.social-icons a{width:28px;height:28px;border:1px solid #444;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;transition:border-color 0.2s;}
-.social-icons a:hover{border-color:#2abfbf;}
+/* ===== TOP TICKER BAR ===== */
+.top-bar{background:#111;color:#ccc;font-size:12.5px;padding:8px 0;overflow:hidden;white-space:nowrap;}
+.top-bar-inner{display:flex;align-items:center;}
+.social-bar{display:flex;gap:8px;padding:0 16px;flex-shrink:0;border-right:1px solid #333;margin-right:16px;}
+.social-bar a{width:26px;height:26px;border:1px solid #555;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#ccc;font-size:11px;font-weight:700;transition:all 0.2s;}
+.social-bar a:hover{border-color:#2abfbf;color:#2abfbf;}
 .ticker-wrap{flex:1;overflow:hidden;}
-.ticker{display:flex;gap:40px;animation:ticker 25s linear infinite;white-space:nowrap;}
-.ticker span{color:#ccc;}
-.ticker span a{color:#ccc;}
-.ticker .dot{color:#555;}
+.ticker{display:inline-flex;gap:32px;animation:ticker 30s linear infinite;}
+.ticker span{color:#bbb;}
+.ticker a{color:#bbb;}
+.ticker .sep{color:#555;margin:0 4px;}
 @keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 
-/* HEADER */
-header{background:#fff;position:sticky;top:0;z-index:1000;box-shadow:0 1px 8px rgba(0,0,0,0.06);}
-.header-inner{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:72px;}
-.hamburger{font-size:22px;cursor:pointer;color:#111;background:none;border:none;display:flex;flex-direction:column;gap:5px;}
-.hamburger span{width:22px;height:2px;background:#111;display:block;}
-.logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
-.logo-icon{width:44px;height:44px;}
-.logo-text{display:flex;flex-direction:column;line-height:1;}
-.logo-text .brand-thin{font-size:18px;font-weight:300;letter-spacing:2px;color:#2abfbf;}
-.logo-text .brand-bold{font-size:18px;font-weight:800;letter-spacing:2px;color:#004a55;}
-.logo-combined{font-size:22px;font-weight:800;letter-spacing:3px;color:#111;display:flex;align-items:center;gap:8px;}
-.logo-combined .thin{font-weight:300;color:#2abfbf;}
-.logo-combined .bold{font-weight:900;color:#004a55;}
-nav ul{display:flex;gap:28px;align-items:center;}
-nav ul li a{font-size:14px;font-weight:500;color:#111;transition:color 0.2s;}
-nav ul li a:hover{color:#004a55;}
-.header-icons{display:flex;gap:16px;align-items:center;}
-.header-icons a{color:#111;font-size:18px;position:relative;display:flex;align-items:center;}
-.badge{position:absolute;top:-8px;right:-8px;background:#004a55;color:#fff;font-size:10px;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;}
+/* ===== STICKY HEADER ===== */
+header{background:#fff;position:sticky;top:0;z-index:1000;box-shadow:0 1px 12px rgba(0,0,0,0.07);}
+.header-wrap{max-width:1400px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:70px;gap:32px;}
+.hamburger-btn{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px;}
+.hamburger-btn span{width:22px;height:2px;background:#111;display:block;border-radius:2px;}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.logo-svg{width:42px;height:42px;}
+.logo-name{font-size:20px;font-weight:800;letter-spacing:2.5px;display:flex;align-items:center;}
+.logo-name .lt{font-weight:300;color:#2abfbf;}
+.logo-name .lb{font-weight:900;color:#004a55;}
+main-nav ul{display:flex;align-items:center;gap:24px;}
+.main-nav ul li a{font-size:14px;font-weight:500;color:#333;padding:4px 0;border-bottom:2px solid transparent;transition:all 0.2s;}
+.main-nav ul li a:hover,.main-nav ul li a.active{color:#004a55;border-bottom-color:#004a55;}
+.nav-icons{display:flex;align-items:center;gap:16px;}
+.nav-icons a{color:#333;font-size:20px;position:relative;display:flex;align-items:center;transition:color 0.2s;}
+.nav-icons a:hover{color:#004a55;}
+.nav-badge{position:absolute;top:-7px;right:-8px;background:#004a55;color:#fff;font-size:9px;font-weight:700;width:15px;height:15px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
 
-/* ANNOUNCEMENT BAR */
-.announcement{background:#111;border-radius:12px;margin:12px 24px;padding:14px 24px;text-align:center;font-size:14px;font-weight:600;letter-spacing:1px;color:#fff;}
-.announcement .highlight{color:#ffc720;font-weight:800;}
+/* ===== ANNOUNCEMENT BAR ===== */
+.promo-bar{background:#111;border-radius:14px;margin:10px 28px;padding:13px;text-align:center;font-size:13.5px;font-weight:600;letter-spacing:0.8px;color:#e0e0e0;text-transform:uppercase;}
+.promo-bar .hi{color:#ffc720;font-weight:800;}
 
-/* HERO SLIDER */
-.hero-section{background:#f7f7f7;min-height:580px;display:flex;align-items:center;position:relative;overflow:hidden;}
-.hero-slide{display:none;width:100%;min-height:580px;align-items:center;padding:60px 60px;max-width:1400px;margin:0 auto;}
-.hero-slide.active{display:flex;}
-.hero-text{flex:1;max-width:600px;z-index:2;}
-.hero-tag{font-size:14px;font-weight:500;color:#555;margin-bottom:16px;letter-spacing:1px;}
-.hero-heading{font-size:clamp(52px,6vw,90px);font-weight:900;line-height:1.0;color:#111;margin-bottom:32px;letter-spacing:-2px;}
-.hero-heading .orange{color:#ffc720;}
-.hero-btn{display:inline-flex;align-items:center;gap:8px;background:#111;color:#fff;padding:16px 32px;border-radius:50px;font-size:15px;font-weight:700;letter-spacing:1px;transition:background 0.2s;cursor:pointer;border:none;}
-.hero-btn:hover{background:#004a55;}
-.hero-btn .arrow{font-size:18px;}
-.hero-image{flex:1;display:flex;justify-content:flex-end;align-items:center;}
-.hero-image img{max-height:480px;object-fit:contain;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.12));}
-.hero-dots{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:8px;}
-.hero-dot{width:8px;height:8px;border-radius:50%;background:#ccc;cursor:pointer;transition:background 0.2s;}
-.hero-dot.active{background:#004a55;}
-.hero-slide-alt{background:#f0f9f9;}
-.hero-slide-alt .hero-heading{font-size:clamp(44px,5vw,76px);}
+/* ===== HERO ===== */
+.hero{background:#f4f4f4;min-height:560px;position:relative;overflow:hidden;}
+.hero-slides{position:relative;min-height:560px;}
+.slide{display:none;max-width:1400px;margin:0 auto;padding:60px 60px 80px;min-height:560px;align-items:center;gap:40px;}
+.slide.active{display:flex;}
+.slide-text{flex:1;}
+.slide-tag{font-size:13px;font-weight:500;color:#666;margin-bottom:14px;letter-spacing:0.5px;}
+.slide-tag strong{color:#ffc720;}
+.slide-h1{font-size:clamp(48px,5.5vw,88px);font-weight:900;line-height:1.0;color:#111;margin-bottom:30px;letter-spacing:-2px;}
+.slide-h1 .orange{color:#ffc720;}
+.btn-hero{display:inline-flex;align-items:center;gap:10px;background:#111;color:#fff;padding:15px 32px;border-radius:50px;font-size:14px;font-weight:700;letter-spacing:1px;border:none;transition:background 0.25s;}
+.btn-hero:hover{background:#004a55;}
+.slide-img{flex:0 0 480px;display:flex;align-items:center;justify-content:flex-end;}
+.slide-img img{max-height:460px;object-fit:contain;filter:drop-shadow(0 24px 48px rgba(0,0,0,0.13));}
+.hero-nav{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);display:flex;gap:8px;}
+.hero-dot{width:9px;height:9px;border-radius:50%;background:#ccc;cursor:pointer;border:none;transition:background 0.2s;}
+.hero-dot.on{background:#004a55;}
 
-/* TRUST BAR */
-.trust-section{padding:40px 24px;}
-.trust-inner{max-width:1400px;margin:0 auto;}
-.trust-card{background:#fff;border-radius:16px;padding:32px 40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;box-shadow:0 2px 16px rgba(0,0,0,0.06);}
-.trust-item{display:flex;gap:20px;align-items:flex-start;}
-.trust-icon{width:44px;height:44px;flex-shrink:0;background:#f0f0f0;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;}
-.trust-content h3{font-size:18px;font-weight:700;color:#111;margin-bottom:6px;}
-.trust-content p{font-size:14px;color:#666;line-height:1.5;}
+/* ===== TRUST BAR ===== */
+.trust{padding:36px 28px;}
+.trust-inner{max-width:1400px;margin:0 auto;background:#fff;border-radius:18px;padding:32px 48px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;box-shadow:0 2px 20px rgba(0,0,0,0.055);}
+.trust-item{display:flex;gap:16px;align-items:flex-start;}
+.t-icon{width:46px;height:46px;background:#f2f2f2;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.t-text h3{font-size:16px;font-weight:700;color:#111;margin-bottom:5px;}
+.t-text p{font-size:13.5px;color:#666;line-height:1.5;}
 
-/* CATEGORIES */
-.categories-section{padding:40px 24px;}
-.categories-inner{max-width:1400px;margin:0 auto;}
-.section-title{text-align:center;font-size:36px;font-weight:800;color:#111;margin-bottom:32px;}
-.categories-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-.category-pill{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid #e8e8e8;border-radius:50px;padding:16px 20px 16px 24px;font-size:16px;font-weight:600;color:#111;transition:all 0.2s;cursor:pointer;text-decoration:none;}
-.category-pill:hover{background:#004a55;color:#fff;border-color:#004a55;}
-.category-pill:hover .cat-arrow{background:#fff;color:#004a55;}
-.cat-arrow{width:36px;height:36px;background:#111;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;flex-shrink:0;transition:all 0.2s;}
+/* ===== CATEGORIES ===== */
+.cats{padding:40px 28px;}
+.cats-inner{max-width:1400px;margin:0 auto;}
+.sec-title{text-align:center;font-size:34px;font-weight:800;color:#111;margin-bottom:28px;}
+.cat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.cat-pill{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1.5px solid #eaeaea;border-radius:50px;padding:15px 16px 15px 24px;font-size:15px;font-weight:600;color:#111;transition:all 0.2s;}
+.cat-pill:hover{background:#004a55;color:#fff;border-color:#004a55;}
+.cat-pill:hover .ca{background:#fff;color:#004a55;}
+.ca{width:34px;height:34px;background:#111;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;flex-shrink:0;transition:all 0.2s;}
 
-/* BEST SELLERS */
-.bestsellers-section{padding:40px 24px 60px;}
-.bestsellers-inner{max-width:1400px;margin:0 auto;}
-.section-label{text-align:center;font-size:12px;font-weight:700;letter-spacing:3px;color:#2abfbf;text-transform:uppercase;margin-bottom:8px;}
-.bs-tabs{display:flex;justify-content:center;gap:32px;margin-bottom:40px;border-bottom:1px solid #e8e8e8;padding-bottom:0;}
-.bs-tab{font-size:16px;font-weight:600;color:#999;cursor:pointer;padding-bottom:14px;border-bottom:2px solid transparent;transition:all 0.2s;}
-.bs-tab.active{color:#111;border-bottom-color:#111;}
-.bs-tab:hover{color:#111;}
-.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-.product-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid #f0f0f0;transition:box-shadow 0.2s;}
-.product-card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.1);}
-.product-img{height:220px;background:#f9f9f9;display:flex;align-items:center;justify-content:center;padding:20px;overflow:hidden;}
-.product-img img{height:100%;width:100%;object-fit:contain;transition:transform 0.3s;}
-.product-card:hover .product-img img{transform:scale(1.05);}
-.product-info{padding:16px;}
-.product-cat{font-size:11px;font-weight:700;letter-spacing:2px;color:#2abfbf;text-transform:uppercase;margin-bottom:8px;}
-.product-name{font-size:15px;font-weight:700;color:#111;margin-bottom:8px;letter-spacing:0.5px;}
-.product-price{font-size:18px;font-weight:800;color:#111;margin-bottom:14px;}
-.product-price .dollar{font-size:13px;font-weight:600;vertical-align:top;margin-top:3px;display:inline-block;}
-.btn-cart{width:100%;padding:12px;background:transparent;border:1.5px solid #111;border-radius:50px;font-size:13px;font-weight:700;color:#111;cursor:pointer;transition:all 0.2s;letter-spacing:0.5px;}
-.btn-cart:hover{background:#111;color:#fff;}
-.btn-soldout{width:100%;padding:12px;background:#f0f0f0;border:none;border-radius:50px;font-size:13px;font-weight:700;color:#999;cursor:not-allowed;letter-spacing:0.5px;}
+/* ===== BEST SELLERS ===== */
+.bsell{padding:40px 28px 64px;}
+.bsell-inner{max-width:1400px;margin:0 auto;}
+.sec-label{text-align:center;font-size:11px;font-weight:700;letter-spacing:3.5px;color:#2abfbf;text-transform:uppercase;margin-bottom:6px;}
+.bs-tabs{display:flex;justify-content:center;gap:36px;border-bottom:1.5px solid #e8e8e8;margin-bottom:36px;}
+.bst{font-size:15px;font-weight:600;color:#aaa;padding-bottom:14px;border-bottom:2.5px solid transparent;cursor:pointer;transition:all 0.2s;margin-bottom:-1.5px;}
+.bst.on{color:#111;border-bottom-color:#111;}
+.bst:hover{color:#111;}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.pcard{background:#fff;border-radius:16px;overflow:hidden;border:1px solid #efefef;transition:box-shadow 0.25s,transform 0.25s;}
+.pcard:hover{box-shadow:0 8px 36px rgba(0,0,0,0.1);transform:translateY(-3px);}
+.pimg{height:210px;background:#f8f8f8;display:flex;align-items:center;justify-content:center;padding:20px;overflow:hidden;position:relative;}
+.pimg img{height:100%;width:100%;object-fit:contain;transition:transform 0.3s;}
+.pcard:hover .pimg img{transform:scale(1.06);}
+.pcat{font-size:10.5px;font-weight:700;letter-spacing:2px;color:#2abfbf;text-transform:uppercase;padding:14px 14px 4px;}
+.pname{font-size:14.5px;font-weight:700;color:#111;padding:0 14px 6px;letter-spacing:0.3px;}
+.pprice{font-size:20px;font-weight:800;color:#111;padding:0 14px 14px;}
+.pprice sup{font-size:13px;font-weight:600;vertical-align:super;}
+.btn-add{width:calc(100% - 28px);margin:0 14px 14px;padding:11px;background:transparent;border:1.5px solid #111;border-radius:50px;font-size:12.5px;font-weight:700;color:#111;transition:all 0.2s;letter-spacing:0.5px;}
+.btn-add:hover{background:#111;color:#fff;}
+.btn-sold{width:calc(100% - 28px);margin:0 14px 14px;padding:11px;background:#f0f0f0;border:none;border-radius:50px;font-size:12.5px;font-weight:700;color:#aaa;cursor:not-allowed;}
 
-/* BUNDLES */
-.bundles-section{padding:40px 24px;}
-.bundles-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-.bundle-card{border-radius:20px;overflow:hidden;position:relative;min-height:360px;display:flex;flex-direction:column;justify-content:flex-end;padding:40px;}
-.bundle-card::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.1) 60%);z-index:1;}
-.bundle-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-.bundle-content{position:relative;z-index:2;}
-.bundle-badge{display:inline-block;background:rgba(57,174,82,0.9);color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;padding:6px 14px;border-radius:50px;margin-bottom:16px;text-transform:uppercase;}
-.bundle-title{font-size:24px;font-weight:800;color:#fff;margin-bottom:12px;}
-.bundle-price{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
-.bundle-price .current{font-size:28px;font-weight:900;color:#fff;}
-.bundle-price .original{font-size:16px;color:rgba(255,255,255,0.6);text-decoration:line-through;}
-.btn-details{display:inline-block;background:transparent;border:2px solid #fff;color:#fff;padding:12px 28px;border-radius:50px;font-size:14px;font-weight:700;cursor:pointer;transition:all 0.2s;}
-.btn-details:hover{background:#fff;color:#111;}
+/* ===== BUNDLES ===== */
+.bundles{padding:40px 28px;}
+.bundles-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.bcard{border-radius:22px;overflow:hidden;position:relative;min-height:360px;display:flex;flex-direction:column;justify-content:flex-end;}
+.bcard::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.08) 55%);}
+.bcard-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.bcard-body{position:relative;z-index:1;padding:36px;}
+.bbadge{display:inline-block;background:rgba(57,174,82,0.9);color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;padding:5px 14px;border-radius:50px;margin-bottom:14px;}
+.btitle{font-size:22px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.2;}
+.bprice{display:flex;align-items:baseline;gap:10px;margin-bottom:18px;}
+.bprice .cur{font-size:26px;font-weight:900;color:#fff;}
+.bprice .was{font-size:15px;color:rgba(255,255,255,0.55);text-decoration:line-through;}
+.btn-detail{display:inline-block;border:2px solid rgba(255,255,255,0.8);color:#fff;padding:11px 26px;border-radius:50px;font-size:13px;font-weight:700;transition:all 0.2s;}
+.btn-detail:hover{background:#fff;color:#111;}
 
-/* ABOUT */
-.about-section{padding:80px 24px;}
-.about-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
-.about-img{border-radius:20px;overflow:hidden;}
-.about-img img{width:100%;height:500px;object-fit:cover;}
-.about-text .section-label{text-align:left;margin-bottom:12px;}
-.about-text h2{font-size:42px;font-weight:900;color:#111;margin-bottom:24px;line-height:1.1;}
-.about-text p{font-size:16px;color:#555;line-height:1.7;margin-bottom:16px;}
+/* ===== ABOUT / SPLIT ===== */
+.about{padding:80px 28px;}
+.about-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.about-photo{border-radius:20px;overflow:hidden;}
+.about-photo img{width:100%;height:480px;object-fit:cover;}
+.about-copy .sec-label{text-align:left;margin-bottom:10px;}
+.about-copy h2{font-size:40px;font-weight:900;color:#111;margin-bottom:22px;line-height:1.1;}
+.about-copy p{font-size:15px;color:#555;line-height:1.75;margin-bottom:14px;}
 
-/* PERFORMANCE BANNER */
-.perf-section{padding:80px 24px;background:#fff;}
-.perf-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
-.perf-text .sub{font-size:14px;font-weight:600;color:#2abfbf;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;}
-.perf-text h2{font-size:clamp(44px,5vw,72px);font-weight:900;color:#111;line-height:1.0;margin-bottom:32px;letter-spacing:-1px;}
-.btn-shop{display:inline-block;background:transparent;border:2px solid #111;color:#111;padding:14px 32px;border-radius:50px;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.2s;}
-.btn-shop:hover{background:#111;color:#fff;}
-.perf-img{border-radius:20px;overflow:hidden;}
-.perf-img img{width:100%;height:480px;object-fit:cover;}
+/* ===== SHOP BANNER ===== */
+.shopbanner{padding:80px 28px;background:#fff;}
+.shopbanner-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.sb-text .sub{font-size:12px;font-weight:700;letter-spacing:3px;color:#2abfbf;text-transform:uppercase;margin-bottom:10px;}
+.sb-text h2{font-size:clamp(40px,5vw,68px);font-weight:900;color:#111;line-height:1.0;margin-bottom:28px;letter-spacing:-1px;}
+.btn-outline{display:inline-block;border:2px solid #111;color:#111;padding:13px 30px;border-radius:50px;font-size:14px;font-weight:700;transition:all 0.2s;}
+.btn-outline:hover{background:#111;color:#fff;}
+.sb-img{border-radius:20px;overflow:hidden;}
+.sb-img img{width:100%;height:460px;object-fit:cover;}
 
-/* TESTIMONIALS */
-.testimonials-section{padding:80px 24px;background:#f7f7f7;}
-.testimonials-inner{max-width:1400px;margin:0 auto;}
-.testimonials-inner .section-label{margin-bottom:4px;}
-.section-subtitle{text-align:center;font-size:15px;color:#777;margin-bottom:8px;}
-.testimonials-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-.review-card{background:#fff;border-radius:20px;padding:32px;border:1px solid #f0f0f0;}
-.review-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
-.reviewer-name{font-size:16px;font-weight:700;color:#111;}
-.review-title{font-size:13px;color:#777;font-style:italic;}
-.stars{color:#b8a832;font-size:18px;margin-bottom:16px;letter-spacing:2px;}
-.review-text{font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;}
-.review-product{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid #f0f0f0;}
-.review-product img{width:48px;height:48px;object-fit:contain;border-radius:8px;background:#f9f9f9;}
-.review-product-info{font-size:12px;color:#999;}
-.review-product-info a{font-weight:700;color:#004a55;font-size:13px;display:block;}
-.review-product-info .price{color:#111;font-weight:700;}
-.verified-icon{color:#2abfbf;font-size:16px;}
+/* ===== TESTIMONIALS ===== */
+.testi{padding:80px 28px;background:#f7f7f7;}
+.testi-inner{max-width:1400px;margin:0 auto;}
+.testi-inner .sec-subtitle{text-align:center;font-size:14px;color:#888;margin-bottom:6px;}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px;}
+.rcard{background:#fff;border-radius:20px;padding:30px;border:1px solid #efefef;}
+.rname{font-size:15px;font-weight:700;color:#111;}
+.rtitle{font-size:13px;color:#888;font-style:italic;margin-bottom:12px;}
+.rstars{color:#b8a832;font-size:17px;letter-spacing:2px;margin-bottom:12px;}
+.rtext{font-size:14.5px;color:#444;line-height:1.7;margin-bottom:18px;}
+.rprod{display:flex;align-items:center;gap:10px;border-top:1px solid #f0f0f0;padding-top:14px;}
+.rprod-info{font-size:12px;color:#aaa;}
+.rprod-info a{display:block;font-size:13px;font-weight:700;color:#004a55;}
+.rprod-info .rp{color:#111;font-weight:700;}
+.rcheck{color:#2abfbf;font-size:14px;margin-left:4px;}
 
-/* FOOTER */
-footer{background:#fff;border-top:1px solid #f0f0f0;padding:60px 24px 24px;}
-.footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px;}
-.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
-.footer-logo img{height:36px;}
-.footer-desc{font-size:14px;color:#666;line-height:1.7;margin-bottom:16px;}
-.footer-desc strong{color:#111;}
-.footer-email{font-size:14px;color:#004a55;font-weight:600;}
-.footer-col h4{font-size:14px;font-weight:700;color:#111;margin-bottom:20px;letter-spacing:1px;text-transform:uppercase;}
-.footer-col ul li{margin-bottom:10px;}
-.footer-col ul li a{font-size:14px;color:#666;transition:color 0.2s;}
-.footer-col ul li a:hover{color:#004a55;}
-.footer-bottom{border-top:1px solid #f0f0f0;padding-top:20px;display:flex;justify-content:space-between;align-items:center;}
-.footer-bottom p{font-size:13px;color:#999;}
+/* ===== FAQ SECTION ===== */
+.faq{padding:80px 28px;background:#fff;}
+.faq-inner{max-width:900px;margin:0 auto;}
+.faq-item{border-bottom:1px solid #e8e8e8;}
+.faq-q{width:100%;background:none;border:none;text-align:left;padding:20px 0;font-size:15px;font-weight:600;color:#111;display:flex;justify-content:space-between;align-items:center;cursor:pointer;}
+.faq-q:hover{color:#004a55;}
+.faq-q .fa{font-size:20px;color:#004a55;font-weight:300;transition:transform 0.2s;}
+.faq-q.open .fa{transform:rotate(45deg);}
+.faq-a{display:none;padding:0 0 18px;font-size:14.5px;color:#555;line-height:1.7;}
+.faq-a.show{display:block;}
 
-/* MOBILE NAV */
-.mobile-nav{display:none;}
+/* ===== CONTACT SECTION ===== */
+.contact{padding:80px 28px;background:#f7f7f7;}
+.contact-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.contact-info h2{font-size:32px;font-weight:800;color:#111;margin-bottom:16px;}
+.contact-info p{font-size:15px;color:#555;line-height:1.7;margin-bottom:24px;}
+.contact-links{display:flex;flex-direction:column;gap:14px;}
+.clink{display:flex;align-items:center;gap:12px;padding:14px 20px;background:#fff;border-radius:14px;border:1.5px solid #eaeaea;transition:all 0.2s;text-decoration:none;}
+.clink:hover{border-color:#004a55;background:#f0f9f9;}
+.clink-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.clink-icon.wa{background:#25d366;color:#fff;}
+.clink-icon.em{background:#004a55;color:#fff;}
+.clink-text{font-size:14px;font-weight:600;color:#111;}
+.clink-sub{font-size:12px;color:#aaa;}
+.contact-form{background:#fff;border-radius:20px;padding:36px;}
+.contact-form h3{font-size:20px;font-weight:700;margin-bottom:24px;}
+.form-row{margin-bottom:16px;}
+.form-row label{display:block;font-size:13px;font-weight:600;color:#555;margin-bottom:6px;}
+.form-row input,.form-row textarea{width:100%;padding:12px 16px;border:1.5px solid #e0e0e0;border-radius:10px;font-size:14px;font-family:inherit;outline:none;transition:border-color 0.2s;}
+.form-row input:focus,.form-row textarea:focus{border-color:#004a55;}
+.form-row textarea{height:100px;resize:vertical;}
+.btn-send{width:100%;padding:14px;background:#004a55;color:#fff;border:none;border-radius:50px;font-size:14px;font-weight:700;cursor:pointer;transition:background 0.2s;}
+.btn-send:hover{background:#002e38;}
 
-/* RESPONSIVE */
-@media(max-width:1024px){
-  nav{display:none;}
-    .products-grid{grid-template-columns:repeat(2,1fr);}
-      .bundles-inner{grid-template-columns:1fr;}
-        .about-inner,.perf-inner{grid-template-columns:1fr;}
-          .about-img img,.perf-img img{height:300px;}
-            .footer-inner{grid-template-columns:1fr 1fr;}
-              .trust-card{grid-template-columns:1fr;}
-              }
-              @media(max-width:768px){
-                .header-inner{padding:0 16px;}
-                  .categories-grid{grid-template-columns:1fr;}
-                    .products-grid{grid-template-columns:1fr 1fr;}
-                      .testimonials-grid{grid-template-columns:1fr;}
-                        .footer-inner{grid-template-columns:1fr;}
-                          .hero-slide{flex-direction:column;padding:40px 24px;text-align:center;}
-                            .hero-image{justify-content:center;margin-top:32px;}
-                              .announcement{margin:8px 12px;padding:12px 16px;font-size:12px;}
-                              }
-                              </style>
-                              </head>
-                              <body>
-                              <!-- TOP BAR -->
-                              <div class="top-bar">
-                              <div class="top-bar-inner">
-                              <div class="social-icons">
-                              <a href="#">f</a><a href="#">in</a><a href="#">X</a><a href="#">s</a>
-                              </div>
-                              <div class="ticker-wrap">
-                              <div class="ticker">
-                              <span>Fat Loss</span><span class="dot">&#8226;</span><span>Muscle Growth</span><span class="dot">&#8226;</span><span>Free Delivery Over $150</span><span class="dot">&#8226;</span><span><a href="mailto:info@thepeptidelabs.ca">info@thepeptidelabs.ca</a></span><span class="dot">&#8226;</span><span>99% Purity</span><span class="dot">&#8226;</span>
-                              <span>Fat Loss</span><span class="dot">&#8226;</span><span>Muscle Growth</span><span class="dot">&#8226;</span><span>Free Delivery Over $150</span><span class="dot">&#8226;</span><span><a href="mailto:info@thepeptidelabs.ca">info@thepeptidelabs.ca</a></span><span class="dot">&#8226;</span><span>99% Purity</span><span class="dot">&#8226;</span>
-                              </div>
-                              </div>
-                              </div>
-                              </div>
-                              <!-- HEADER -->
-                              <header>
-                              <div class="header-inner">
-                              <button class="hamburger"><span></span><span></span><span></span></button>
-                              <a href="#" class="logo">
-                              <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <polygon points="50,5 90,27 90,73 50,95 10,73 10,27" stroke="#2abfbf" stroke-width="4" fill="none"/>
-                              <polygon points="50,20 75,34 75,62 50,76 25,62 25,34" stroke="#2abfbf" stroke-width="3" fill="none"/>
-                              <text x="50" y="56" text-anchor="middle" font-size="18" font-weight="bold" fill="#2abfbf">+</text>
-                              </svg>
-                              <div class="logo-combined"><span class="thin">THEPEPTIDE</span><span class="bold">LABS</span></div>
-                              </a>
-                              <nav>
-                              <ul>
-                              <li><a href="#">Home</a></li>
-                              <li><a href="#shop">Shop</a></li>
-                              <li><a href="#about">About Us</a></li>
-                              <li><a href="#faq">FAQ</a></li>
-                              <li><a href="#">Dosage Calculator</a></li>
-                              <li><a href="#">Learn</a></li>
-                              <li><a href="#contact">Contact Us</a></li>
-                              </ul>
-                              </nav>
-                              <div class="header-icons">
-                              <a href="#">&#128269;</a>
-                              <a href="#">&#128100;</a>
-                              <a href="#" style="position:relative;">&#9825;<span class="badge">0</span></a>
-                              <a href="#" style="position:relative;">&#128722;<span class="badge">0</span></a>
-                              </div>
-                              </div>
-                              </header>
-                              <!-- ANNOUNCEMENT -->
-                              <div class="announcement">
-                              GET YOUR <span class="highlight">FIRST ORDER 20% OFF</span> DISCOUNT - USE CODE <span class="highlight">TPL20</span> IN CHECKOUT
-                              </div>
-                              <!-- HERO SECTION -->
-                              <section class="hero-section">
-                              <div class="hero-slide active" id="slide1">
-                              <div class="hero-text">
-                              <p class="hero-tag">Canadian Peptide Labs</p>
-                              <h1 class="hero-heading">The Benchmark<br>of Purity in<br>Peptide Research</h1>
-                              <a href="#shop" class="hero-btn">SHOP NOW <span class="arrow">&#8599;</span></a>
-                              </div>
-                              <div class="hero-image">
-                              <img src="https://thepeptidelabs.ca/wp-content/uploads/2026/05/peptides-banner-home.jpg" alt="BPC-157 and RT20 peptide vials"/>
-                              </div>
-                              </div>
-                              <div class="hero-slide hero-slide-alt" id="slide2">
-                              <div class="hero-text">
-                              <p class="hero-tag">USE CODE <strong>TPL20</strong> AT CHECKOUT</p>
-                              <h1 class="hero-heading">GET 20% OFF<br>ON YOUR<br><span class="orange">FIRST ORDER</span></h1>
-                              <a href="#shop" class="hero-btn">SHOP NOW <span class="arrow">&#8599;</span></a>
-                              </div>
-                              <div class="hero-image">
-                              <img src="https://thepeptidelabs.ca/wp-content/uploads/2026/05/peptides-banner-home.jpg" alt="Research peptide vials"/>
-                              </div>
-                              </div>
-                              <div class="hero-dots">
-                              <div class="hero-dot active" onclick="showSlide(1)"></div>
-                              <div class="hero-dot" onclick="showSlide(2)"></div>
-                              </div>
-                              </section>
-                              <!-- TRUST BAR -->
-                              <section class="trust-section">
-                              <div class="trust-inner">
-                              <div class="trust-card">
-                              <div class="trust-item">
-                              <div class="trust-icon">&#128666;</div>
-                              <div class="trust-content">
-                              <h3>Free Shipping Over $150</h3>
-                              <p>Same day shipping on orders placed before 1pm PST.</p>
-                              </div>
-                              </div>
-                              <div class="trust-item">
-                              <div class="trust-icon">&#128737;</div>
-                              <div class="trust-content">
-                              <h3>Rigorous Quality Control</h3>
-                              <p>Liquid chromatography and mass spectrometry ensure purity &gt;99%</p>
-                              </div>
-                              </div>
-                              <div class="trust-item">
-                              <div class="trust-icon">&#128274;</div>
-                              <div class="trust-content">
-                              <h3>Secure Payment Methods</h3>
-                              <p>E-transfer and cryptocurrency are the most secure ways to pay for your order.</p>
-                              </div>
-                              </div>
-                              </div>
-                              </div>
-                              </section>
-                              <!-- CATEGORIES -->
-                              <section class="categories-section" id="shop">
-                              <div class="categories-inner">
-                              <h2 class="section-title">Categories</h2>
-                              <div class="categories-grid">
-                              <a href="#" class="category-pill">Ancillaries <span class="cat-arrow">&#9654;</span></a>
-                              <a href="#" class="category-pill">Anti-Aging <span class="cat-arrow">&#9654;</span></a>
-                              <a href="#" class="category-pill">Recovery <span class="cat-arrow">&#9654;</span></a>
-                              <a href="#" class="category-pill">Peptide Blend <span class="cat-arrow">&#9654;</span></a>
-                              <a href="#" class="category-pill">Fat Loss <span class="cat-arrow">&#9654;</span></a>
-                              <a href="#" class="category-pill">Muscle Growth <span class="cat-arrow">&#9654;</span></a>
-                              </div>
-                              </div>
-                              </section>
-                              <!-- BEST SELLERS -->
-                              <section class="bestsellers-section">
-                              <div class="bestsellers-inner">
-                              <p class="section-label">DISCOVER OUR TOP PICKS</p>
-                              <h2 class="section-title">Best Sellers</h2>
-                              <div class="bs-tabs">
-                              <div class="bs-tab active" onclick="showTab(this,'fat-loss')">Fat Loss</div>
-                              <div class="bs-tab" onclick="showTab(this,'muscle')">Muscle Growth</div>
-                              <div class="bs-tab" onclick="showTab(this,'antiaging')">Anti-Aging</div>
-                              </div>
-                              <div class="products-grid" id="tab-fat-loss">
-                              <div class="product-card">
-                              <div class="product-img"><img src="https://thepeptidelabs.ca/wp-content/uploads/2026/04/AOD.png" alt="AOD-9604 5MG"/></div>
-                              <div class="product-info">
-                              <p class="product-cat">Fat Loss</p>
-                              <h3 class="product-name">AOD-9604 5MG</h3>
-                              <p class="product-price"><span class="dollar">$</span>60.00</p>
-                              <button class="btn-soldout">Sold Out</button>
-                              </div>
-                              </div>
-                              <div class="product-card">
-                              <div class="product-img"><img src="https://thepeptidelabs.ca/wp-content/uploads/2026/01/l-carnitine-500mg.jpg" alt="L-CARNITINE 500MG"/></div>
-                              <div class="product-info">
-                              <p class="product-cat">Fat Loss</p>
-                              <h3 class="product-name">L-CARNITINE 500MG</h3>
-                              <p class="product-price"><span class="dollar">$</span>35.00</p>
-                              <button class="btn-cart">Add To Cart</button>
-                              </div>
-                              </div>
-                              <div class="product-card">
-                              <div class="product-img"><img src="https://thepeptidelabs.ca/wp-content/uploads/2026/01/semaglutide-10mg.jpg" alt="SEMAGLUTIDE 10MG"/></div>
-                              <div class="product-info">
-                              <p class="product-cat">Metabolic</p>
-                              <h3 class="product-name">SEMAGLUTIDE 10MG</h3>
-                              <p class="product-price"><span class="dollar">$</span>75.00</p>
-                              <button class="btn-cart">Add To Cart</button>
-                              </div>
-                              </div>
-                              <div class="product-card">
-                              <div class="product-img"><img src="https://thepeptidelabs.ca/wp-content/uploads/2026/01/hcg10000.png" alt="HCG 10000IU"/></div>
-                              <div class="product-info">
-                              <p class="product-cat">Fat Loss</p>
-                              <h3 class="product-name">HCG 10,000IU</h3>
-                              <p class="product-price"><span class="dollar">$</span>65.00</p>
-                              <button class="btn-cart">Add To Cart</button>
-                              </div>
-                              </div>
-                              </div>
-                              </div>
-                              </section>
-                              <!-- BUNDLES -->
-                              <section class="bundles-section">
-                              <div class="bundles-inner">
-                              <div class="bundle-card">
-                              <img class="bundle-bg" src="https://thepeptidelabs.ca/wp-content/uploads/2025/12/muscle-growth-banner-2.jpg" alt="Muscle Growth Bundle"/>
-                              <div class="bundle-content">
-                              <span class="bundle-badge">Bundle &amp; Save 25% OFF</span>
-                              <h3 class="bundle-title">Ultimate Muscle Growth Bundle</h3>
-                              <div class="bundle-price"><span class="current">$130.00</span><span class="original">$150.00</span></div>
-                              <a href="#" class="btn-details">See Details</a>
-                              </div>
-                              </div>
-                              <div class="bundle-card">
-                              <img class="bundle-bg" src="https://thepeptidelabs.ca/wp-content/uploads/2025/12/weight-loss-banner.jpg" alt="Weight Loss Bundle"/>
-                              <div class="bundle-content">
-                              <span class="bundle-badge">Bundle &amp; Save 25% OFF</span>
-                              <h3 class="bundle-title">Weight Loss Program Bundle</h3>
-                              <div class="bundle-price"><span class="current">$130.00</span><span class="original">$169.00</span></div>
-                              <a href="#" class="btn-details">See Details</a>
-                              </div>
-                              </div>
-                              </div>
-                              </section>
-                              <!-- ABOUT -->
-                              <section class="about-section" id="about">
-                              <div class="about-inner">
-                              <div class="about-img">
-                              <img src="https://thepeptidelabs.ca/wp-content/uploads/2026/03/banner1.webp" alt="Lab with research peptides"/>
-                              </div>
-                              <div class="about-text">
-                              <p class="section-label">BUY PEPTIDES ONLINE IN CANADA WITH CONFIDENCE AT</p>
-                              <h2>The Peptide Labs</h2>
-                              <p>The Peptide Labs is a trusted Canadian source for highly purified peptides, proteins, and amino acids. We are dedicated to supplying the scientific community, academic institutions, and independent researchers across Canada.</p>
-                              <p>When you order peptides online in Canada from us, you can be assured of stringent quality control at every stage — from initial synthesis to packaging and delivery. Our in-house analytical lab rigorously verifies each peptide's sequence through state-of-the-art High-Performance Liquid Chromatography (HPLC) and Mass Spectrometry (MS), ensuring unmatched purity, identity, and stability with every vial.</p>
-                              </div>
-                              </div>
-                              </section>
-                              <!-- PERFORMANCE BANNER -->
-                              <section class="perf-section">
-                              <div class="perf-inner">
-                              <div class="perf-text">
-                              <p class="sub">PRECISION COMPOUNDS FOR</p>
-                              <h2>Performance<br>&amp; Vitality</h2>
-                              <a href="#shop" class="btn-shop">Shop Peptides</a>
-                              </div>
-                              <div class="perf-img">
-                              <img src="https://thepeptidelabs.ca/wp-content/uploads/2026/03/banner1.webp" alt="Research peptides in laboratory"/>
-                              </div>
-                              </div>
-                              </section>
-                              <!-- TESTIMONIALS -->
-                              <section class="testimonials-section">
-                              <div class="testimonials-inner">
-                              <p class="section-subtitle">Still Unsure? Read Real Life Reviews From Our Customers</p>
-                              <p class="section-label">TESTIMONIALS</p>
-                              <h2 class="section-title">Testimonials</h2>
-                              <div class="testimonials-grid">
-                              <div class="review-card">
-                              <div class="review-header">
-                              <div><div class="reviewer-name">Emil T. <span class="verified-icon">&#10003;</span></div><div class="review-title">Noticeable Results &amp; Great Quality</div></div>
-                              </div>
-                              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                              <p class="review-text">&ldquo;I&apos;ve been using peptides consistently for a few weeks now, and the results have been impressive. My recovery time has improved, energy levels are up, and overall I just feel better. The quality is clearly high, and everything arrived well-packaged and fresh.&rdquo;</p>
-                              </div>
-                              <div class="review-card">
-                              <div class="review-header">
-                              <div><div class="reviewer-name">Jessica M. <span class="verified-icon">&#10003;</span></div><div class="review-title">Exceeded My Expectations</div></div>
-                              </div>
-                              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                              <p class="review-text">&ldquo;I was a bit skeptical at first, but peptides have completely exceeded my expectations. My sleep quality has improved, workouts feel more effective, and I&apos;ve noticed better focus during the day. Definitely adding this to my long-term routine.&rdquo;</p>
-                              <div class="review-product">
-                              <div class="review-product-info">Item purchased: <a href="#">HCG 10,000IU</a> <span class="price">$65.00</span></div>
-                              </div>
-                              </div>
-                              <div class="review-card">
-                              <div class="review-header">
-                              <div><div class="reviewer-name">Larry P. <span class="verified-icon">&#10003;</span></div><div class="review-title">Clean, Reliable, and Effective</div></div>
-                              </div>
-                              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                              <p class="review-text">&ldquo;These peptides feel clean and well-made. No weird side effects, just steady and noticeable benefits. I&apos;ve recommended to several colleagues already.&rdquo;</p>
-                              <div class="review-product">
-                              <div class="review-product-info">Item purchased: <a href="#">MOTS-C 10MG</a> <span class="price">$50.00</span></div>
-                              </div>
-                              </div>
-                              <div class="review-card">
-                              <div class="review-header">
-                              <div><div class="reviewer-name">Emily T. <span class="verified-icon">&#10003;</span></div><div class="review-title">Perfect for Performance &amp; Recovery</div></div>
-                              </div>
-                              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                              <p class="review-text">&ldquo;As someone who trains regularly, peptides have been a game-changer. Muscle recovery is quicker, soreness is reduced, and my overall performance feels more consistent.&rdquo;</p>
-                              <div class="review-product">
-                              <div class="review-product-info">Item purchased: <a href="#">IPAMORELIN 10MG</a> <span class="price">$65.00</span></div>
-                              </div>
-                              </div>
-                              </div>
-                              </div>
-                              </section>
-                              <!-- FOOTER -->
-                              <footer id="contact">
-                              <div class="footer-inner">
-                              <div>
-                              <div class="footer-logo">
-                              <svg width="36" height="36" viewBox="0 0 100 100" fill="none">
-                              <polygon points="50,5 90,27 90,73 50,95 10,73 10,27" stroke="#2abfbf" stroke-width="5" fill="none"/>
-                              <polygon points="50,22 75,36 75,64 50,78 25,64 25,36" stroke="#2abfbf" stroke-width="3" fill="none"/>
-                              <text x="50" y="58" text-anchor="middle" font-size="20" font-weight="bold" fill="#2abfbf">+</text>
-                              </svg>
-                              <span style="font-size:18px;font-weight:800;letter-spacing:2px;"><span style="color:#2abfbf;font-weight:300;">THEPEPTIDE</span><span style="color:#004a55;">LABS</span></span>
-                              </div>
-                              <p class="footer-desc">Welcome to <strong>The Peptide Labs</strong>. We are a proudly Canadian company dedicated to supplying the highest quality research peptides to the scientific community, academic institutions, and independent researchers across Canada.</p>
-                              <p class="footer-desc"><strong>All products sold by The Peptide Labs are intended strictly for laboratory research purposes only.</strong> These compounds are <strong>not for human consumption, medical use, or veterinary use</strong>. Products are sold exclusively to qualified researchers and laboratories.</p>
-                              <p class="footer-email">Email: <a href="mailto:info@thepeptidelabs.ca">info@thepeptidelabs.ca</a></p>
-                              </div>
-                              <div class="footer-col">
-                              <h4>Main Menu</h4>
-                              <ul>
-                              <li><a href="#">Home</a></li>
-                              <li><a href="#about">About Us</a></li>
-                              <li><a href="#">FAQ</a></li>
-                              <li><a href="#">Dosage Calculator</a></li>
-                              <li><a href="#">Refer a Friend Program</a></li>
-                              <li><a href="#">Blog</a></li>
-                              <li><a href="#contact">Contact Us</a></li>
-                              <li><a href="#">Privacy Policies</a></li>
-                              <li><a href="#">Returns &amp; Refunds</a></li>
-                              <li><a href="#">Terms &amp; Conditions</a></li>
-                              </ul>
-                              </div>
-                              <div class="footer-col">
-                              <h4>Shop Menu</h4>
-                              <ul>
-                              <li><a href="#">Peptide Blend</a></li>
-                              <li><a href="#">Anti-Aging</a></li>
-                              <li><a href="#">Fat Loss</a></li>
-                              <li><a href="#">Muscle Growth</a></li>
-                              <li><a href="#">Ancillaries</a></li>
-                              <li><a href="#">Recovery</a></li>
-                              <li><a href="#shop">Shop All</a></li>
-                              </ul>
-                              </div>
-                              <div class="footer-col">
-                              <h4>My Account</h4>
-                              <ul>
-                              <li><a href="#">My Account</a></li>
-                              <li><a href="#">Wishlist</a></li>
-                              <li><a href="#">Compare</a></li>
-                              <li><a href="#">Cart</a></li>
-                              <li><a href="#">Checkout</a></li>
-                              </ul>
-                              </div>
-                              </div>
-                              <div class="footer-bottom">
-                              <p>Copyright &copy; 2026 by <strong>The Peptide Labs Inc.</strong> All Rights Reserved.</p>
-                              <p>&#127464;&#127462; English &nbsp;|&nbsp; &#127467;&#127479; Fran&ccedil;ais</p>
-                              </div>
-                              </footer>
-                              <!-- JAVASCRIPT -->
-                              <script>
-                              function showSlide(n){
-                              const slides=document.querySelectorAll('.hero-slide');
-                              const dots=document.querySelectorAll('.hero-dot');
-                              slides.forEach(s=>s.classList.remove('active'));
-                              dots.forEach(d=>d.classList.remove('active'));
-                              slides[n-1].classList.add('active');
-                              dots[n-1].classList.add('active');
-                              }
-                              setInterval(()=>{
-                              const active=document.querySelector('.hero-slide.active');
-                              const slides=document.querySelectorAll('.hero-slide');
-                              let idx=Array.from(slides).indexOf(active);
-                              showSlide((idx+1)%slides.length+1);
-                              },5000);
-                              function showTab(el,tabId){
-                              document.querySelectorAll('.bs-tab').forEach(t=>t.classList.remove('active'));
-                              el.classList.add('active');
-                              }
-                              </script>
+/* ===== FOOTER ===== */
+footer{background:#fff;border-top:1px solid #efefef;padding:60px 28px 24px;}
+.foot-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px;}
+.foot-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+.foot-logo .logo-name{font-size:17px;}
+.foot-desc{font-size:13.5px;color:#666;line-height:1.75;margin-bottom:12px;}
+.foot-email a{font-size:13.5px;color:#004a55;font-weight:600;}
+.foot-col h4{font-size:12.5px;font-weight:700;color:#111;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px;}
+.foot-col li{margin-bottom:9px;}
+.foot-col li a{font-size:13.5px;color:#666;transition:color 0.2s;}
+.foot-col li a:hover{color:#004a55;}
+.foot-bottom{max-width:1400px;margin:0 auto;border-top:1px solid #efefef;padding-top:20px;display:flex;justify-content:space-between;align-items:center;}
+.foot-bottom p{font-size:12.5px;color:#aaa;}
 
-                              <!-- FLOATING CONTACT BUTTONS -->
-                              <style>
-                              .contact-fab{position:fixed;bottom:28px;right:28px;display:flex;flex-direction:column;gap:12px;z-index:9999;}
-                              .contact-fab a{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.22);transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;}
-                              .contact-fab a:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(0,0,0,0.3);}
-                              .contact-fab .wa-btn{background:#25d366;}
-                              .contact-fab .em-btn{background:#004a55;}
-                              .contact-fab svg{width:26px;height:26px;fill:#fff;}
-                              </style>
-                              <div class="contact-fab">
-                              <a class="wa-btn" href="https://wa.me/12507189152" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-                              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                              </a>
-                              <a class="em-btn" href="mailto:toufikghafir13@gmail.com" aria-label="Send us an Email">
-                              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                              </a>
-                              </div>
-                              </body>
-                              </html>
+/* ===== SHOP PAGE ===== */
+.page-hero{background:linear-gradient(135deg,#2abfbf 0%,#004a55 100%);padding:60px 28px;text-align:center;}
+.page-hero h1{font-size:42px;font-weight:900;color:#fff;margin-bottom:10px;}
+.breadcrumb{font-size:13px;color:rgba(255,255,255,0.7);}
+.breadcrumb a{color:rgba(255,255,255,0.8);}
+.breadcrumb span{color:#fff;font-weight:600;}
+.shop-main{max-width:1400px;margin:0 auto;padding:48px 28px;}
+.cat-showcase{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-bottom:48px;}
+.cat-card{border-radius:16px;overflow:hidden;position:relative;aspect-ratio:1;cursor:pointer;}
+.cat-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55),transparent 60%);}
+.cat-card img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s;}
+.cat-card:hover img{transform:scale(1.07);}
+.cat-card-label{position:absolute;bottom:0;left:0;right:0;z-index:1;padding:12px;text-align:center;}
+.cat-card-label strong{display:block;color:#fff;font-size:13px;font-weight:700;}
+.cat-card-label span{color:rgba(255,255,255,0.75);font-size:11px;}
+.shop-filter{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid #e8e8e8;}
+.filter-btn{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #e0e0e0;border-radius:50px;padding:9px 18px;font-size:13px;font-weight:600;color:#111;cursor:pointer;transition:all 0.2s;}
+.filter-btn:hover{border-color:#004a55;color:#004a55;}
+.sort-select{padding:9px 16px;border:1.5px solid #e0e0e0;border-radius:50px;font-size:13px;font-family:inherit;outline:none;cursor:pointer;}
+.shop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+
+/* ===== PRODUCT DETAIL ===== */
+.prod-detail{max-width:1400px;margin:0 auto;padding:48px 28px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.prod-gallery{position:relative;}
+.prod-main-img{border-radius:20px;overflow:hidden;background:#f8f8f8;padding:40px;display:flex;align-items:center;justify-content:center;height:460px;}
+.prod-main-img img{max-height:100%;object-fit:contain;}
+.prod-info h1{font-size:30px;font-weight:800;color:#111;margin-bottom:12px;}
+.prod-badge{display:inline-block;background:#ffc720;color:#111;font-size:11px;font-weight:700;padding:5px 14px;border-radius:50px;margin-bottom:14px;}
+.prod-stars{color:#b8a832;font-size:16px;margin-bottom:6px;}
+.prod-reviews{font-size:13px;color:#888;margin-bottom:18px;}
+.prod-price{font-size:36px;font-weight:900;color:#111;margin-bottom:16px;}
+.prod-instock{display:inline-flex;align-items:center;gap:8px;background:#e8f8ee;color:#1a7f37;font-size:13px;font-weight:700;padding:6px 14px;border-radius:50px;margin-bottom:8px;}
+.prod-social-proof{font-size:13px;color:#888;margin-bottom:6px;}
+.prod-urgency{font-size:13px;font-weight:700;color:#d62c2c;margin-bottom:20px;}
+.prod-urgency-bar{height:6px;background:#efefef;border-radius:3px;overflow:hidden;margin-bottom:24px;}
+.prod-urgency-fill{height:100%;background:linear-gradient(to right,#004a55,#2abfbf);border-radius:3px;width:75%;}
+.btn-atc{width:100%;padding:16px;background:#111;color:#fff;border:none;border-radius:50px;font-size:15px;font-weight:700;margin-bottom:12px;transition:background 0.2s;}
+.btn-atc:hover{background:#004a55;}
+
+/* ===== FLOATING CONTACT ===== */
+.fab{position:fixed;bottom:28px;right:28px;display:flex;flex-direction:column;gap:12px;z-index:9999;}
+.fab a{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.22);transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;}
+.fab a:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(0,0,0,0.3);}
+.fab .wa{background:#25d366;}
+.fab .em{background:#004a55;}
+.fab svg{width:26px;height:26px;fill:#fff;}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1100px){
+.main-nav{display:none;}
+.hamburger-btn{display:flex;}
+.prod-grid,.shop-grid{grid-template-columns:repeat(2,1fr);}
+.cat-showcase{grid-template-columns:repeat(3,1fr);}
+.trust-inner{grid-template-columns:1fr;}
+}
+@media(max-width:768px){
+.hero-wrap,.slide{flex-direction:column;padding:40px 20px 60px;}
+.slide-img{flex:none;width:100%;display:flex;justify-content:center;}
+.slide-img img{max-height:300px;}
+.cat-row{grid-template-columns:1fr;}
+.bundles-inner,.about-inner,.shopbanner-inner,.prod-detail,.contact-inner{grid-template-columns:1fr;}
+.foot-inner{grid-template-columns:1fr 1fr;}
+.tgrid{grid-template-columns:1fr;}
+.prod-grid,.shop-grid{grid-template-columns:1fr 1fr;}
+.cat-showcase{grid-template-columns:repeat(2,1fr);}
+.promo-bar{margin:8px 12px;font-size:11px;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+<div class="top-bar-inner">
+<div class="social-bar">
+<a href="#" title="Facebook">f</a>
+<a href="#" title="Instagram">in</a>
+<a href="#" title="X">X</a>
+<a href="#" title="Snapchat">s</a>
+</div>
+<div class="ticker-wrap">
+<div class="ticker">
+<span>Fat Loss</span><span class="sep">&#8226;</span><span>Muscle Growth</span><span class="sep">&#8226;</span><span>Free Delivery Over $150</span><span class="sep">&#8226;</span><a href="mailto:toufikghafir13@gmail.com">info@thepeptidelabs.ca</a><span class="sep">&#8226;</span><span>99% Purity</span><span class="sep">&#8226;</span><span>Anti-Aging</span><span class="sep">&#8226;</span><span>Recovery</span><span class="sep">&#8226;</span>
+<span>Fat Loss</span><span class="sep">&#8226;</span><span>Muscle Growth</span><span class="sep">&#8226;</span><span>Free Delivery Over $150</span><span class="sep">&#8226;</span><a href="mailto:toufikghafir13@gmail.com">info@thepeptidelabs.ca</a><span class="sep">&#8226;</span><span>99% Purity</span><span class="sep">&#8226;</span><span>Anti-Aging</span><span class="sep">&#8226;</span><span>Recovery</span><span class="sep">&#8226;</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- HEADER -->
+<header>
+<div class="header-wrap">
+<button class="hamburger-btn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+<a href="index.html" class="logo">
+<svg class="logo-svg" viewBox="0 0 100 100" fill="none">
+<polygon points="50,4 92,28 92,72 50,96 8,72 8,28" stroke="#2abfbf" stroke-width="4.5" fill="none"/>
+<polygon points="50,20 76,35 76,65 50,80 24,65 24,35" stroke="#2abfbf" stroke-width="3" fill="none"/>
+<circle cx="50" cy="50" r="6" fill="#2abfbf"/>
+<line x1="50" y1="34" x2="50" y2="44" stroke="#2abfbf" stroke-width="3"/>
+<line x1="50" y1="56" x2="50" y2="66" stroke="#2abfbf" stroke-width="3"/>
+</svg>
+<div class="logo-name"><span class="lt">THEPEPTIDE</span><span class="lb">LABS</span></div>
+</a>
+<nav class="main-nav" id="mainNav">
+<ul>
+<li><a href="index.html" class="active">Home</a></li>
+<li><a href="shop.html">Shop</a></li>
+<li><a href="about.html">About Us</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="#">Dosage Calculator</a></li>
+<li><a href="#">Learn</a></li>
+<li><a href="contact.html">Contact Us</a></li>
+</ul>
+</nav>
+<div class="nav-icons">
+<a href="#" title="Search">&#128269;</a>
+<a href="#" title="Account">&#128100;</a>
+<a href="#" title="Wishlist" style="position:relative">&#9825;<span class="nav-badge">0</span></a>
+<a href="#" title="Cart" style="position:relative">&#128722;<span class="nav-badge">0</span></a>
+</div>
+</div>
+</header>
+
+<!-- PROMO BAR -->
+<div class="promo-bar">GET YOUR <span class="hi">FIRST ORDER 20% OFF</span> DISCOUNT &mdash; USE CODE <span class="hi">TPL20</span> IN CHECKOUT</div>
+
+<!-- HERO SECTION -->
+<section class="hero">
+<div class="hero-slides">
+<div class="slide active" id="s1">
+<div class="slide-text">
+<p class="slide-tag">Canadian Peptide Labs</p>
+<h1 class="slide-h1">The Benchmark<br>of Purity in<br>Peptide Research</h1>
+<a href="shop.html" class="btn-hero">SHOP NOW &#8599;</a>
+</div>
+<div class="slide-img">
+<img src="https://thepeptidelabs.ca/wp-content/uploads/2026/05/peptides-banner-home.jpg" alt="BPC-157 and RT20 research peptide vials"/>
+</div>
+</div>
+<div class="slide" id="s2">
+<div class="slide-text">
+<p class="slide-tag">USE CODE <strong>TPL20</strong> AT CHECKOUT</p>
+<h1 class="slide-h1">GET 20% OFF<br>ON YOUR<br><span class="orange">FIRST ORDER</span></h1>
+<a href="shop.html" class="btn-hero">SHOP NOW &#8599;</a>
+</div>
+<div class="slide-img">
+<img src="https://thepeptidelabs.ca/wp-content/uploads/2026/05/peptides-banner-home.jpg" alt="Research peptides"/>
+</div>
+</div>
+</div>
+<div class="hero-nav">
+<button class="hero-dot on" onclick="goSlide(0)"></button>
+<button class="hero-dot" onclick="goSlide(1)"></button>
+</div>
+</section>
+
+<!-- TRUST BAR -->
+<section class="trust">
+<div class="trust-inner">
+<div class="trust-item">
+<div class="t-icon">&#128666;</div>
+<div class="t-text"><h3>Free Shipping Over $150</h3><p>Same day shipping on orders placed before 1pm PST.</p></div>
+</div>
+<div class="trust-item">
+<div class="t-icon">&#128737;</div>
+<div class="t-text"><h3>Rigorous Quality Control</h3><p>Liquid chromatography and mass spectrometry ensure purity &gt;99%</p></div>
+</div>
+<div class="trust-item">
+<div class="t-icon">&#128274;</div>
+<div class="t-text"><h3>Secure Payment Methods</h3><p>E-transfer and cryptocurrency are the most secure ways to pay.</p></div>
+</div>
+</div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="cats">
+<div class="cats-inner">
+<h2 class="sec-title">Categories</h2>
+<div class="cat-row">
+<a href="shop.html" class="cat-pill">Ancillaries <span class="ca">&#9654;</span></a>
+<a href="shop.html" class="cat-pill">Anti-Aging <span class="ca">&#9654;</span></a>
+<a href="shop.html" class="cat-pill">Recovery <span class="ca">&#9654;</span></a>
+<a href="shop.html" class="cat-pill">Peptide Blend <span class="ca">&#9654;</span></a>
+<a href="shop.html" class="cat-pill">Fat Loss <span class="ca">&#9654;</span></a>
+<a href="shop.html" class="cat-pill">Muscle Growth <span class="ca">&#9654;</span></a>
+</div>
+</div>
+</section>
+
+<!-- BEST SELLERS -->
+<section class="bsell">
+<div class="bsell-inner">
+<p class="sec-label">DISCOVER OUR TOP PICKS</p>
+<h2 class="sec-title">Best Sellers</h2>
+<div class="bs-tabs">
+<div class="bst on" onclick="bsTab(this,'fl')">Fat Loss</div>
+<div class="bst" onclick="bsTab(this,'mg')">Muscle Growth</div>
+<div class="bst" onclick="bsTab(this,'aa')">Anti-Aging</div>
+</div>
+<div class="prod-grid" id="fl">
+<div class="pcard">
+<div class="pimg"><img src="https://thepeptidelabs.ca/wp-content/uploads/2026/04/AOD.png" alt="AOD-9604"/></div>
+<p class="pcat">Fat Loss</p><h3 class="pname">AOD-9604 5MG</h3>
+<p class="pprice"><sup>$</sup>60.00</p>
+<button class="btn-sold">Sold Out</button>
+</div>
+<div class="pcard">
+<div class="pimg"><img src="https://thepeptidelabs.ca/wp-content/uploads/2026/01/l-carnitine-500mg.jpg" alt="L-Carnitine"/></div>
+<p class="pcat">Fat Loss</p><h3 class="pname">L-CARNITINE 500MG</h3>
+<p class="pprice"><sup>$</sup>35.00</p>
+<button class="btn-add">Add To Cart</button>
+</div>
+<div class="pcard">
+<div class="pimg"><img src="https://thepeptidelabs.ca/wp-content/uploads/2026/01/semaglutide-10mg.jpg" alt="Semaglutide"/></div>
+<p class="pcat">Metabolic</p><h3 class="pname">SEMAGLUTIDE 10MG</h3>
+<p class="pprice"><sup>$</sup>75.00</p>
+<button class="btn-add">Add To Cart</button>
+</div>
+<div class="pcard">
+<div class="pimg"><img src="https://thepeptidelabs.ca/wp-content/uploads/2026/01/hcg10000.png" alt="HCG"/></div>
+<p class="pcat">Fat Loss</p><h3 class="pname">HCG 10,000IU</h3>
+<p class="pprice"><sup>$</sup>65.00</p>
+<button class="btn-add">Add To Cart</button>
+</div>
+</div>
+<div class="prod-grid" id="mg" style="display:none">
+<div class="pcard">
+<div class="pimg"><img src="https://thepeptidelabs.ca/wp-content/uploads/2026/05/Tesa5Mg.png" alt="Tesamorelin"/></div>
+<p class="pcat">Muscle Growth</p><h3 class="pname">TESAMORELIN 5MG</h3>
+<p class="pprice"><sup>$</sup>50.00</p>
+<button class="btn-add">Add To Cart</button>
+</div>
+<div class="pcard">
+<div class="pimg"><img src="https://thepeptidelabs.ca/wp-content/uploads/2026/01/5-amino-1mq-2.jpg" alt="5-Amino"/></div>
+<p class="pcat">Muscle Growth</p><h3 class="pname">5-AMINO-1MQ 10MG</h3>
+<p class="pprice"><sup>$</sup>50.00</p>
+<button class="btn-add">Add To Cart</button>
+</div>
+<div class="pcard">
+<div class="pimg"><img src="https://thepeptidelabs.ca/wp-content/uploads/2026/01/rt10-vial-500x600.jpg" alt="RT10"/></div>
+<p class="pcat">Metabolic</p><h3 class="pname">RT10 10MG</h3>
+<p class="pprice"><sup>$</sup>75.00</p>
+<button class="btn-add">Add To Cart</button>
+</div>
+<div class="pcard">
+<div class="pimg"><img src="https://thepeptidelabs.ca/wp-content/uploads/2026/01/rt20-vials-500x600.jpg" alt="RT20"/></div>
+<p class="pcat">Metabolic</p><h3 class="pname">RT20 20MG</h3>
+<p class="pprice"><sup>$</sup>140.00</p>
+<button class="btn-add">Add To Cart</button>
+</div>
+</div>
+<div class="prod-grid" id="aa" style="display:none">
+<div class="pcard">
+<div class="pimg"><img src="https://thepeptidelabs.ca/wp-content/uploads/2026/01/ghk-cu-50mg-500x600.jpg" alt="GHK-CU"/></div>
+<p class="pcat">Anti-Aging</p><h3 class="pname">GHK-CU 50MG</h3>
+<p class="pprice"><sup>$</sup>40.00</p>
+<button class="btn-add">Add To Cart</button>
+</div>
+<div class="pcard">
+<div class="pimg"><img src="https://thepeptidelabs.ca/wp-content/uploads/2026/01/bacteriostatic-water-10ml-500x600.jpg" alt="BAC Water"/></div>
+<p class="pcat">Ancillaries</p><h3 class="pname">BACTERIOSTATIC WATER 10ML</h3>
+<p class="pprice"><sup>$</sup>10.00</p>
+<button class="btn-add">Add To Cart</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- BUNDLES -->
+<section class="bundles">
+<div class="bundles-inner">
+<div class="bcard">
+<img class="bcard-bg" src="https://thepeptidelabs.ca/wp-content/uploads/2025/12/muscle-growth-banner-2.jpg" alt="Muscle Growth Bundle"/>
+<div class="bcard-body">
+<span class="bbadge">Bundle &amp; Save 25% OFF</span>
+<h3 class="btitle">Ultimate Muscle Growth Bundle</h3>
+<div class="bprice"><span class="cur">$130.00</span><span class="was">$150.00</span></div>
+<a href="shop.html" class="btn-detail">See Details</a>
+</div>
+</div>
+<div class="bcard">
+<img class="bcard-bg" src="https://thepeptidelabs.ca/wp-content/uploads/2025/12/weight-loss-banner.jpg" alt="Weight Loss Bundle"/>
+<div class="bcard-body">
+<span class="bbadge">Bundle &amp; Save 25% OFF</span>
+<h3 class="btitle">Weight Loss Program Bundle</h3>
+<div class="bprice"><span class="cur">$130.00</span><span class="was">$169.00</span></div>
+<a href="shop.html" class="btn-detail">See Details</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+<div class="about-inner">
+<div class="about-photo">
+<img src="https://thepeptidelabs.ca/wp-content/uploads/2026/03/banner1.webp" alt="Research lab with peptide vials"/>
+</div>
+<div class="about-copy">
+<p class="sec-label">BUY PEPTIDES ONLINE IN CANADA WITH CONFIDENCE AT</p>
+<h2>The Peptide Labs</h2>
+<p>The Peptide Labs is a trusted Canadian source for highly purified peptides, proteins, and amino acids. We are dedicated to supplying the scientific community, academic institutions, and independent researchers across Canada.</p>
+<p>When you order peptides online in Canada from us, you can be assured of stringent quality control at every stage &mdash; from initial synthesis to packaging and delivery. Our in-house analytical lab rigorously verifies each peptide&rsquo;s sequence through state-of-the-art High-Performance Liquid Chromatography (HPLC) and Mass Spectrometry (MS), ensuring unmatched purity, identity, and stability with every vial.</p>
+<a href="about.html" class="btn-outline" style="margin-top:12px;">Learn More About Us</a>
+</div>
+</div>
+</section>
+
+<!-- SHOP BANNER -->
+<section class="shopbanner">
+<div class="shopbanner-inner">
+<div class="sb-text">
+<p class="sub">PRECISION COMPOUNDS FOR</p>
+<h2>Performance<br>&amp; Vitality</h2>
+<a href="shop.html" class="btn-outline">Shop Peptides</a>
+</div>
+<div class="sb-img">
+<img src="https://thepeptidelabs.ca/wp-content/uploads/2026/03/banner1.webp" alt="Peptides in laboratory setting"/>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi">
+<div class="testi-inner">
+<p class="testi-inner sec-subtitle">Still Unsure? Read Real Life Reviews From Our Customers</p>
+<p class="sec-label">TESTIMONIALS</p>
+<h2 class="sec-title">Testimonials</h2>
+<div class="tgrid">
+<div class="rcard">
+<div class="rname">Emil T. <span class="rcheck">&#10003;</span></div>
+<div class="rtitle">Noticeable Results &amp; Great Quality</div>
+<div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p class="rtext">&ldquo;I&rsquo;ve been using peptides consistently for a few weeks now, and the results have been impressive. My recovery time has improved, energy levels are up, and overall I just feel better. The quality is clearly high, and everything arrived well-packaged and fresh.&rdquo;</p>
+</div>
+<div class="rcard">
+<div class="rname">Jessica M. <span class="rcheck">&#10003;</span></div>
+<div class="rtitle">Exceeded My Expectations</div>
+<div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p class="rtext">&ldquo;I was a bit skeptical at first, but peptides have completely exceeded my expectations. My sleep quality has improved, workouts feel more effective, and I&rsquo;ve noticed better focus during the day.&rdquo;</p>
+<div class="rprod"><div class="rprod-info">Item purchased: <a href="shop.html">HCG 10,000IU</a> <span class="rp">$65.00</span></div></div>
+</div>
+<div class="rcard">
+<div class="rname">Larry P. <span class="rcheck">&#10003;</span></div>
+<div class="rtitle">Clean, Reliable, and Effective</div>
+<div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p class="rtext">&ldquo;These peptides feel clean and well-made. No weird side effects, just steady and noticeable benefits. I&rsquo;ve recommended to several colleagues already.&rdquo;</p>
+<div class="rprod"><div class="rprod-info">Item purchased: <a href="shop.html">MOTS-C 10MG</a> <span class="rp">$50.00</span></div></div>
+</div>
+<div class="rcard">
+<div class="rname">Emily T. <span class="rcheck">&#10003;</span></div>
+<div class="rtitle">Perfect for Performance &amp; Recovery</div>
+<div class="rstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p class="rtext">&ldquo;As someone who trains regularly, peptides have been a game-changer. Muscle recovery is quicker, soreness is reduced, and my overall performance feels more consistent.&rdquo;</p>
+<div class="rprod"><div class="rprod-info">Item purchased: <a href="shop.html">IPAMORELIN 10MG</a> <span class="rp">$65.00</span></div></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="faq" id="faq">
+<div class="faq-inner">
+<p class="sec-label" style="text-align:center;">GOT QUESTIONS?</p>
+<h2 class="sec-title">Frequently Asked Questions</h2>
+<div class="faq-item">
+<button class="faq-q open" onclick="toggleFaq(this)">Do you offer free shipping? <span class="fa">+</span></button>
+<div class="faq-a show">Yes! The Peptide Labs offers <strong>free expedited shipping on orders over $150</strong> within Canada.</div>
+</div>
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">Do you ship outside Canada? <span class="fa">+</span></button>
+<div class="faq-a">No. We only ship to <strong>Canadian addresses</strong>, unless otherwise stated.</div>
+</div>
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">When will my order ship? <span class="fa">+</span></button>
+<div class="faq-a">Orders paid <strong>Monday to Friday before 1:00 PM PST</strong> are eligible for same-day shipping. Orders paid after 1:00 PM PST, on weekends, or on holidays will ship the next business day.</div>
+</div>
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">What is your return policy? <span class="fa">+</span></button>
+<div class="faq-a">All sales are final on peptide products due to their nature as research compounds. If you received a damaged or incorrect item, please contact us within 48 hours of delivery.</div>
+</div>
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">How do I pay for my order? <span class="fa">+</span></button>
+<div class="faq-a">We accept <strong>e-transfer and cryptocurrency</strong>. These are the most secure payment methods for research peptide purchases in Canada.</div>
+</div>
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)">What purity level are your peptides? <span class="fa">+</span></button>
+<div class="faq-a">All our peptides are tested to ensure <strong>99%+ purity</strong> using High-Performance Liquid Chromatography (HPLC) and Mass Spectrometry (MS). Certificates of Analysis are available upon request.</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact" id="contact">
+<div class="contact-inner">
+<div class="contact-info">
+<h2>Get In Touch</h2>
+<p>Have a question about our products, your order, or anything else? We&rsquo;re here to help. Reach out via WhatsApp for instant replies, or send us an email and we&rsquo;ll respond within 24 hours.</p>
+<div class="contact-links">
+<a href="https://wa.me/12507189152" target="_blank" class="clink">
+<div class="clink-icon wa">
+<svg viewBox="0 0 24 24" width="20" height="20" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</div>
+<div><div class="clink-text">Chat on WhatsApp</div><div class="clink-sub">Instant replies available</div></div>
+</a>
+<a href="mailto:toufikghafir13@gmail.com" class="clink">
+<div class="clink-icon em">
+<svg viewBox="0 0 24 24" width="20" height="20" fill="#fff"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+</div>
+<div><div class="clink-text">Send an Email</div><div class="clink-sub">Reply within 24 hours</div></div>
+</a>
+</div>
+</div>
+<div class="contact-form">
+<h3>Send Us a Message</h3>
+<div class="form-row"><label>Your Name</label><input type="text" placeholder="Enter your name"/></div>
+<div class="form-row"><label>Email Address</label><input type="email" placeholder="Enter your email"/></div>
+<div class="form-row"><label>Subject</label><input type="text" placeholder="How can we help?"/></div>
+<div class="form-row"><label>Message</label><textarea placeholder="Tell us more..."></textarea></div>
+<button class="btn-send" onclick="alert('Thank you! We will reply within 24 hours.')">Send Message</button>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="foot-inner">
+<div>
+<div class="foot-logo">
+<svg width="34" height="34" viewBox="0 0 100 100" fill="none"><polygon points="50,4 92,28 92,72 50,96 8,72 8,28" stroke="#2abfbf" stroke-width="5" fill="none"/><polygon points="50,20 76,35 76,65 50,80 24,65 24,35" stroke="#2abfbf" stroke-width="3" fill="none"/><circle cx="50" cy="50" r="6" fill="#2abfbf"/></svg>
+<div class="logo-name"><span class="lt">THEPEPTIDE</span><span class="lb">LABS</span></div>
+</div>
+<p class="foot-desc">Welcome to <strong>The Peptide Labs</strong>. A proudly Canadian company dedicated to supplying the highest quality research peptides to the scientific community, academic institutions, and independent researchers across Canada.</p>
+<p class="foot-desc"><strong>All products are intended strictly for laboratory research purposes only.</strong> Not for human consumption, medical use, or veterinary use.</p>
+<p class="foot-email">Email: <a href="mailto:toufikghafir13@gmail.com">info@thepeptidelabs.ca</a></p>
+</div>
+<div class="foot-col">
+<h4>Main Menu</h4>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About Us</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="#">Dosage Calculator</a></li>
+<li><a href="#">Refer a Friend Program</a></li>
+<li><a href="#">Blog</a></li>
+<li><a href="contact.html">Contact Us</a></li>
+<li><a href="#">Privacy Policies</a></li>
+<li><a href="#">Returns &amp; Refunds</a></li>
+<li><a href="#">Terms &amp; Conditions</a></li>
+</ul>
+</div>
+<div class="foot-col">
+<h4>Shop Menu</h4>
+<ul>
+<li><a href="shop.html">Peptide Blend</a></li>
+<li><a href="shop.html">Anti-Aging</a></li>
+<li><a href="shop.html">Fat Loss</a></li>
+<li><a href="shop.html">Muscle Growth</a></li>
+<li><a href="shop.html">Ancillaries</a></li>
+<li><a href="shop.html">Recovery</a></li>
+<li><a href="shop.html">Shop All</a></li>
+</ul>
+</div>
+<div class="foot-col">
+<h4>My Account</h4>
+<ul>
+<li><a href="#">My Account</a></li>
+<li><a href="#">Wishlist</a></li>
+<li><a href="#">Compare</a></li>
+<li><a href="#">Cart</a></li>
+<li><a href="#">Checkout</a></li>
+</ul>
+</div>
+</div>
+<div class="foot-bottom">
+<p>Copyright &copy; 2026 by <strong>The Peptide Labs Inc.</strong> All Rights Reserved.</p>
+<p>&#127464;&#127462; English &nbsp;|&nbsp; &#127467;&#127479; Fran&ccedil;ais</p>
+</div>
+</footer>
+
+<!-- FLOATING CONTACT BUTTONS -->
+<div class="fab">
+<a class="wa" href="https://wa.me/12507189152" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<a class="em" href="mailto:toufikghafir13@gmail.com" aria-label="Send Email">
+<svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+</a>
+</div>
+
+<script>
+// Hero slider
+const slides=document.querySelectorAll('.slide');
+const dots=document.querySelectorAll('.hero-dot');
+let cur=0;
+function goSlide(n){
+slides[cur].classList.remove('active');
+dots[cur].classList.remove('on');
+cur=n;
+slides[cur].classList.add('active');
+dots[cur].classList.add('on');
+}
+setInterval(()=>goSlide((cur+1)%slides.length),5500);
+
+// Best sellers tabs
+function bsTab(el,id){
+document.querySelectorAll('.bst').forEach(t=>t.classList.remove('on'));
+el.classList.add('on');
+['fl','mg','aa'].forEach(i=>{const g=document.getElementById(i);if(g)g.style.display='none';});
+const t=document.getElementById(id);
+if(t)t.style.display='grid';
+}
+
+// FAQ accordion
+function toggleFaq(btn){
+const ans=btn.nextElementSibling;
+const isOpen=btn.classList.contains('open');
+document.querySelectorAll('.faq-q').forEach(q=>{q.classList.remove('open');if(q.nextElementSibling)q.nextElementSibling.classList.remove('show');});
+if(!isOpen){btn.classList.add('open');ans.classList.add('show');}
+}
+
+// Mobile menu
+function toggleMenu(){
+const nav=document.getElementById('mainNav');
+if(nav.style.display==='block'){nav.style.display='';}else{nav.style.cssText='display:block;position:absolute;top:70px;left:0;right:0;background:#fff;padding:20px 28px;box-shadow:0 8px 24px rgba(0,0,0,0.1);z-index:999;';nav.querySelector('ul').style.cssText='flex-direction:column;gap:16px;';}
+}
+</script>
+</body>
+</html>
