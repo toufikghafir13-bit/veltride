@@ -1,119 +1,569 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Shop | VELTRIDE Research Peptides</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Research Compound Catalogue | VELTRIDE Canada</title>
+<meta name="description" content="VELTRIDE research compound catalogue — analytical-grade peptides for laboratory reference use. 99% purity, HPLC verified, COA included. Canada-wide shipping."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--t:#00e5cc;--d:#0a0f1e;--c:#111827;--b:#1e2a3a;--tx:#e2e8f0;--m:#64748b}
-body{background:var(--d);color:var(--tx);font-family:'Space Grotesk',sans-serif}
-a{text-decoration:none;color:inherit}
-nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:rgba(10,15,30,.95);border-bottom:1px solid var(--b);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
-.logo{font-family:'Space Mono',monospace;font-size:1rem;font-weight:700;letter-spacing:2px}
-.nl{display:flex;gap:2rem}
-.nl a{font-size:.82rem;letter-spacing:1px;text-transform:uppercase;color:var(--m);transition:color .2s}
-.nl a:hover,.nl a.on{color:var(--t)}
-.cta{background:var(--t);color:var(--d)!important;padding:.4rem 1rem;border-radius:4px;font-weight:700}
-.hero{background:linear-gradient(135deg,#0a0f1e,#0d1f2d);padding:3rem 2rem;border-bottom:1px solid var(--b)}
-.hi{max-width:1200px;margin:0 auto}
-.bc{font-size:.72rem;color:var(--m);letter-spacing:1px;text-transform:uppercase;margin-bottom:.8rem}
-.bc a{color:var(--t)}
-h1{font-family:'Space Mono',monospace;font-size:2.2rem;margin-bottom:.4rem}
-h1 span{color:var(--t)}
-.sub{color:var(--m);font-size:.95rem}
-.bar{background:var(--c);border-bottom:1px solid var(--b);padding:.8rem 2rem;position:sticky;top:65px;z-index:90}
-.fi{max-width:1200px;margin:0 auto;display:flex;gap:.5rem;flex-wrap:wrap}
-button{padding:.35rem .85rem;border:1px solid var(--b);border-radius:20px;font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;color:var(--m);background:transparent;transition:all .2s;font-family:'Space Grotesk',sans-serif}
-button:hover,button.on{background:var(--t);border-color:var(--t);color:var(--d);font-weight:600}
-.gw{max-width:1200px;margin:2rem auto;padding:0 2rem}
-.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.4rem}
-.card{background:var(--c);border:1px solid var(--b);border-radius:12px;overflow:hidden;transition:transform .25s,border-color .25s;position:relative;display:block}
-.card:hover{transform:translateY(-4px);border-color:var(--t)}
-.badge{position:absolute;top:10px;left:10px;padding:.25rem .6rem;border-radius:4px;font-size:.65rem;font-weight:700;text-transform:uppercase;z-index:2}
-.bp{background:var(--t);color:var(--d)}
-.bn{background:#7c3aed;color:#fff}
-.pi{height:170px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#111827,#0d1f2d)}
-.pi img{height:130px;object-fit:contain;filter:drop-shadow(0 4px 16px rgba(0,229,204,.2))}
-.pb{padding:1.1rem}
-.pc{font-size:.68rem;color:var(--t);letter-spacing:1px;text-transform:uppercase;margin-bottom:.3rem}
-.pn{font-family:'Space Mono',monospace;font-size:.88rem;font-weight:700;margin-bottom:.25rem}
-.pd{font-size:.75rem;color:var(--m);margin-bottom:.9rem;line-height:1.5}
-.pf{display:flex;align-items:center;justify-content:space-between}
-.pp{font-family:'Space Mono',monospace;font-size:1.05rem;font-weight:700;color:var(--t)}
-.pbtn{background:var(--t);color:var(--d);border:none;padding:.45rem .9rem;border-radius:6px;font-size:.75rem;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif}
-footer{background:#070c18;border-top:1px solid var(--b);padding:2rem;margin-top:4rem;text-align:center;font-size:.78rem;color:var(--m)}
-footer a{color:var(--t);margin:0 .5rem}
-.fw{position:fixed;bottom:1.5rem;right:1.5rem;display:flex;flex-direction:column;gap:.6rem;z-index:999}
-.fab{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,.4);transition:transform .2s}
-.fab:hover{transform:scale(1.1)}
+:root{
+  --teal:#1a7a7a;
+  --teal-deep:#0d5c5c;
+  --teal-light:#2abfbf;
+  --teal-pale:#e8f6f6;
+  --bg:#f5f6f8;
+  --bg-white:#ffffff;
+  --text-dark:#1a1a2e;
+  --text-mid:#4a5568;
+  --text-light:#718096;
+  --border:#e2e8f0;
+  --shadow-card:0 4px 24px rgba(0,0,0,0.07);
+  --radius:12px;
+  --radius-lg:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text-dark);line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+img{max-width:100%;height:auto;display:block;}
+button{cursor:pointer;font-family:inherit;border:none;background:none;}
+
+/* TOP BAR */
+.top-bar{background:var(--teal-deep);color:rgba(255,255,255,0.85);font-size:11.5px;padding:7px 0;overflow:hidden;white-space:nowrap;letter-spacing:0.5px;}
+.top-bar-inner{display:flex;align-items:center;max-width:1400px;margin:0 auto;padding:0 28px;}
+.social-bar{display:flex;gap:8px;flex-shrink:0;margin-right:24px;}
+.social-bar a{color:rgba(255,255,255,0.7);font-size:11px;font-weight:600;transition:color 0.2s;}
+.social-bar a:hover{color:#fff;}
+.ticker-wrap{flex:1;overflow:hidden;}
+.ticker{display:inline-flex;gap:40px;animation:ticker 35s linear infinite;}
+.ticker span{color:rgba(255,255,255,0.75);}
+.ticker .sep{color:rgba(255,255,255,0.35);}
+@keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+/* HEADER */
+header{background:#fff;position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--border);box-shadow:0 1px 12px rgba(0,0,0,0.06);}
+.header-wrap{max-width:1400px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:72px;gap:32px;}
+.logo{display:flex;flex-direction:column;align-items:flex-start;gap:2px;flex-shrink:0;}
+.logo-wordmark{font-size:18px;font-weight:700;letter-spacing:8px;color:var(--teal-deep);text-transform:uppercase;line-height:1;}
+.logo-accent{width:100%;height:2px;background:linear-gradient(to right,var(--teal-light),transparent);border-radius:2px;}
+.logo-tagline{font-size:8px;letter-spacing:3px;color:var(--text-light);text-transform:uppercase;font-weight:500;}
+.main-nav ul{display:flex;align-items:center;gap:28px;}
+.main-nav ul li a{font-size:12.5px;font-weight:600;color:var(--text-mid);letter-spacing:1px;text-transform:uppercase;padding:4px 0;border-bottom:2px solid transparent;transition:all 0.2s;}
+.main-nav ul li a:hover,.main-nav ul li a.active{color:var(--teal-deep);border-bottom-color:var(--teal-light);}
+.nav-icons{display:flex;align-items:center;gap:16px;}
+.nav-icons a{color:var(--text-mid);font-size:18px;display:flex;align-items:center;transition:color 0.2s;}
+.nav-icons a:hover{color:var(--teal-deep);}
+.hamburger-btn{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px;cursor:pointer;}
+.hamburger-btn span{width:22px;height:2px;background:var(--teal-deep);display:block;border-radius:2px;}
+
+/* MOBILE NAV */
+.mobile-nav{display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:#fff;z-index:999;padding:24px 28px;overflow-y:auto;border-top:1px solid var(--border);}
+.mobile-nav.open{display:flex;flex-direction:column;gap:4px;}
+.mobile-nav a{font-size:16px;font-weight:600;color:var(--text-dark);padding:14px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.mobile-nav a:hover{color:var(--teal-deep);}
+.mobile-compliance{margin-top:24px;padding:14px;background:var(--teal-pale);border-radius:8px;font-size:11px;color:var(--teal-deep);font-weight:600;letter-spacing:1px;text-transform:uppercase;line-height:1.6;}
+
+/* COMPLIANCE BAR */
+.compliance-bar{background:var(--teal-pale);border-bottom:1px solid rgba(26,122,122,0.15);text-align:center;padding:8px 28px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal-deep);font-weight:600;}
+
+/* PAGE HERO */
+.page-hero{background:#fff;border-bottom:1px solid var(--border);padding:48px 28px;}
+.page-hero-inner{max-width:1400px;margin:0 auto;}
+.breadcrumb{font-size:12px;color:var(--text-light);letter-spacing:0.5px;margin-bottom:16px;}
+.breadcrumb a{color:var(--teal-deep);font-weight:500;}
+.breadcrumb a:hover{text-decoration:underline;}
+.page-hero h1{font-size:36px;font-weight:800;color:var(--text-dark);letter-spacing:-0.5px;margin-bottom:8px;}
+.page-hero .sub{font-size:14px;color:var(--text-mid);max-width:600px;line-height:1.6;}
+.page-hero-note{display:inline-block;margin-top:16px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--teal-deep);font-weight:600;background:var(--teal-pale);padding:6px 14px;border-radius:50px;}
+
+/* FILTER BAR */
+.filter-bar{background:#fff;border-bottom:1px solid var(--border);padding:0 28px;position:sticky;top:72px;z-index:90;}
+.filter-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:8px;overflow-x:auto;padding:14px 0;scrollbar-width:none;}
+.filter-inner::-webkit-scrollbar{display:none;}
+.filter-btn{padding:8px 20px;border:1.5px solid var(--border);border-radius:50px;font-size:11.5px;font-weight:600;color:var(--text-mid);background:#fff;cursor:pointer;transition:all 0.2s;letter-spacing:0.8px;text-transform:uppercase;white-space:nowrap;font-family:'Inter',sans-serif;}
+.filter-btn:hover,.filter-btn.on{background:var(--teal-deep);color:#fff;border-color:var(--teal-deep);}
+
+/* SHOP MAIN */
+.shop-main{max-width:1400px;margin:0 auto;padding:40px 28px 64px;}
+.shop-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;}
+.shop-count{font-size:13px;color:var(--text-light);letter-spacing:0.3px;}
+
+/* PRODUCT GRID */
+.shop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+
+/* PRODUCT CARDS */
+.pcard{background:#fff;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);transition:box-shadow 0.25s,transform 0.25s;display:flex;flex-direction:column;height:100%;}
+.pcard:hover{box-shadow:0 8px 40px rgba(0,0,0,0.1);transform:translateY(-4px);}
+.pimg{height:200px;background:#f8f9fb;display:flex;align-items:center;justify-content:center;padding:24px;overflow:hidden;position:relative;}
+.pimg img{height:100%;width:100%;object-fit:contain;transition:transform 0.3s;}
+.pcard:hover .pimg img{transform:scale(1.05);}
+.pbadge{position:absolute;top:12px;left:12px;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:50px;z-index:2;}
+.pbadge.popular{background:var(--teal-deep);color:#fff;}
+.pbadge.new{background:#6b21a8;color:#fff;}
+.pbadge.featured{background:var(--teal-light);color:#fff;}
+.pcard-body{padding:16px;flex:1;display:flex;flex-direction:column;}
+.pcat{font-size:9.5px;font-weight:700;letter-spacing:2.5px;color:var(--teal-light);text-transform:uppercase;margin-bottom:6px;}
+.pname{font-size:14px;font-weight:700;color:var(--text-dark);margin-bottom:4px;}
+.psize{font-size:11.5px;color:var(--text-light);margin-bottom:8px;letter-spacing:0.5px;}
+.pdesc{font-size:11.5px;color:var(--text-mid);line-height:1.5;margin-bottom:12px;flex:1;}
+.pcard-footer{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--border);}
+.pprice{font-size:18px;font-weight:800;color:var(--teal-deep);}
+.pprice span{font-size:11px;font-weight:500;color:var(--text-light);margin-left:2px;}
+.btn-view{background:var(--teal-deep);color:#fff;padding:8px 16px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;transition:background 0.2s;cursor:pointer;}
+.btn-view:hover{background:var(--teal);}
+
+/* COMPLIANCE SECTION */
+.shop-compliance{background:var(--teal-pale);border:1px solid rgba(26,122,122,0.2);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px;display:flex;align-items:flex-start;gap:16px;}
+.shop-compliance-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
+.shop-compliance-text{font-size:12.5px;color:var(--teal-deep);line-height:1.6;}
+.shop-compliance-text strong{display:block;font-size:13px;font-weight:700;margin-bottom:4px;letter-spacing:0.3px;}
+
+/* FOOTER */
+footer{background:#fff;border-top:1px solid var(--border);padding:48px 28px 24px;}
+.foot-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px;}
+.foot-logo-mark{font-size:16px;font-weight:700;letter-spacing:8px;color:var(--teal-deep);text-transform:uppercase;margin-bottom:4px;}
+.foot-logo-line{width:60px;height:2px;background:linear-gradient(to right,var(--teal-light),transparent);border-radius:2px;margin-bottom:14px;}
+.foot-desc{font-size:13px;color:var(--text-light);line-height:1.75;margin-bottom:12px;}
+.foot-compliance{font-size:11px;color:var(--teal-deep);font-weight:600;background:var(--teal-pale);padding:8px 12px;border-radius:6px;border-left:3px solid var(--teal-light);}
+.foot-email{margin-top:12px;}
+.foot-email a{font-size:13px;color:var(--teal-deep);font-weight:600;}
+.foot-col h4{font-size:10.5px;font-weight:700;color:var(--text-dark);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;}
+.foot-col li{margin-bottom:8px;}
+.foot-col li a{font-size:13px;color:var(--text-light);transition:color 0.2s;}
+.foot-col li a:hover{color:var(--teal-deep);}
+.foot-bottom{max-width:1400px;margin:0 auto;border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
+.foot-bottom p{font-size:12px;color:var(--text-light);}
+
+/* FAB */
+.fab-wrap{position:fixed;bottom:28px;right:28px;display:flex;flex-direction:column;gap:12px;z-index:9999;}
+.fab-btn{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.2);transition:transform 0.2s;}
+.fab-btn:hover{transform:scale(1.1);}
+.fab-btn.wa{background:#25d366;}
+.fab-btn.em{background:var(--teal-deep);}
+.fab-btn svg{width:24px;height:24px;fill:#fff;}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .main-nav{display:none;}
+  .hamburger-btn{display:flex;}
+  .shop-grid{grid-template-columns:repeat(3,1fr);}
+  .foot-inner{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:768px){
+  .shop-grid{grid-template-columns:repeat(2,1fr);}
+  .shop-main{padding:24px 16px 48px;}
+  .page-hero{padding:32px 16px;}
+  .header-wrap{padding:0 16px;}
+  .foot-inner{grid-template-columns:1fr;gap:28px;}
+  .foot-bottom{flex-direction:column;align-items:flex-start;}
+}
+@media(max-width:480px){
+  .shop-grid{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
-<nav>
-<a href="index.html" class="logo">VELTRIDE</a>
-<div class="nl">
-<a href="shop.html" class="on">SHOP</a>
-<a href="faq.html">FAQ</a>
-<a href="shipping.html">SHIPPING</a>
-<a href="about.html">ABOUT</a>
-<a href="https://wa.me/12507189152" class="cta">ORDER</a>
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <div class="social-bar">
+      <a href="#" title="Facebook">FB</a>
+      <a href="#" title="Instagram">IG</a>
+      <a href="#" title="X">X</a>
+    </div>
+    <div class="ticker-wrap">
+      <div class="ticker">
+        <span>For Research Purposes Only</span><span class="sep">&bull;</span><span>Not For Human Consumption</span><span class="sep">&bull;</span><span>Free Shipping Over $150</span><span class="sep">&bull;</span><span>99% Purity &mdash; HPLC Verified</span><span class="sep">&bull;</span><span>Canada-Wide Shipping</span><span class="sep">&bull;</span><span>COA Available On Request</span><span class="sep">&bull;</span>
+        <span>For Research Purposes Only</span><span class="sep">&bull;</span><span>Not For Human Consumption</span><span class="sep">&bull;</span><span>Free Shipping Over $150</span><span class="sep">&bull;</span><span>99% Purity &mdash; HPLC Verified</span><span class="sep">&bull;</span><span>Canada-Wide Shipping</span><span class="sep">&bull;</span><span>COA Available On Request</span><span class="sep">&bull;</span>
+      </div>
+    </div>
+  </div>
 </div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-wrap">
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index.html" class="logo">
+      <div class="logo-wordmark">V E L T R I D E</div>
+      <div class="logo-accent"></div>
+      <div class="logo-tagline">Research Compound Catalogue</div>
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html" class="active">Catalogue</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="quality.html">Quality</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="shipping.html">Shipping</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-icons">
+      <a href="shop.html" title="Catalogue">&#128270;</a>
+      <a href="contact.html" title="Contact">&#128100;</a>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home <span>&rsaquo;</span></a>
+  <a href="shop.html">Research Catalogue <span>&rsaquo;</span></a>
+  <a href="about.html">About VELTRIDE <span>&rsaquo;</span></a>
+  <a href="quality.html">Quality Assurance <span>&rsaquo;</span></a>
+  <a href="faq.html">FAQ <span>&rsaquo;</span></a>
+  <a href="shipping.html">Shipping <span>&rsaquo;</span></a>
+  <a href="contact.html">Contact <span>&rsaquo;</span></a>
+  <div class="mobile-compliance">For Research Purposes Only &bull; Not For Human Consumption &bull; Analytical Research Use Only</div>
 </nav>
-<div class="hero">
-<div class="hi">
-<div class="bc"><a href="index.html">Home</a> › Shop</div>
-<h1>Shop <span>Peptides</span></h1>
-<p class="sub">Research-grade peptides shipped Canada-wide. Every batch HPLC tested. COA included.</p>
+
+<!-- COMPLIANCE BAR -->
+<div class="compliance-bar">For Research Purposes Only &bull; Not For Human Consumption &bull; Analytical Research Use Only</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; Research Catalogue</div>
+    <h1>Research Compound Catalogue</h1>
+    <p class="sub">Premium analytical-grade research compounds. Every batch independently verified for identity, purity, and stability. COA available on request.</p>
+    <span class="page-hero-note">&#128300; 99%+ Purity &bull; HPLC &amp; MS Verified &bull; Canada-Wide Shipping</span>
+  </div>
 </div>
+
+<!-- COMPLIANCE NOTICE -->
+<div class="shop-main" style="padding-bottom:0;">
+  <div class="shop-compliance">
+    <div class="shop-compliance-icon">&#9888;</div>
+    <div class="shop-compliance-text">
+      <strong>Research Use Only Disclaimer</strong>
+      All products listed in this catalogue are strictly for laboratory and analytical reference use only. They are not for human consumption, veterinary use, or medical treatment. By viewing and purchasing from this catalogue, you confirm that you are a qualified researcher and that products will be used exclusively in a controlled research setting.
+    </div>
+  </div>
 </div>
-<div class="bar">
-<div class="fi">
-<button class="on" onclick="filt('all',this)">All Products</button>
-<button onclick="filt('fat',this)">Fat Loss</button>
-<button onclick="filt('muscle',this)">Muscle Growth</button>
-<button onclick="filt('aging',this)">Anti-Aging</button>
-<button onclick="filt('recovery',this)">Recovery</button>
-<button onclick="filt('anc',this)">Ancillaries</button>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <button class="filter-btn on" onclick="filt('all',this)">All Compounds</button>
+    <button class="filter-btn" onclick="filt('fat',this)">Metabolic</button>
+    <button class="filter-btn" onclick="filt('muscle',this)">Growth Factors</button>
+    <button class="filter-btn" onclick="filt('aging',this)">Anti-Aging</button>
+    <button class="filter-btn" onclick="filt('recovery',this)">Recovery</button>
+    <button class="filter-btn" onclick="filt('cognitive',this)">Cognitive</button>
+    <button class="filter-btn" onclick="filt('anc',this)">Ancillaries</button>
+  </div>
 </div>
+
+<!-- SHOP GRID -->
+<div class="shop-main">
+  <div class="shop-meta">
+    <span class="shop-count" id="shopCount">Showing all compounds</span>
+  </div>
+  <div class="shop-grid" id="shopGrid">
+    <!-- Semaglutide -->
+    <div class="pcard" data-c="fat">
+      <div class="pimg">
+        <span class="pbadge popular">Popular</span>
+        <img src="https://thepeptidelabs.ca/wp-content/uploads/2024/06/Semaglutide-5mg-vial.png" alt="Semaglutide 5mg research compound" onerror="this.style.display='none'"/>
+      </div>
+      <div class="pcard-body">
+        <p class="pcat">Metabolic Research</p>
+        <h3 class="pname">Semaglutide</h3>
+        <p class="psize">5MG &mdash; 99% Purity</p>
+        <p class="pdesc">GLP-1 receptor agonist. Analytical reference standard for metabolic pathway research. Not for human use.</p>
+        <div class="pcard-footer">
+          <p class="pprice">$120 <span>CAD</span></p>
+          <a href="semaglutide.html" class="btn-view">View Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- Tirzepatide -->
+    <div class="pcard" data-c="fat">
+      <div class="pimg">
+        <span class="pbadge popular">Popular</span>
+        <img src="https://thepeptidelabs.ca/wp-content/uploads/2024/06/Tirzepatide-10mg-vial.png" alt="Tirzepatide 10mg research compound" onerror="this.style.display='none'"/>
+      </div>
+      <div class="pcard-body">
+        <p class="pcat">Metabolic Research</p>
+        <h3 class="pname">Tirzepatide</h3>
+        <p class="psize">10MG &mdash; 99% Purity</p>
+        <p class="pdesc">Dual GIP/GLP-1 receptor agonist. Advanced metabolic research compound for laboratory study.</p>
+        <div class="pcard-footer">
+          <p class="pprice">$160 <span>CAD</span></p>
+          <a href="tirzepatide.html" class="btn-view">View Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- Retatrutide -->
+    <div class="pcard" data-c="fat">
+      <div class="pimg">
+        <span class="pbadge new">New</span>
+        <img src="https://thepeptidelabs.ca/wp-content/uploads/2024/09/retatrutide-8mg.png" alt="Retatrutide 8mg research compound" onerror="this.style.display='none'"/>
+      </div>
+      <div class="pcard-body">
+        <p class="pcat">Metabolic Research</p>
+        <h3 class="pname">Retatrutide</h3>
+        <p class="psize">8MG &mdash; 99% Purity</p>
+        <p class="pdesc">Triple GIP/GLP-1/glucagon agonist. Next-generation metabolic research compound.</p>
+        <div class="pcard-footer">
+          <p class="pprice">$200 <span>CAD</span></p>
+          <a href="retatrutide.html" class="btn-view">View Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- BPC-157 -->
+    <div class="pcard" data-c="recovery">
+      <div class="pimg">
+        <span class="pbadge featured">Fan Fav</span>
+        <img src="https://thepeptidelabs.ca/wp-content/uploads/2024/06/BPC-157-5mg-vial.png" alt="BPC-157 5mg research compound" onerror="this.style.display='none'"/>
+      </div>
+      <div class="pcard-body">
+        <p class="pcat">Recovery Research</p>
+        <h3 class="pname">BPC-157</h3>
+        <p class="psize">5MG &mdash; 99% Purity</p>
+        <p class="pdesc">Body protective compound. Cytoprotective peptide for tissue regeneration research studies.</p>
+        <div class="pcard-footer">
+          <p class="pprice">$70 <span>CAD</span></p>
+          <a href="bpc-157.html" class="btn-view">View Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- MK-677 -->
+    <div class="pcard" data-c="muscle">
+      <div class="pimg">
+        <span class="pbadge popular">Popular</span>
+        <img src="https://thepeptidelabs.ca/wp-content/uploads/2024/06/MK-677-10mg-vial.png" alt="MK-677 10mg research compound" onerror="this.style.display='none'"/>
+      </div>
+      <div class="pcard-body">
+        <p class="pcat">Growth Factor Research</p>
+        <h3 class="pname">MK-677</h3>
+        <p class="psize">10MG &mdash; 99% Purity</p>
+        <p class="pdesc">Ghrelin mimetic and GH secretagogue. Research compound for growth hormone pathway studies.</p>
+        <div class="pcard-footer">
+          <p class="pprice">$85 <span>CAD</span></p>
+          <a href="mk-677.html" class="btn-view">View Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- Ipamorelin -->
+    <div class="pcard" data-c="muscle">
+      <div class="pimg">
+        <img src="https://thepeptidelabs.ca/wp-content/uploads/2024/06/Ipamorelin-5mg-vial.png" alt="Ipamorelin 5mg research compound" onerror="this.style.display='none'"/>
+      </div>
+      <div class="pcard-body">
+        <p class="pcat">Growth Factor Research</p>
+        <h3 class="pname">Ipamorelin</h3>
+        <p class="psize">5MG &mdash; 99% Purity</p>
+        <p class="pdesc">Selective GH secretagogue pentapeptide. Clean GH pulse induction research compound.</p>
+        <div class="pcard-footer">
+          <p class="pprice">$65 <span>CAD</span></p>
+          <a href="ipamorelin.html" class="btn-view">View Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- GHRP-2 -->
+    <div class="pcard" data-c="muscle">
+      <div class="pimg">
+        <img src="https://thepeptidelabs.ca/wp-content/uploads/2024/06/GHRP-2-5mg-vial.png" alt="GHRP-2 5mg research compound" onerror="this.style.display='none'"/>
+      </div>
+      <div class="pcard-body">
+        <p class="pcat">Growth Factor Research</p>
+        <h3 class="pname">GHRP-2</h3>
+        <p class="psize">5MG &mdash; 99% Purity</p>
+        <p class="pdesc">Growth hormone releasing peptide. Strong GH stimulation research compound for laboratory use.</p>
+        <div class="pcard-footer">
+          <p class="pprice">$60 <span>CAD</span></p>
+          <a href="ghrp-2.html" class="btn-view">View Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- Epithalon -->
+    <div class="pcard" data-c="aging">
+      <div class="pimg">
+        <img src="https://thepeptidelabs.ca/wp-content/uploads/2024/06/Epithalon-10mg-vial.png" alt="Epithalon 10mg research compound" onerror="this.style.display='none'"/>
+      </div>
+      <div class="pcard-body">
+        <p class="pcat">Anti-Aging Research</p>
+        <h3 class="pname">Epithalon</h3>
+        <p class="psize">10MG &mdash; 99% Purity</p>
+        <p class="pdesc">Tetrapeptide telomerase activator. Longevity and cellular aging reference compound.</p>
+        <div class="pcard-footer">
+          <p class="pprice">$90 <span>CAD</span></p>
+          <a href="epithalon.html" class="btn-view">View Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- GHK-Cu -->
+    <div class="pcard" data-c="aging">
+      <div class="pimg">
+        <img src="https://thepeptidelabs.ca/wp-content/uploads/2024/06/GHK-Cu-50mg-vial.png" alt="GHK-Cu 50mg research compound" onerror="this.style.display='none'"/>
+      </div>
+      <div class="pcard-body">
+        <p class="pcat">Anti-Aging Research</p>
+        <h3 class="pname">GHK-Cu</h3>
+        <p class="psize">50MG &mdash; 99% Purity</p>
+        <p class="pdesc">Copper peptide complex. Skin and tissue regeneration research standard compound.</p>
+        <div class="pcard-footer">
+          <p class="pprice">$70 <span>CAD</span></p>
+          <a href="ghk-cu.html" class="btn-view">View Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- NAD+ -->
+    <div class="pcard" data-c="aging">
+      <div class="pimg">
+        <img src="https://thepeptidelabs.ca/wp-content/uploads/2024/06/NAD-500mg-vial.png" alt="NAD+ 500mg research compound" onerror="this.style.display='none'"/>
+      </div>
+      <div class="pcard-body">
+        <p class="pcat">Cellular Research</p>
+        <h3 class="pname">NAD+</h3>
+        <p class="psize">500MG &mdash; 99% Purity</p>
+        <p class="pdesc">Nicotinamide adenine dinucleotide. Cellular energy coenzyme for mitochondrial research.</p>
+        <div class="pcard-footer">
+          <p class="pprice">$95 <span>CAD</span></p>
+          <a href="nad-plus.html" class="btn-view">View Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- Melanotan-2 -->
+    <div class="pcard" data-c="anc">
+      <div class="pimg">
+        <img src="https://thepeptidelabs.ca/wp-content/uploads/2024/06/Melanotan-2-10mg-vial.png" alt="Melanotan-2 10mg research compound" onerror="this.style.display='none'"/>
+      </div>
+      <div class="pcard-body">
+        <p class="pcat">Ancillary Research</p>
+        <h3 class="pname">Melanotan-2</h3>
+        <p class="psize">10MG &mdash; 99% Purity</p>
+        <p class="pdesc">Melanocortin receptor agonist. Pigmentation and photoprotection research compound.</p>
+        <div class="pcard-footer">
+          <p class="pprice">$75 <span>CAD</span></p>
+          <a href="melanotan-2.html" class="btn-view">View Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- Selank -->
+    <div class="pcard" data-c="cognitive">
+      <div class="pimg">
+        <img src="https://thepeptidelabs.ca/wp-content/uploads/2026/05/peptides-banner-home.jpg" alt="Selank 5mg research compound" onerror="this.style.display='none'"/>
+      </div>
+      <div class="pcard-body">
+        <p class="pcat">Cognitive Research</p>
+        <h3 class="pname">Selank</h3>
+        <p class="psize">5MG &mdash; 99% Purity</p>
+        <p class="pdesc">Anxiolytic heptapeptide analogue. Neuroprotective and cognitive function research compound.</p>
+        <div class="pcard-footer">
+          <p class="pprice">$55 <span>CAD</span></p>
+          <a href="selank.html" class="btn-view">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="gw">
-<div class="g" id="g">
-<a class="card" href="semaglutide.html" data-c="fat"><span class="badge bp">Popular</span><div class="pi"><img src="https://thepeptidelabs.ca/wp-content/uploads/2024/06/Semaglutide-5mg-vial.png" alt="Semaglutide" onerror="this.src='';this.alt='Semaglutide'"></div><div class="pb"><div class="pc">Fat Loss</div><div class="pn">Semaglutide 5mg</div><div class="pd">GLP-1 receptor agonist. Metabolic research compound.</div><div class="pf"><span class="pp">$120 CAD</span><button class="pbtn" onclick="event.preventDefault()">View</button></div></div></a>
-<a class="card" href="tirzepatide.html" data-c="fat"><span class="badge bp">Popular</span><div class="pi"><img src="https://thepeptidelabs.ca/wp-content/uploads/2024/06/Tirzepatide-10mg-vial.png" alt="Tirzepatide" onerror="this.src='';this.alt='Tirzepatide'"></div><div class="pb"><div class="pc">Fat Loss</div><div class="pn">Tirzepatide 10mg</div><div class="pd">Dual GIP/GLP-1 agonist. Advanced metabolic studies.</div><div class="pf"><span class="pp">$160 CAD</span><button class="pbtn" onclick="event.preventDefault()">View</button></div></div></a>
-<a class="card" href="retatrutide.html" data-c="fat"><span class="badge bn">New</span><div class="pi"><img src="https://thepeptidelabs.ca/wp-content/uploads/2024/09/retatrutide-8mg.png" alt="Retatrutide" onerror="this.src='';this.alt='Retatrutide'"></div><div class="pb"><div class="pc">Fat Loss</div><div class="pn">Retatrutide 8mg</div><div class="pd">Triple GIP/GLP-1/glucagon agonist. Next-gen research.</div><div class="pf"><span class="pp">$200 CAD</span><button class="pbtn" onclick="event.preventDefault()">View</button></div></div></a>
-<a class="card" href="bpc-157.html" data-c="recovery"><span class="badge bp">Fan Fav</span><div class="pi"><img src="https://thepeptidelabs.ca/wp-content/uploads/2024/06/BPC-157-5mg-vial.png" alt="BPC-157" onerror="this.src='';this.alt='BPC-157'"></div><div class="pb"><div class="pc">Recovery</div><div class="pn">BPC-157 5mg</div><div class="pd">Body protective compound. Tissue healing research.</div><div class="pf"><span class="pp">$70 CAD</span><button class="pbtn" onclick="event.preventDefault()">View</button></div></div></a>
-<a class="card" href="mk-677.html" data-c="muscle"><span class="badge bp">Popular</span><div class="pi"><img src="https://thepeptidelabs.ca/wp-content/uploads/2024/06/MK-677-10mg-vial.png" alt="MK-677" onerror="this.src='';this.alt='MK-677'"></div><div class="pb"><div class="pc">Muscle Growth</div><div class="pn">MK-677 10mg</div><div class="pd">Ghrelin mimetic. GH secretagogue research compound.</div><div class="pf"><span class="pp">$85 CAD</span><button class="pbtn" onclick="event.preventDefault()">View</button></div></div></a>
-<a class="card" href="ipamorelin.html" data-c="muscle"><div class="pi"><img src="https://thepeptidelabs.ca/wp-content/uploads/2024/06/Ipamorelin-5mg-vial.png" alt="Ipamorelin" onerror="this.src='';this.alt='Ipamorelin'"></div><div class="pb"><div class="pc">Muscle Growth</div><div class="pn">Ipamorelin 5mg</div><div class="pd">Selective GH secretagogue. Clean GH pulse research.</div><div class="pf"><span class="pp">$65 CAD</span><button class="pbtn" onclick="event.preventDefault()">View</button></div></div></a>
-<a class="card" href="ghrp-2.html" data-c="muscle"><div class="pi"><img src="https://thepeptidelabs.ca/wp-content/uploads/2024/06/GHRP-2-5mg-vial.png" alt="GHRP-2" onerror="this.src='';this.alt='GHRP-2'"></div><div class="pb"><div class="pc">Muscle Growth</div><div class="pn">GHRP-2 5mg</div><div class="pd">Growth hormone releasing peptide. Strong GH stimulation.</div><div class="pf"><span class="pp">$60 CAD</span><button class="pbtn" onclick="event.preventDefault()">View</button></div></div></a>
-<a class="card" href="epithalon.html" data-c="aging"><div class="pi"><img src="https://thepeptidelabs.ca/wp-content/uploads/2024/06/Epithalon-10mg-vial.png" alt="Epithalon" onerror="this.src='';this.alt='Epithalon'"></div><div class="pb"><div class="pc">Anti-Aging</div><div class="pn">Epithalon 10mg</div><div class="pd">Telomerase activator. Longevity peptide research.</div><div class="pf"><span class="pp">$90 CAD</span><button class="pbtn" onclick="event.preventDefault()">View</button></div></div></a>
-<a class="card" href="ghk-cu.html" data-c="aging"><div class="pi"><img src="https://thepeptidelabs.ca/wp-content/uploads/2024/06/GHK-Cu-50mg-vial.png" alt="GHK-Cu" onerror="this.src='';this.alt='GHK-Cu'"></div><div class="pb"><div class="pc">Anti-Aging</div><div class="pn">GHK-Cu 50mg</div><div class="pd">Copper peptide complex. Skin regeneration research.</div><div class="pf"><span class="pp">$70 CAD</span><button class="pbtn" onclick="event.preventDefault()">View</button></div></div></a>
-<a class="card" href="nad-plus.html" data-c="aging"><div class="pi"><img src="https://thepeptidelabs.ca/wp-content/uploads/2024/06/NAD-500mg-vial.png" alt="NAD+" onerror="this.src='';this.alt='NAD+'"></div><div class="pb"><div class="pc">Anti-Aging</div><div class="pn">NAD+ 500mg</div><div class="pd">Cellular energy coenzyme. Mitochondrial research compound.</div><div class="pf"><span class="pp">$95 CAD</span><button class="pbtn" onclick="event.preventDefault()">View</button></div></div></a>
-<a class="card" href="melanotan-2.html" data-c="anc"><div class="pi"><img src="https://thepeptidelabs.ca/wp-content/uploads/2024/06/Melanotan-2-10mg-vial.png" alt="Melanotan-2" onerror="this.src='';this.alt='MT-2'"></div><div class="pb"><div class="pc">Ancillaries</div><div class="pn">Melanotan-2 10mg</div><div class="pd">Melanocortin receptor agonist. Pigmentation research.</div><div class="pf"><span class="pp">$75 CAD</span><button class="pbtn" onclick="event.preventDefault()">View</button></div></div></a>
-<a class="card" href="pt-141.html" data-c="anc"><div class="pi"><img src="https://thepeptidelabs.ca/wp-content/uploads/2024/06/PT-141-10mg-vial.png" alt="PT-141" onerror="this.src='';this.alt='PT-141'"></div><div class="pb"><div class="pc">Ancillaries</div><div class="pn">PT-141 10mg</div><div class="pd">Bremelanotide. Melanocortin system research peptide.</div><div class="pf"><span class="pp">$80 CAD</span><button class="pbtn" onclick="event.preventDefault()">View</button></div></div></a>
-</div>
-</div>
+
+<!-- FOOTER -->
 <footer>
-<a href="index.html">Home</a><a href="shop.html">Shop</a><a href="faq.html">FAQ</a><a href="shipping.html">Shipping</a><a href="about.html">About</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a>
-<br><br>&copy; 2025 VELTRIDE &mdash; Research Peptides Canada. For research use only.
+  <div class="foot-inner">
+    <div>
+      <div class="foot-logo-mark">V E L T R I D E</div>
+      <div class="foot-logo-line"></div>
+      <p class="foot-desc">VELTRIDE is a proudly Canadian supplier of analytical-grade research compounds for the scientific community and academic institutions across Canada.</p>
+      <div class="foot-compliance">For Research Purposes Only &bull; Not For Human Consumption &bull; Laboratory Reference Catalogue</div>
+      <div class="foot-email"><a href="mailto:support@veltride.ca">support@veltride.ca</a></div>
+    </div>
+    <div class="foot-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Research Catalogue</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="quality.html">Quality Assurance</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="shipping.html">Shipping</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Catalogue</h4>
+      <ul>
+        <li><a href="shop.html">All Compounds</a></li>
+        <li><a href="shop.html">Metabolic Research</a></li>
+        <li><a href="shop.html">Recovery Peptides</a></li>
+        <li><a href="shop.html">Anti-Aging Research</a></li>
+        <li><a href="shop.html">Cognitive Research</a></li>
+        <li><a href="shop.html">Ancillaries</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms &amp; Conditions</a></li>
+        <li><a href="shipping.html">Shipping Policy</a></li>
+        <li><a href="quality.html">Quality Standards</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p>&copy; 2026 <strong>VELTRIDE Inc.</strong> &mdash; All products are for research and analytical reference use only. Not for human consumption.</p>
+    <p>&#127464;&#127462; Canada</p>
+  </div>
 </footer>
-<div class="fw">
-<a href="https://wa.me/12507189152" class="fab" style="background:#25d366" title="WhatsApp">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L.057 23.885l6.194-1.623A11.938 11.938 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.933 0-3.742-.519-5.293-1.427l-.379-.225-3.677.964.981-3.594-.247-.388A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-</a>
-<a href="mailto:toufikghafir13@gmail.com" class="fab" style="background:#00e5cc" title="Email">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="#0a0f1e"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-</a>
+
+<!-- FLOATING CONTACT BUTTONS -->
+<div class="fab-wrap">
+  <a class="fab-btn wa" href="https://wa.me/12507189152" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <a class="fab-btn em" href="mailto:support@veltride.ca" aria-label="Send Email">
+    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+  </a>
 </div>
+
 <script>
-function filt(c,b){
-document.querySelectorAll('button').forEach(x=>x.classList.remove('on'));
-b.classList.add('on');
-document.querySelectorAll('.card').forEach(card=>{
-card.style.display=(c==='all'||card.dataset.c===c)?'block':'none';
-});
+function filt(c, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  let count = 0;
+  document.querySelectorAll('.pcard').forEach(card => {
+    if (c === 'all' || card.dataset.c === c) {
+      card.style.display = 'flex';
+      count++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  const meta = document.getElementById('shopCount');
+  if (meta) meta.textContent = 'Showing ' + count + ' compound' + (count !== 1 ? 's' : '');
 }
+
+function toggleMenu() {
+  const nav = document.getElementById('mobileNav');
+  const btn = document.getElementById('hamburgerBtn');
+  if (nav.classList.contains('open')) {
+    nav.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  } else {
+    nav.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+}
+
+document.addEventListener('click', function(e) {
+  const nav = document.getElementById('mobileNav');
+  const btn = document.getElementById('hamburgerBtn');
+  if (nav && nav.classList.contains('open') && !nav.contains(e.target) && !btn.contains(e.target)) {
+    nav.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+});
 </script>
 </body>
 </html>
