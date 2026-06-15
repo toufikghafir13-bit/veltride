@@ -1,115 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>COA Library | Quality Documentation | VELTRIDE</title>
-<meta name="description" content="VELTRIDE COA Library: Certificates of Analysis, HPLC purity documentation, batch numbers, and third-party testing information for all research catalogue items.">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>COA Library &amp; Quality Documentation | VELTRIDE Research</title>
+<meta name="description" content="Batch documentation, HPLC purity reports, and third-party testing records for VELTRIDE research compounds. All compounds tested before shipment."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--t:#00e5cc;--d:#0a0f1e;--c:#111827;--b:#1e2a3a;--tx:#e2e8f0;--m:#64748b}
-body{background:var(--d);color:var(--tx);font-family:'Space Grotesk',sans-serif}
-a{text-decoration:none;color:inherit}
-nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:rgba(10,15,30,.95);border-bottom:1px solid var(--b);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
-.logo{font-family:'Space Mono',monospace;font-size:1rem;font-weight:700;letter-spacing:2px}
-.nl{display:flex;gap:2rem}
-.nl a{font-size:.82rem;letter-spacing:1px;text-transform:uppercase;color:var(--m);transition:color .2s}
-.nl a:hover,.nl a.on{color:var(--t)}
-.cta{background:var(--t);color:var(--d)!important;padding:.4rem 1rem;border-radius:4px;font-weight:700}
-.hero{background:linear-gradient(135deg,#0a0f1e,#0d1f2d);padding:3rem 2rem;border-bottom:1px solid var(--b)}
-.hi{max-width:1000px;margin:0 auto}
-.bc{font-size:.72rem;color:var(--m);letter-spacing:1px;text-transform:uppercase;margin-bottom:.8rem}
-.bc a{color:var(--t)}
-h1{font-family:'Space Mono',monospace;font-size:2.2rem;margin-bottom:.4rem}
-h1 span{color:var(--t)}
-.sub{color:var(--m);font-size:.95rem;max-width:600px;line-height:1.6}
-.wrap{max-width:1000px;margin:3rem auto;padding:0 2rem}
-.card{background:var(--c);border:1px solid var(--b);border-radius:12px;padding:2rem;margin-bottom:1.5rem}
-.card h2{font-family:'Space Mono',monospace;font-size:1.1rem;color:var(--t);margin-bottom:1rem}
-.card p{font-size:.88rem;color:var(--m);line-height:1.7;margin-bottom:.8rem}
-.card p:last-child{margin-bottom:0}
-.badge{display:inline-block;background:rgba(0,229,204,.12);border:1px solid rgba(0,229,204,.3);color:var(--t);padding:.25rem .7rem;border-radius:4px;font-size:.75rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-right:.4rem;margin-bottom:.4rem}
-table{width:100%;border-collapse:collapse;margin-top:1.2rem}
-th{background:rgba(0,229,204,.08);color:var(--t);font-size:.75rem;letter-spacing:1px;text-transform:uppercase;padding:.7rem 1rem;text-align:left;border-bottom:1px solid var(--b)}
-td{padding:.7rem 1rem;font-size:.82rem;color:var(--m);border-bottom:1px solid rgba(30,42,58,.5)}
-tr:last-child td{border-bottom:none}
-.status{padding:.2rem .6rem;border-radius:4px;font-size:.7rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
-.status.active{background:rgba(16,185,129,.15);color:#10b981}
-.status.pending{background:rgba(245,158,11,.15);color:#f59e0b}
-disclaimer{display:block;background:rgba(0,229,204,.06);border:1px solid rgba(0,229,204,.2);border-radius:8px;padding:1.2rem;font-size:.8rem;color:var(--m);line-height:1.6;margin-top:2rem}
-footer{background:#070c18;border-top:1px solid var(--b);padding:2rem;margin-top:4rem;text-align:center;font-size:.78rem;color:var(--m)}
-footer a{color:var(--t);margin:0 .5rem}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{background:#f5f6f8;color:#1a1a2e;font-family:'Inter',sans-serif;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+header{background:#fff;position:sticky;top:0;z-index:1000;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 12px rgba(0,0,0,0.06);}
+.header-wrap{max-width:1400px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:72px;gap:32px;}
+.logo-wordmark{font-size:18px;font-weight:700;letter-spacing:8px;color:#0d5c5c;text-transform:uppercase;}
+.logo-tagline{font-size:8px;letter-spacing:3px;color:#718096;text-transform:uppercase;font-weight:500;}
+nav.main-nav ul{display:flex;align-items:center;gap:24px;list-style:none;}
+nav.main-nav ul li a{font-size:12.5px;font-weight:600;color:#4a5568;letter-spacing:1px;text-transform:uppercase;padding:4px 0;border-bottom:2px solid transparent;transition:all 0.2s;}
+nav.main-nav ul li a:hover,nav.main-nav ul li a.active{color:#0d5c5c;border-bottom-color:#2abfbf;}
+.compliance-bar{background:#e8f6f6;border-bottom:1px solid rgba(26,122,122,0.15);text-align:center;padding:8px 28px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#0d5c5c;font-weight:600;}
+.page-hero{background:#fff;border-bottom:1px solid #e2e8f0;padding:56px 28px;}
+.page-hero-inner,.section-inner{max-width:1000px;margin:0 auto;}
+.page-label{font-size:10.5px;font-weight:700;letter-spacing:3.5px;color:#2abfbf;text-transform:uppercase;margin-bottom:12px;}
+.page-title{font-size:clamp(30px,3.5vw,46px);font-weight:800;color:#1a1a2e;letter-spacing:-1px;line-height:1.1;margin-bottom:12px;}
+.page-sub{font-size:14px;color:#4a5568;line-height:1.7;max-width:600px;}
+.section{padding:48px 28px;}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:28px;margin-bottom:20px;}
+.card h2{font-size:15px;font-weight:700;color:#1a1a2e;margin-bottom:12px;}
+.card p{font-size:13.5px;color:#4a5568;line-height:1.7;margin-bottom:8px;}
+.badge-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;}
+.badge{background:#e8f6f6;color:#0d5c5c;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;border-radius:20px;border:1px solid rgba(13,92,92,0.2);}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+thead tr{background:#f8f9fb;}
+th{text-align:left;padding:12px 16px;font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#718096;border-bottom:2px solid #e2e8f0;}
+td{padding:12px 16px;border-bottom:1px solid #e2e8f0;color:#4a5568;}
+td:first-child{font-weight:600;color:#1a1a2e;font-family:monospace;}
+.status-active{display:inline-flex;align-items:center;gap:4px;background:#d1fae5;color:#065f46;font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:12px;}
+.purity{font-weight:700;color:#0d5c5c;}
+@media(max-width:768px){.main-nav{display:none;}}
+footer{background:#0d1117;color:rgba(255,255,255,0.7);padding:48px 28px 24px;}
+.footer-inner{max-width:1400px;margin:0 auto;}
+.footer-wordmark{font-size:18px;font-weight:700;letter-spacing:8px;color:#2abfbf;text-transform:uppercase;margin-bottom:8px;}
+.footer-disclaimer{font-size:11px;color:rgba(255,255,255,0.5);line-height:1.6;max-width:600px;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,0.1);}
+.footer-links{display:flex;flex-wrap:wrap;gap:12px 24px;margin-bottom:20px;}
+.footer-links a{font-size:12.5px;color:rgba(255,255,255,0.6);}
+.footer-links a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;font-size:11.5px;color:rgba(255,255,255,0.4);}
 </style>
 </head>
 <body>
-<nav>
-<a href="index.html" class="logo">VELTRIDE</a>
-<div class="nl">
-<a href="shop.html">SHOP</a>
-<a href="faq.html">FAQ</a>
-<a href="shipping.html">SHIPPING</a>
-<a href="about.html">ABOUT</a>
-<a href="quality.html" class="on">QUALITY</a>
-<a href="https://wa.me/12507189152" class="cta">ORDER</a>
-</div>
-</nav>
-<div class="hero">
-<div class="hi">
-<div class="bc"><a href="index.html">Home</a> &rsaquo; COA Library</div>
-<h1>COA <span>Library</span></h1>
-<p class="sub">Batch documentation, HPLC purity reports, and third-party testing records for all VELTRIDE research catalogue items. All compounds are tested before shipment.</p>
-</div>
-</div>
-<div class="wrap">
-<div class="card">
-<h2>What Is a Certificate of Analysis (COA)?</h2>
-<p>A Certificate of Analysis is a document provided by a third-party testing laboratory that certifies the identity, purity, and quality of a compound. For research-grade peptides, the COA documents the HPLC (High Performance Liquid Chromatography) purity percentage, the batch/lot number, the compound name, and the date of analysis.</p>
-<p>Every VELTRIDE shipment includes a COA specific to the batch you received. This allows you to verify the purity of your exact sample against the documented test results.</p>
-<span class="badge">Third-Party Tested</span>
-<span class="badge">Lot-Specific</span>
-<span class="badge">HPLC Verified</span>
-</div>
-<div class="card">
-<h2>Understanding Batch Numbers</h2>
-<p>Each batch of peptide is assigned a unique lot number (e.g., VT-010). This number links your physical product to the specific production run and its associated COA. If you receive a vial labelled Lot VT-010, your COA will also reference VT-010, confirming the purity data applies to your exact sample.</p>
-<p>Batch numbers allow traceability from synthesis through testing to delivery. If you have questions about a specific batch, contact us with the lot number for reference.</p>
-</div>
-<div class="card">
-<h2>HPLC Purity Explained</h2>
-<p>High Performance Liquid Chromatography (HPLC) is the standard analytical method used to measure peptide purity. The HPLC test separates the compound components and quantifies the target peptide as a percentage of the total sample. A purity of &ge;98% means at least 98% of the sample is the target compound.</p>
-<p>VELTRIDE maintains a minimum purity standard of &ge;98% HPLC across all catalogue items. Results below this threshold are rejected and not released for sale.</p>
-</div>
-<div class="card">
-<h2>Third-Party Testing</h2>
-<p>All VELTRIDE compounds are tested by independent, accredited third-party laboratories. This means the purity verification is conducted by a lab with no commercial interest in the outcome, providing an objective quality assessment.</p>
-<p>Third-party testing is the gold standard for research-grade compound documentation. It ensures the data in your COA is verifiable and independent of the supplier.</p>
-</div>
-<div class="card">
-<h2>Batch Documentation Reference</h2>
-<p>The table below lists current active batches. Each batch has been HPLC tested by an independent laboratory. For specific COA documents, contact us with your batch number.</p>
-<table>
-<thead>
-<tr><th>Batch No.</th><th>Compound</th><th>Purity (HPLC)</th><th>Test Date</th><th>Status</th></tr>
-</thead>
-<tbody>
-<tr><td>VT-010</td><td>BPC-157</td><td>&ge;98.2%</td><td>2025-Q4</td><td><span class="status active">Active</span></td></tr>
-<tr><td>VT-011</td><td>Semaglutide</td><td>&ge;98.5%</td><td>2025-Q4</td><td><span class="status active">Active</span></td></tr>
-<tr><td>VT-012</td><td>Tirzepatide</td><td>&ge;98.1%</td><td>2025-Q4</td><td><span class="status active">Active</span></td></tr>
-<tr><td>VT-013</td><td>MK-677</td><td>&ge;98.4%</td><td>2025-Q4</td><td><span class="status active">Active</span></td></tr>
-<tr><td>VT-014</td><td>Retatrutide</td><td>&ge;98.0%</td><td>2025-Q4</td><td><span class="status active">Active</span></td></tr>
-<tr><td>VT-015</td><td>Epithalon</td><td>&ge;98.3%</td><td>2025-Q4</td><td><span class="status active">Active</span></td></tr>
-<tr><td>VT-016</td><td>GHK-Cu</td><td>&ge;98.6%</td><td>2026-Q1</td><td><span class="status active">Active</span></td></tr>
-<tr><td>VT-017</td><td>TB-500</td><td>&ge;98.2%</td><td>2026-Q1</td><td><span class="status active">Active</span></td></tr>
-</tbody>
-</table>
-<disclaimer>To request a specific COA document, contact us via <a href="https://wa.me/12507189152" style="color:var(--t)">WhatsApp</a> or <a href="mailto:support@veltride.ca" style="color:var(--t)">email</a> with your batch number. COA files are provided for informational and documentation purposes only.</disclaimer>
-</div>
-</div>
+
+<!-- GLOBAL HEADER -->
+<header>
+  <div class="header-wrap">
+    <a href="/" style="display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-decoration:none;">
+      <span class="logo-wordmark">VELTRIDE</span>
+      <span class="logo-tagline">Research Compound Catalogue</span>
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/shop">Catalogue</a></li>
+        <li><a href="/quality" class="active">Quality / COA</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/shipping">Shipping</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="compliance-bar">For In-Vitro Research Purposes Only &bull; Not For Human Consumption &bull; Analytical Reference Standards</div>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-label">Quality Assurance</div>
+    <h1 class="page-title">COA Library</h1>
+    <p class="page-sub">Batch documentation, HPLC purity reports, and third-party testing records for all active VELTRIDE research catalogue items. All compounds are tested before shipment.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+
+    <div class="badge-row">
+      <span class="badge">&#x1F9EA; Third-Party Tested</span>
+      <span class="badge">&#x1F4CA; Lot-Specific HPLC</span>
+      <span class="badge">&#x2705; &ge;99% Purity Standard</span>
+    </div>
+
+    <!-- WHAT IS A COA -->
+    <div class="card">
+      <h2>What Is a Certificate of Analysis (COA)?</h2>
+      <p>A Certificate of Analysis is a document provided by an independent, accredited third-party testing laboratory that certifies the identity, purity, and quality of a compound. For research-grade compounds, the COA documents:</p>
+      <p>HPLC purity percentage &bull; Batch/lot number &bull; Compound identity &bull; Date of analysis &bull; Appearance and physical characteristics &bull; Water content</p>
+      <p>Every VELTRIDE shipment includes a COA specific to the batch you received, allowing you to verify the purity of your exact sample against documented test results.</p>
+    </div>
+
+    <!-- UNDERSTANDING BATCH NUMBERS -->
+    <div class="card">
+      <h2>Understanding Batch Numbers</h2>
+      <p>Each batch of compound is assigned a unique lot number (e.g., VT-BPC). This number links your physical product to the specific production run and its associated COA. If you receive a vial labelled Lot VT-BPC, your COA will also reference VT-BPC, confirming the purity data applies to your exact sample.</p>
+      <p>Batch numbers enable traceability from synthesis through third-party testing to delivery. Contact us with your lot number for specific COA reference information.</p>
+    </div>
+
+    <!-- HPLC EXPLAINED -->
+    <div class="card">
+      <h2>HPLC Purity Explained</h2>
+      <p>High Performance Liquid Chromatography (HPLC) is the industry-standard analytical method used to measure compound purity. HPLC separates compound components and quantifies the target compound as a percentage of the total sample. A purity of &ge;99% means at least 99% of the sample is the target compound.</p>
+      <p>VELTRIDE maintains a minimum purity standard of <strong>&ge;99% HPLC</strong> across all active catalogue items. Batches below this threshold are rejected and not released.</p>
+    </div>
+
+    <!-- THIRD PARTY TESTING -->
+    <div class="card">
+      <h2>Third-Party Testing</h2>
+      <p>All VELTRIDE compounds are tested by independent, accredited third-party laboratories. This means purity verification is conducted by a laboratory with no commercial interest in the outcome, providing an objective quality assessment. Third-party testing is the gold standard for research-grade compound documentation.</p>
+    </div>
+
+    <!-- BATCH DOCUMENTATION TABLE -->
+    <div class="card">
+      <h2>Active Batch Documentation Reference</h2>
+      <p style="margin-bottom:16px;">The table below lists current active batches for compounds in the VELTRIDE research catalogue. Each batch has been HPLC tested by an independent laboratory. For specific COA documents, contact us with your batch number. <strong>All listed compounds are in the active research catalogue.</strong></p>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Batch No.</th>
+              <th>Compound</th>
+              <th>Category</th>
+              <th>Purity (HPLC)</th>
+              <th>Test Period</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>VT-SEM</td><td>Semaglutide</td><td>Metabolic Research</td><td class="purity">&ge;99.0%</td><td>2025-Q4</td><td><span class="status-active">&#x25CF; Active</span></td></tr>
+            <tr><td>VT-TIR</td><td>Tirzepatide</td><td>Metabolic Research</td><td class="purity">&ge;99.0%</td><td>2025-Q4</td><td><span class="status-active">&#x25CF; Active</span></td></tr>
+            <tr><td>VT-RET</td><td>Retatrutide</td><td>Metabolic Research</td><td class="purity">&ge;99.0%</td><td>2025-Q4</td><td><span class="status-active">&#x25CF; Active</span></td></tr>
+            <tr><td>VT-BPC</td><td>BPC-157</td><td>Recovery Research</td><td class="purity">&ge;99.0%</td><td>2025-Q4</td><td><span class="status-active">&#x25CF; Active</span></td></tr>
+            <tr><td>VT-MK6</td><td>MK-677 (Ibutamoren)</td><td>Growth Hormone Research</td><td class="purity">&ge;99.0%</td><td>2025-Q4</td><td><span class="status-active">&#x25CF; Active</span></td></tr>
+            <tr><td>VT-IPA</td><td>Ipamorelin</td><td>Growth Hormone Research</td><td class="purity">&ge;99.0%</td><td>2025-Q4</td><td><span class="status-active">&#x25CF; Active</span></td></tr>
+            <tr><td>VT-GHR</td><td>GHRP-2</td><td>Growth Hormone Research</td><td class="purity">&ge;99.0%</td><td>2026-Q1</td><td><span class="status-active">&#x25CF; Active</span></td></tr>
+            <tr><td>VT-GHK</td><td>GHK-Cu</td><td>Regeneration Research</td><td class="purity">&ge;99.0%</td><td>2026-Q1</td><td><span class="status-active">&#x25CF; Active</span></td></tr>
+            <tr><td>VT-NAD</td><td>NAD+</td><td>Longevity Research</td><td class="purity">&ge;99.0%</td><td>2026-Q1</td><td><span class="status-active">&#x25CF; Active</span></td></tr>
+            <tr><td>VT-EPT</td><td>Epithalon</td><td>Longevity Research</td><td class="purity">&ge;99.0%</td><td>2025-Q4</td><td><span class="status-active">&#x25CF; Active</span></td></tr>
+            <tr><td>VT-MT2</td><td>Melanotan-2</td><td>Melanocortin Research</td><td class="purity">&ge;99.0%</td><td>2026-Q1</td><td><span class="status-active">&#x25CF; Active</span></td></tr>
+            <tr><td>VT-SEL</td><td>Selank</td><td>Cognitive Research</td><td class="purity">&ge;99.0%</td><td>2026-Q1</td><td><span class="status-active">&#x25CF; Active</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:16px;font-size:12px;color:#718096;">To request a specific COA document, contact us via <a href="https://wa.me/12507189152" style="color:#0d5c5c;">WhatsApp</a> or <a href="mailto:support@veltride.ca" style="color:#0d5c5c;">email</a> with your batch number. COA files are provided for informational and research documentation purposes only.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- GLOBAL FOOTER -->
 <footer>
-<a href="index.html">Home</a><a href="shop.html">Shop</a><a href="faq.html">FAQ</a><a href="shipping.html">Shipping</a><a href="about.html">About</a><a href="quality.html">COA Library</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a>
-<br><br>&copy; 2026 VELTRIDE Research Inc. &mdash; West Kelowna, BC, Canada
-<br>Products listed on this website are intended for laboratory research use only. Not for human or animal consumption. Not approved for therapeutic, diagnostic, medical, cosmetic, or veterinary use.
+  <div class="footer-inner">
+    <div class="footer-wordmark">VELTRIDE</div>
+    <p class="footer-disclaimer">VELTRIDE Inc. &mdash; West Kelowna, BC, Canada &mdash; <a href="mailto:support@veltride.ca" style="color:rgba(255,255,255,0.6);">support@veltride.ca</a><br>Products listed on this website are intended for laboratory research use only. Not for human or animal consumption. Not approved for therapeutic, diagnostic, medical, cosmetic, or veterinary use.</p>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/shop">Catalogue</a>
+      <a href="/quality">Quality / COA</a>
+      <a href="/faq">FAQ</a>
+      <a href="/shipping">Shipping</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms &amp; Conditions</a>
+    </div>
+    <div class="footer-bottom">&copy; 2026 VELTRIDE Inc. &mdash; West Kelowna, BC, Canada &mdash; All products are for in-vitro research and analytical reference use only. Not for human consumption. &mdash; &#x1F1E8;&#x1F1E6; Canada</div>
+  </div>
 </footer>
+
 </body>
 </html>
