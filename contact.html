@@ -1,99 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Contact | VELTRIDE Research Peptides</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact | VELTRIDE Research</title>
+<meta name="description" content="Contact VELTRIDE Inc. for research compound information. WhatsApp or email us. Based in West Kelowna, BC, Canada."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--t:#00e5cc;--d:#0a0f1e;--c:#111827;--b:#1e2a3a;--tx:#e2e8f0;--m:#64748b}
-body{background:var(--d);color:var(--tx);font-family:'Space Grotesk',sans-serif;min-height:100vh}
-a{text-decoration:none;color:inherit}
-nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:rgba(10,15,30,.95);border-bottom:1px solid var(--b);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
-.logo{font-family:'Space Mono',monospace;font-size:1rem;font-weight:700;letter-spacing:2px}
-.nl{display:flex;gap:2rem}
-.nl a{font-size:.82rem;letter-spacing:1px;text-transform:uppercase;color:var(--m);transition:color .2s}
-.nl a:hover,.nl a.on{color:var(--t)}
-.cta{background:var(--t);color:var(--d)!important;padding:.4rem 1rem;border-radius:4px;font-weight:700}
-.hero{background:linear-gradient(135deg,#0a0f1e,#0d1f2d);padding:3rem 2rem;border-bottom:1px solid var(--b)}
-.hi{max-width:800px;margin:0 auto}
-.bc{font-size:.72rem;color:var(--m);letter-spacing:1px;text-transform:uppercase;margin-bottom:.8rem}
-.bc a{color:var(--t)}
-h1{font-family:'Space Mono',monospace;font-size:2.2rem;margin-bottom:.4rem}
-h1 span{color:var(--t)}
-.sub{color:var(--m);font-size:.95rem}
-.wrap{max-width:800px;margin:3rem auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
-.cbox{background:var(--c);border:1px solid var(--b);border-radius:12px;padding:2rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:1rem;text-decoration:none;transition:border-color .25s,transform .25s}
-.cbox:hover{border-color:var(--t);transform:translateY(-4px)}
-.icon{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center}
-.cbox h2{font-family:'Space Mono',monospace;font-size:1.1rem}
-.cbox p{font-size:.85rem;color:var(--m);line-height:1.6}
-.cbox .badge{background:var(--t);color:var(--d);padding:.3rem .8rem;border-radius:20px;font-size:.75rem;font-weight:700;letter-spacing:.5px}
-.info{max-width:800px;margin:0 auto 3rem;padding:0 2rem}
-.info-box{background:var(--c);border:1px solid var(--b);border-radius:12px;padding:2rem}
-.info-box h3{font-family:'Space Mono',monospace;font-size:1rem;color:var(--t);margin-bottom:1rem}
-.info-box p{font-size:.88rem;color:var(--m);line-height:1.7}
-footer{background:#070c18;border-top:1px solid var(--b);padding:2rem;text-align:center;font-size:.78rem;color:var(--m)}
-footer a{color:var(--t);margin:0 .5rem}
-.fw{position:fixed;bottom:1.5rem;right:1.5rem;display:flex;flex-direction:column;gap:.6rem;z-index:999}
-.fab{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(0,0,0,.4);transition:transform .2s}
-.fab:hover{transform:scale(1.1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{background:#f5f6f8;color:#1a1a2e;font-family:'Inter',sans-serif;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+header{background:#fff;position:sticky;top:0;z-index:1000;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 12px rgba(0,0,0,0.06);}
+.header-wrap{max-width:1400px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:72px;gap:32px;}
+.logo-wordmark{font-size:18px;font-weight:700;letter-spacing:8px;color:#0d5c5c;text-transform:uppercase;}
+.logo-tagline{font-size:8px;letter-spacing:3px;color:#718096;text-transform:uppercase;font-weight:500;}
+nav.main-nav ul{display:flex;align-items:center;gap:24px;list-style:none;}
+nav.main-nav ul li a{font-size:12.5px;font-weight:600;color:#4a5568;letter-spacing:1px;text-transform:uppercase;padding:4px 0;border-bottom:2px solid transparent;transition:all 0.2s;}
+nav.main-nav ul li a:hover,nav.main-nav ul li a.active{color:#0d5c5c;border-bottom-color:#2abfbf;}
+.compliance-bar{background:#e8f6f6;border-bottom:1px solid rgba(26,122,122,0.15);text-align:center;padding:8px 28px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#0d5c5c;font-weight:600;}
+.page-hero{background:#fff;border-bottom:1px solid #e2e8f0;padding:56px 28px;}
+.page-hero-inner,.section-inner{max-width:800px;margin:0 auto;}
+.page-label{font-size:10.5px;font-weight:700;letter-spacing:3.5px;color:#2abfbf;text-transform:uppercase;margin-bottom:12px;}
+.page-title{font-size:clamp(30px,3.5vw,46px);font-weight:800;color:#1a1a2e;letter-spacing:-1px;line-height:1.1;margin-bottom:12px;}
+.page-sub{font-size:14px;color:#4a5568;}
+.section{padding:48px 28px;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px;}
+.contact-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:12px;}
+.contact-card .icon{font-size:28px;}
+.contact-card h3{font-size:15px;font-weight:700;color:#1a1a2e;}
+.contact-card p{font-size:13.5px;color:#4a5568;line-height:1.6;}
+.contact-card a.cta{display:inline-flex;align-items:center;gap:8px;background:#0d5c5c;color:#fff;padding:12px 24px;border-radius:50px;font-size:12.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:4px;transition:background 0.2s;}
+.contact-card a.cta:hover{background:#1a7a7a;}
+.info-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:28px;}
+.info-card h3{font-size:14px;font-weight:700;color:#1a1a2e;margin-bottom:12px;}
+.info-card p{font-size:13.5px;color:#4a5568;line-height:1.7;}
+@media(max-width:600px){.contact-grid{grid-template-columns:1fr;}.main-nav{display:none;}}
+footer{background:#0d1117;color:rgba(255,255,255,0.7);padding:48px 28px 24px;}
+.footer-inner{max-width:1400px;margin:0 auto;}
+.footer-wordmark{font-size:18px;font-weight:700;letter-spacing:8px;color:#2abfbf;text-transform:uppercase;margin-bottom:8px;}
+.footer-disclaimer{font-size:11px;color:rgba(255,255,255,0.5);line-height:1.6;max-width:600px;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,0.1);}
+.footer-links{display:flex;flex-wrap:wrap;gap:12px 24px;margin-bottom:20px;}
+.footer-links a{font-size:12.5px;color:rgba(255,255,255,0.6);}
+.footer-links a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;font-size:11.5px;color:rgba(255,255,255,0.4);}
 </style>
 </head>
 <body>
-<nav>
-<a href="index.html" class="logo">VELTRIDE</a>
-<div class="nl">
-<a href="shop.html">SHOP</a>
-<a href="faq.html">FAQ</a>
-<a href="shipping.html">SHIPPING</a>
-<a href="about.html">ABOUT</a>
-<a href="https://wa.me/12507189152" class="cta">ORDER</a>
-</div>
-</nav>
-<div class="hero">
-<div class="hi">
-<div class="bc"><a href="index.html">Home</a> › Contact</div>
-<h1>Get in <span>Touch</span></h1>
-<p class="sub">We reply fast. Reach us via WhatsApp for the quickest response.</p>
-</div>
-</div>
-<div class="wrap">
-<a href="https://wa.me/12507189152" class="cbox">
-<div class="icon" style="background:#25d366">
-<svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L.057 23.885l6.194-1.623A11.938 11.938 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.933 0-3.742-.519-5.293-1.427l-.379-.225-3.677.964.981-3.594-.247-.388A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-</div>
-<h2>WhatsApp</h2>
-<p>Message us directly for orders, questions, or support. We typically reply within 1 hour.</p>
-<span class="badge">Chat Now</span>
-</a>
-<a href="mailto:toufikghafir13@gmail.com" class="cbox">
-<div class="icon" style="background:var(--t)">
-<svg width="28" height="28" viewBox="0 0 24 24" fill="#0a0f1e"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-</div>
-<h2>Email</h2>
-<p>Send us an email for detailed inquiries, bulk orders, or partnership opportunities.</p>
-<span class="badge">Send Email</span>
-</a>
-</div>
-<div class="info">
-<div class="info-box">
-<h3>Business Hours & Response Times</h3>
-<p>We are based in British Columbia, Canada (Pacific Time). WhatsApp messages are answered within 1 hour during business hours (Mon-Fri, 9am-6pm PT). Email responses within 24 hours. For urgent orders, WhatsApp is the fastest channel. All orders ship Canada-wide with tracking included.</p>
-</div>
-</div>
+
+<!-- GLOBAL HEADER -->
+<header>
+  <div class="header-wrap">
+    <a href="/" style="display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-decoration:none;">
+      <span class="logo-wordmark">VELTRIDE</span>
+      <span class="logo-tagline">Research Compound Catalogue</span>
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/shop">Catalogue</a></li>
+        <li><a href="/quality">Quality / COA</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/shipping">Shipping</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="compliance-bar">For In-Vitro Research Purposes Only &bull; Not For Human Consumption &bull; Analytical Reference Standards</div>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-label">Contact</div>
+    <h1 class="page-title">Get In Touch</h1>
+    <p class="page-sub">We reply fast. Reach us via WhatsApp for the quickest response, or email us for detailed inquiries.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="icon">&#x1F4AC;</div>
+        <h3>WhatsApp</h3>
+        <p>Message us directly for research documentation requests, order inquiries, or general support. We typically reply within 1 hour during business hours.</p>
+        <a href="https://wa.me/12507189152" class="cta">Chat on WhatsApp</a>
+      </div>
+      <div class="contact-card">
+        <div class="icon">&#x1F4E7;</div>
+        <h3>Email</h3>
+        <p>Send us an email for detailed inquiries about our research compound catalogue, documentation, or order information. Response within 24 hours.</p>
+        <a href="mailto:support@veltride.ca" class="cta">Send an Email</a>
+      </div>
+    </div>
+    <div class="info-card">
+      <h3>Business Hours &amp; Response Times</h3>
+      <p>We are based in West Kelowna, British Columbia, Canada (Pacific Time).</p>
+      <p>WhatsApp messages are answered within 1 hour during business hours (Mon&ndash;Fri, 9am&ndash;6pm PT). Email responses within 24 hours. For urgent documentation requests, WhatsApp is the fastest channel.</p>
+      <p style="margin-top:12px;"><strong>Location:</strong> West Kelowna, BC, Canada<br><strong>Email:</strong> <a href="mailto:support@veltride.ca" style="color:#0d5c5c;">support@veltride.ca</a><br><strong>WhatsApp:</strong> <a href="https://wa.me/12507189152" style="color:#0d5c5c;">+1 (250) 718-9152</a></p>
+    </div>
+    <p style="margin-top:24px;font-size:11.5px;color:#718096;text-align:center;">All products are for in-vitro laboratory and analytical reference use only. Not for human or veterinary use. You must be 18+ and a qualified researcher to place an order.</p>
+  </div>
+</section>
+
+<!-- GLOBAL FOOTER -->
 <footer>
-<a href="index.html">Home</a><a href="shop.html">Shop</a><a href="faq.html">FAQ</a><a href="shipping.html">Shipping</a><a href="about.html">About</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a>
-<br><br>&copy; 2025 VELTRIDE &mdash; Research Peptides Canada. For research use only.
+  <div class="footer-inner">
+    <div class="footer-wordmark">VELTRIDE</div>
+    <p class="footer-disclaimer">VELTRIDE Inc. &mdash; West Kelowna, BC, Canada &mdash; <a href="mailto:support@veltride.ca" style="color:rgba(255,255,255,0.6);">support@veltride.ca</a><br>For In-Vitro Research Purposes Only &bull; Not For Human Consumption &bull; Laboratory Reference Catalogue</p>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/shop">Catalogue</a>
+      <a href="/quality">Quality / COA</a>
+      <a href="/faq">FAQ</a>
+      <a href="/shipping">Shipping</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms &amp; Conditions</a>
+    </div>
+    <div class="footer-bottom">&copy; 2026 VELTRIDE Inc. &mdash; West Kelowna, BC, Canada &mdash; For in-vitro research and analytical reference use only. Not for human consumption. &mdash; &#x1F1E8;&#x1F1E6; Canada</div>
+  </div>
 </footer>
-<div class="fw">
-<a href="https://wa.me/12507189152" class="fab" style="background:#25d366" title="WhatsApp">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L.057 23.885l6.194-1.623A11.938 11.938 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.933 0-3.742-.519-5.293-1.427l-.379-.225-3.677.964.981-3.594-.247-.388A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-</a>
-<a href="mailto:toufikghafir13@gmail.com" class="fab" style="background:#00e5cc" title="Email">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="#0a0f1e"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-</a>
-</div>
+
 </body>
 </html>
