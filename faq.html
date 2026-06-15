@@ -1,119 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>FAQ | VELTRIDE Research Peptides</title>
-  <meta name="description" content="Frequently asked questions about buying research peptides in Canada. Ordering, purity, storage, shipping to BC and across Canada."/>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    html,body{background:#050508;min-height:100vh;color:#E8E8F0;font-family:'DM Mono','Courier New',monospace;-webkit-font-smoothing:antialiased;}
-    a{-webkit-tap-highlight-color:transparent;}
-    @keyframes slideIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-    .faq-item{background:#0a0a14;border:1px solid #1a1a2e;border-radius:12px;margin-bottom:10px;overflow:hidden;animation:slideIn 0.3s ease both;}
-    .faq-q{width:100%;background:none;border:none;color:#E8E8F0;font-family:'DM Mono','Courier New',monospace;font-size:12px;font-weight:600;letter-spacing:0.04em;text-align:left;padding:18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;line-height:1.5;}
-    .faq-a{padding:0 18px 16px;font-size:11px;color:#777;line-height:1.75;letter-spacing:0.03em;}
-    .faq-a a{color:#00C6FF;text-decoration:none;}
-    nav a:hover{color:#E8E8F0 !important;}
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<!-- TODO [LEGAL-REVIEW]: Full legal and compliance review required before enabling checkout/payment. -->
+<title>FAQ | VELTRIDE Research Compound Catalogue</title>
+<meta name="description" content="Frequently asked questions about VELTRIDE research compounds, ordering, shipping, and quality documentation."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{background:#f5f6f8;color:#1a1a2e;font-family:'Inter',sans-serif;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+header{background:#fff;position:sticky;top:0;z-index:1000;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 12px rgba(0,0,0,0.06);}
+.header-wrap{max-width:1400px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:72px;gap:32px;}
+.logo-wordmark{font-size:18px;font-weight:700;letter-spacing:8px;color:#0d5c5c;text-transform:uppercase;}
+.logo-tagline{font-size:8px;letter-spacing:3px;color:#718096;text-transform:uppercase;font-weight:500;}
+nav.main-nav ul{display:flex;align-items:center;gap:24px;list-style:none;}
+nav.main-nav ul li a{font-size:12.5px;font-weight:600;color:#4a5568;letter-spacing:1px;text-transform:uppercase;padding:4px 0;border-bottom:2px solid transparent;transition:all 0.2s;}
+nav.main-nav ul li a:hover,nav.main-nav ul li a.active{color:#0d5c5c;border-bottom-color:#2abfbf;}
+.compliance-bar{background:#e8f6f6;border-bottom:1px solid rgba(26,122,122,0.15);text-align:center;padding:8px 28px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#0d5c5c;font-weight:600;}
+.page-hero{background:#fff;border-bottom:1px solid #e2e8f0;padding:56px 28px;}
+.page-hero-inner,.section-inner{max-width:860px;margin:0 auto;}
+.page-label{font-size:10.5px;font-weight:700;letter-spacing:3.5px;color:#2abfbf;text-transform:uppercase;margin-bottom:12px;}
+.page-title{font-size:clamp(30px,3.5vw,46px);font-weight:800;color:#1a1a2e;letter-spacing:-1px;line-height:1.1;margin-bottom:12px;}
+.page-sub{font-size:14px;color:#4a5568;}
+.section{padding:48px 28px;}
+.faq-group{margin-bottom:36px;}
+.faq-group-title{font-size:10.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#2abfbf;margin-bottom:16px;}
+.faq-item{background:#fff;border:1px solid #e2e8f0;border-radius:10px;margin-bottom:10px;overflow:hidden;}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;cursor:pointer;font-size:14px;font-weight:600;color:#1a1a2e;gap:12px;list-style:none;}
+.faq-q::after{content:'+';font-size:20px;color:#0d5c5c;flex-shrink:0;}
+.faq-item.open .faq-q::after{content:'-';}
+.faq-a{display:none;padding:0 22px 18px;font-size:13.5px;color:#4a5568;line-height:1.7;}
+.faq-item.open .faq-a{display:block;}
+@media(max-width:768px){.main-nav{display:none;}}
+footer{background:#0d1117;color:rgba(255,255,255,0.7);padding:48px 28px 24px;}
+.footer-inner{max-width:1400px;margin:0 auto;}
+.footer-wordmark{font-size:18px;font-weight:700;letter-spacing:8px;color:#2abfbf;text-transform:uppercase;margin-bottom:8px;}
+.footer-disclaimer{font-size:11px;color:rgba(255,255,255,0.5);line-height:1.6;max-width:600px;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,0.1);}
+.footer-links{display:flex;flex-wrap:wrap;gap:12px 24px;margin-bottom:20px;}
+.footer-links a{font-size:12.5px;color:rgba(255,255,255,0.6);}
+.footer-links a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;font-size:11.5px;color:rgba(255,255,255,0.4);}
+</style>
 </head>
 <body>
 
-<nav style="position:sticky;top:0;z-index:200;background:rgba(5,5,8,0.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid #111;padding:0 20px;">
-  <div style="max-width:680px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:50px;">
-    <a href="/" style="font-size:16px;font-weight:700;letter-spacing:0.18em;color:#E8E8F0;text-decoration:none;">VELTRIDE</a>
-    <div style="display:flex;align-items:center;gap:4px;">
-      <a href="/" style="font-size:9px;letter-spacing:0.1em;color:#555;text-decoration:none;padding:5px 8px;">SHOP</a>
-      <a href="/faq.html" style="font-size:9px;letter-spacing:0.1em;color:#00C6FF;text-decoration:none;padding:5px 8px;">FAQ</a>
-      <a href="/shipping.html" style="font-size:9px;letter-spacing:0.1em;color:#555;text-decoration:none;padding:5px 8px;">SHIPPING</a>
-      <a href="/about.html" style="font-size:9px;letter-spacing:0.1em;color:#555;text-decoration:none;padding:5px 8px;">ABOUT</a>
-      <a href="https://wa.me/12507189152" target="_blank" style="background:#25D366;color:#000;font-size:9px;letter-spacing:0.06em;font-weight:700;text-decoration:none;padding:6px 10px;border-radius:6px;margin-left:4px;">💬 HELP</a>
+<!-- GLOBAL HEADER -->
+<header>
+  <div class="header-wrap">
+    <a href="/" style="display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-decoration:none;">
+      <span class="logo-wordmark">VELTRIDE</span>
+      <span class="logo-tagline">Research Compound Catalogue</span>
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/shop">Catalogue</a></li>
+        <li><a href="/quality">Quality / COA</a></li>
+        <li><a href="/faq" class="active">FAQ</a></li>
+        <li><a href="/shipping">Shipping</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="compliance-bar">For In-Vitro Research Purposes Only &bull; Not For Human Consumption &bull; Analytical Reference Standards</div>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-label">Support</div>
+    <h1 class="page-title">Frequently Asked Questions</h1>
+    <p class="page-sub">Can&rsquo;t find your answer? <a href="https://wa.me/12507189152" style="color:#0d5c5c;font-weight:600;">WhatsApp us</a> &mdash; we reply fast.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+
+    <!-- ORDERING -->
+    <div class="faq-group">
+      <div class="faq-group-title">Ordering &amp; Payment</div>
+
+      <div class="faq-item open">
+        <div class="faq-q">How do I place an order?</div>
+        <div class="faq-a">Browse our research catalogue, select your compounds, and contact us via <a href="https://wa.me/12507189152" style="color:#0d5c5c;">WhatsApp</a> or <a href="mailto:support@veltride.ca" style="color:#0d5c5c;">email</a> to request documentation and place your order. Payment details are provided after order review.<br><br><em>Note: Live checkout is not currently active pending legal/compliance review. All orders are processed manually via WhatsApp or email.</em></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What payment methods do you accept?</div>
+        <div class="faq-a">We currently process orders via WhatsApp or email. Payment instructions are provided after order confirmation. Contact us at <a href="mailto:support@veltride.ca" style="color:#0d5c5c;">support@veltride.ca</a> or <a href="https://wa.me/12507189152" style="color:#0d5c5c;">WhatsApp</a> to initiate an order.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can I order by WhatsApp?</div>
+        <div class="faq-a">Yes. Message us at <a href="https://wa.me/12507189152" style="color:#0d5c5c;">+1 (250) 718-9152</a> and we will walk you through the order process and provide documentation details.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Is there a minimum order?</div>
+        <div class="faq-a">There is no minimum order requirement. However, orders over $150 CAD qualify for free standard shipping within Canada.</div>
+      </div>
     </div>
-  </div>
 
-    <a href="/blog/" style="color:#00C6FF;text-decoration:none;">Blog</a>
-  </nav>
+    <!-- PRODUCTS -->
+    <div class="faq-group">
+      <div class="faq-group-title">Products &amp; Quality</div>
 
-<div style="max-width:680px;margin:0 auto;padding:32px 18px 100px;">
-  <div style="margin-bottom:32px;animation:slideIn 0.4s ease both;">
-    <div style="font-size:10px;letter-spacing:0.2em;color:#333;margin-bottom:10px;">SUPPORT</div>
-    <h1 style="font-size:26px;font-weight:700;letter-spacing:-0.02em;margin-bottom:10px;">Frequently Asked<br/><span style="color:#00C6FF;">Questions</span></h1>
-    <p style="font-size:11px;color:#444;line-height:1.7;">Can't find your answer? <a href="https://wa.me/12507189152" target="_blank" style="color:#25D366;text-decoration:none;">WhatsApp us directly</a> — we reply fast.</p>
-  </div>
+      <div class="faq-item">
+        <div class="faq-q">What is your purity guarantee?</div>
+        <div class="faq-a">All VELTRIDE research compounds are &ge;99% purity verified by High Performance Liquid Chromatography (HPLC). A Certificate of Analysis (COA) from a third-party accredited laboratory is included with every order. You can verify the purity of your specific batch using the lot number on your COA.</div>
+      </div>
 
-  <div style="font-size:9px;letter-spacing:0.15em;color:#333;margin-bottom:14px;margin-top:28px;">ORDERING & PAYMENT</div>
+      <div class="faq-item">
+        <div class="faq-q">How should compounds be stored?</div>
+        <div class="faq-a">Lyophilized (freeze-dried) compounds should be stored at &minus;20&deg;C for long-term storage, or 2&ndash;8&deg;C (refrigerated) for up to 3 months after reconstitution. Avoid repeated freeze-thaw cycles. Keep away from light and moisture. Refer to your specific compound&rsquo;s COA for storage specifications.</div>
+      </div>
 
-  <div class="faq-item" style="animation-delay:0.05s">
-    <div class="faq-q">How do I place an order? <span style="color:#00C6FF;font-size:16px;flex-shrink:0">+</span></div>
-    <div class="faq-a">Browse our research catalogue, select your compounds, and contact us via WhatsApp or email to place your order. Payment details are provided after order review.</div>
-  </div>
-  <div class="faq-item" style="animation-delay:0.08s">
-    <div class="faq-q">What payment methods do you accept? <span style="color:#00C6FF;font-size:16px;flex-shrink:0">+</span></div>
-    <div class="faq-a">All major credit/debit cards (Visa, Mastercard, Amex), Apple Pay, and Google Pay via Stripe. All transactions are encrypted and processed securely. We do not store your card details.</div>
-  </div>
-  <div class="faq-item" style="animation-delay:0.11s">
-    <div class="faq-q">Is my payment secure? <span style="color:#00C6FF;font-size:16px;flex-shrink:0">+</span></div>
-    <div class="faq-a">Yes. Checkout is handled by Stripe — a PCI DSS Level 1 certified payment processor. Your card data never touches our servers. Look for the 🔒 in your browser bar during checkout.</div>
-  </div>
-  <div class="faq-item" style="animation-delay:0.13s">
-    <div class="faq-q">Can I order by WhatsApp? <span style="color:#00C6FF;font-size:16px;flex-shrink:0">+</span></div>
-    <div class="faq-a">Yes. If you prefer, message us at <a href="https://wa.me/12507189152">+1 (250) 718-9152</a> and we'll walk you through the order manually and send a payment link.</div>
-  </div>
+      <div class="faq-item">
+        <div class="faq-q">Are these products for human use?</div>
+        <div class="faq-a">No. All products sold by VELTRIDE Inc. are strictly for in-vitro research and laboratory use only. They are not intended for human or animal consumption, and are not approved by Health Canada for therapeutic, diagnostic, medical, cosmetic, or veterinary use. You must be 18 years of age or older to purchase.</div>
+      </div>
 
-  <div style="font-size:9px;letter-spacing:0.15em;color:#333;margin-bottom:14px;margin-top:28px;">PRODUCTS & QUALITY</div>
+      <div class="faq-item">
+        <div class="faq-q">What does each lot number mean?</div>
+        <div class="faq-a">Each lot number (e.g., VT-BPC) corresponds to a specific production batch. This number links your physical product to its Certificate of Analysis, confirming the purity data applies to your exact sample. If you have questions about a specific batch, contact us with the lot number.</div>
+      </div>
 
-  <div class="faq-item" style="animation-delay:0.15s">
-    <div class="faq-q">What is your purity guarantee? <span style="color:#00C6FF;font-size:16px;flex-shrink:0">+</span></div>
-    <div class="faq-a">All VELTRIDE peptides are ≥98% purity verified by High Performance Liquid Chromatography (HPLC). A Certificate of Analysis (COA) from a third-party lab is included with every order.</div>
-  </div>
-  <div class="faq-item" style="animation-delay:0.17s">
-    <div class="faq-q">How should peptides be stored? <span style="color:#00C6FF;font-size:16px;flex-shrink:0">+</span></div>
-    <div class="faq-a">Lyophilized (freeze-dried) peptides should be stored at −20°C for long-term storage, or 2–8°C (refrigerated) for up to 3 months. Avoid repeated freeze-thaw cycles. Keep away from light and moisture.</div>
-  </div>
-  <div class="faq-item" style="animation-delay:0.19s">
-    <div class="faq-q">Are these peptides for human use? <span style="color:#00C6FF;font-size:16px;flex-shrink:0">+</span></div>
-    <div class="faq-a">No. All products sold by VELTRIDE are strictly for in-vitro research and laboratory use only. They are not intended for human or animal consumption, and are not approved by Health Canada for therapeutic use. You must be 18+ to purchase.</div>
-  </div>
-  <div class="faq-item" style="animation-delay:0.21s">
-    <div class="faq-q">What does each lot number mean? <span style="color:#00C6FF;font-size:16px;flex-shrink:0">+</span></div>
-    <div class="faq-a">Each lot number (e.g. VT-001) corresponds to a specific production batch. This allows you to cross-reference your COA and verify the purity data for the exact batch you received.</div>
-  </div>
-  <div class="faq-item" style="animation-delay:0.23s">
-    <div class="faq-q">Can I request a specific peptide not listed? <span style="color:#00C6FF;font-size:16px;flex-shrink:0">+</span></div>
-    <div class="faq-a">Possibly. <a href="https://wa.me/12507189152">Contact us on WhatsApp</a> with the compound name, dose, and quantity you need. We'll advise on availability.</div>
-  </div>
-
-  <div style="font-size:9px;letter-spacing:0.15em;color:#333;margin-bottom:14px;margin-top:28px;">SHIPPING & ORDERS</div>
-
-  <div class="faq-item" style="animation-delay:0.25s">
-    <div class="faq-q">Where do you ship to? <span style="color:#00C6FF;font-size:16px;flex-shrink:0">+</span></div>
-    <div class="faq-a">We currently ship within Canada only. All provinces and territories are covered. See our <a href="/shipping.html">Shipping page</a> for delivery timelines and rates.</div>
-  </div>
-  <div class="faq-item" style="animation-delay:0.27s">
-    <div class="faq-q">How is my order packaged? <span style="color:#00C6FF;font-size:16px;flex-shrink:0">+</span></div>
-    <div class="faq-a">All orders are shipped in plain, discreet packaging with no VELTRIDE branding visible on the outside. Products are packaged with insulated cold packs to maintain integrity during transit.</div>
-  </div>
-  <div class="faq-item" style="animation-delay:0.29s">
-    <div class="faq-q">How long does shipping take? <span style="color:#00C6FF;font-size:16px;flex-shrink:0">+</span></div>
-    <div class="faq-a">Standard shipping is 3–7 business days. Expedited (2-day) shipping is available at checkout for an additional fee. Orders are typically processed and dispatched within 1 business day of payment confirmation.</div>
-  </div>
-  <div class="faq-item" style="animation-delay:0.31s">
-    <div class="faq-q">What if my order arrives damaged? <span style="color:#00C6FF;font-size:16px;flex-shrink:0">+</span></div>
-    <div class="faq-a">Contact us within 48 hours of delivery via <a href="https://wa.me/12507189152">WhatsApp</a> or email with a photo of the damage. We will arrange a replacement at no additional cost.</div>
-  </div>
-
-  <!-- FOOTER -->
-  <div style="margin-top:48px;padding-top:20px;border-top:1px solid #0d0d1a;text-align:center;">
-    <div style="display:flex;justify-content:center;gap:20px;margin-bottom:14px;flex-wrap:wrap;">
-      <a href="/" style="font-size:9px;color:#333;text-decoration:none;letter-spacing:0.1em;">SHOP</a>
-      <a href="/shipping.html" style="font-size:9px;color:#333;text-decoration:none;letter-spacing:0.1em;">SHIPPING</a>
-      <a href="/about.html" style="font-size:9px;color:#333;text-decoration:none;letter-spacing:0.1em;">ABOUT</a>
-      <a href="/terms.html" style="font-size:9px;color:#333;text-decoration:none;letter-spacing:0.1em;">TERMS</a>
-      <a href="/privacy.html" style="font-size:9px;color:#333;text-decoration:none;letter-spacing:0.1em;">PRIVACY</a>
+      <div class="faq-item">
+        <div class="faq-q">Can I request a compound not listed in the catalogue?</div>
+        <div class="faq-a">Possibly. Contact us via WhatsApp or email with the compound name, form, and quantity required. We will advise on availability and documentation.</div>
+      </div>
     </div>
-    <div style="font-size:9px;color:#222;letter-spacing:0.05em;line-height:1.7;">© 2026 VELTRIDE · West Kelowna, BC, Canada<br/>For research purposes only. Not for human consumption.</div>
-  </div>
-</div>
 
+    <!-- SHIPPING -->
+    <div class="faq-group">
+      <div class="faq-group-title">Shipping &amp; Orders</div>
+
+      <div class="faq-item">
+        <div class="faq-q">Do you offer free shipping?</div>
+        <div class="faq-a">Yes. Free standard shipping is included on all orders over $150 CAD within Canada. Standard rates apply to orders below this threshold.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">When will my order ship?</div>
+        <div class="faq-a">Orders confirmed before <strong>1:00 PM PT Monday&ndash;Friday</strong> ship the same business day. Orders confirmed after 1:00 PM PT ship the next business day. You will receive a tracking number by email once your order ships. See our <a href="/shipping" style="color:#0d5c5c;">Shipping Policy</a> for full details.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Where do you ship?</div>
+        <div class="faq-a">We ship within Canada only. All provinces and territories are served. We do not currently ship internationally.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How is my order packaged?</div>
+        <div class="faq-a">All orders ship in plain, discreet packaging with no VELTRIDE branding on the outside. Products are packaged with insulated cold packs to maintain integrity during transit. A Certificate of Analysis is included for each compound.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What if my order arrives damaged?</div>
+        <div class="faq-a">Contact us within 48 hours of delivery via <a href="https://wa.me/12507189152" style="color:#0d5c5c;">WhatsApp</a> or <a href="mailto:support@veltride.ca" style="color:#0d5c5c;">email</a> with a photo of the damage. We will arrange a replacement at no additional cost.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GLOBAL FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-wordmark">VELTRIDE</div>
+    <p class="footer-disclaimer">VELTRIDE Inc. &mdash; West Kelowna, BC, Canada &mdash; <a href="mailto:support@veltride.ca" style="color:rgba(255,255,255,0.6);">support@veltride.ca</a><br>For In-Vitro Research Purposes Only &bull; Not For Human Consumption &bull; Laboratory Reference Catalogue</p>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/shop">Catalogue</a>
+      <a href="/quality">Quality / COA</a>
+      <a href="/faq">FAQ</a>
+      <a href="/shipping">Shipping</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms &amp; Conditions</a>
+    </div>
+    <div class="footer-bottom">&copy; 2026 VELTRIDE Inc. &mdash; West Kelowna, BC, Canada &mdash; For in-vitro research and analytical reference use only. Not for human consumption. &mdash; &#x1F1E8;&#x1F1E6; Canada</div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.closest('.faq-item');
+    item.classList.toggle('open');
+  });
+});
+</script>
 </body>
 </html>
