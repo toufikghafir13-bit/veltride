@@ -1,49 +1,46 @@
 # VELTRIDE — Setup Checklist
 
-## 🚨 REQUIRED: Activate Stripe Payments
+## Current storefront status
 
-Your checkout is built and ready. To accept real payments, you need to add your Stripe secret key to Vercel.
+Live checkout should remain disabled until payment processing and legal/compliance requirements have been reviewed and approved.
 
-### Steps:
-1. Go to [https://dashboard.stripe.com/apikeys](https://dashboard.stripe.com/apikeys)
-2. Copy your **Secret key** (starts with `sk_live_...`)
-3. Go to [https://vercel.com/dashboard](https://vercel.com/dashboard) → your `veltride` project
-4. Click **Settings** → **Environment Variables**
-5. Add: `STRIPE_SECRET_KEY` = your secret key (set for Production + Preview)
-6. Click **Save**, then **Redeploy** the latest deployment
-
-Once done, the cart → checkout → Stripe payment flow is live.
+### Ordering flow currently shown on the site
+1. Customer browses the research catalogue.
+2. Customer contacts VELTRIDE by WhatsApp or email.
+3. Research-use requirements and order details are reviewed.
+4. Payment instructions are provided only after review.
 
 ---
 
-## ✅ Netlify Forms (Email Capture)
+## Shipping settings
 
-The email capture forms submit to Netlify Forms. To receive notifications:
-1. Go to [https://app.netlify.com](https://app.netlify.com) → your site → **Forms**
-2. Find `email-signup` and `popup-email`
-3. Click **Form notifications** → add your email
-
----
-
-## ✅ What's Live
-
-| Feature | Status |
-|---------|--------|
-| Stripe checkout (/api/create-checkout) | ✅ Built — needs STRIPE_SECRET_KEY in Vercel |
-| Email capture (Netlify Forms) | ✅ Live — activate notifications in Netlify |
-| 10% off popup (first visit) | ✅ Live |
-| Free shipping progress bar ($150 threshold) | ✅ Live |
-| Urgency/social proof ticker | ✅ Live |
-| Product page deep links | ✅ Live |
-| Low stock urgency badges | ✅ Live |
-| Blog (5 SEO articles) | ✅ Live |
-| Sitemap with blog URLs | ✅ Live |
-| All 22 product pages with reviews + CTAs | ✅ Live |
+- Free standard shipping threshold: **$150 CAD**
+- Same-business-day dispatch cutoff: **1:00 PM PT, Monday–Friday**
+- Orders after the cutoff ship the next business day.
+- Canada-only shipping unless the public shipping policy is updated.
 
 ---
 
-## 📱 WhatsApp Orders (Backup)
+## Vercel
 
-If Stripe isn't set up yet, customers can still order via WhatsApp: **+1 (250) 718-9152**
+This repository includes `vercel.json` and is designed for Vercel deployment.
 
-The checkout error state shows a WhatsApp fallback automatically.
+Before enabling any live checkout flow:
+- Confirm the production Vercel project and domain.
+- Confirm all required environment variables.
+- Review payment-provider terms and applicable legal/compliance requirements.
+- Test checkout only in a preview or test environment first.
+
+Do not commit secret API keys to this repository.
+
+---
+
+## Site consistency checks
+
+Before each production release, verify:
+- Homepage and catalogue prices match.
+- Shipping threshold and dispatch cutoff match across Home, FAQ, Shipping, Terms, and product pages.
+- Age/research-use language is consistent.
+- Purity claims match current batch documentation.
+- Product images are served from VELTRIDE-owned assets or an approved source.
+- Contact email and WhatsApp details are correct.
