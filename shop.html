@@ -1,440 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<!-- TODO [LEGAL-REVIEW — PAYMENT]: Do not enable Add to Cart, Stripe checkout, or any payment flow until legal/compliance review is complete. Currently using Request Information flow only. -->
-<title>Research Compound Catalogue | VELTRIDE Canada</title>
-<meta name="description" content="VELTRIDE research compound catalogue. Analytical-grade compounds for in-vitro laboratory research. Canada-wide shipping."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Research Catalogue | VELTRIDE Canada</title>
+<meta name="description" content="Browse the VELTRIDE research compound catalogue and request lot-specific quality documentation. For laboratory research use only.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html,body{background:#f5f6f8;color:#1a1a2e;font-family:'Inter',sans-serif;line-height:1.6;}
-a{text-decoration:none;color:inherit;}
-header{background:#fff;position:sticky;top:0;z-index:1000;border-bottom:1px solid #e2e8f0;box-shadow:0 1px 12px rgba(0,0,0,0.06);}
-.header-wrap{max-width:1400px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:72px;gap:32px;}
-.logo-wordmark{font-size:18px;font-weight:700;letter-spacing:8px;color:#0d5c5c;text-transform:uppercase;}
-.logo-tagline{font-size:8px;letter-spacing:3px;color:#718096;text-transform:uppercase;font-weight:500;}
-nav.main-nav ul{display:flex;align-items:center;gap:24px;list-style:none;}
-nav.main-nav ul li a{font-size:12.5px;font-weight:600;color:#4a5568;letter-spacing:1px;text-transform:uppercase;padding:4px 0;border-bottom:2px solid transparent;transition:all 0.2s;}
-nav.main-nav ul li a:hover,nav.main-nav ul li a.active{color:#0d5c5c;border-bottom-color:#2abfbf;}
-.compliance-bar{background:#e8f6f6;border-bottom:1px solid rgba(26,122,122,0.15);text-align:center;padding:8px 28px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#0d5c5c;font-weight:600;}
-
-/* COMPLIANCE GATE */
-.gate-overlay{position:fixed;inset:0;background:rgba(10,20,30,0.85);z-index:9000;display:flex;align-items:center;justify-content:center;padding:20px;}
-.gate-box{background:#fff;border-radius:16px;padding:40px;max-width:540px;width:100%;box-shadow:0 24px 64px rgba(0,0,0,0.3);}
-.gate-box h2{font-size:20px;font-weight:800;color:#1a1a2e;margin-bottom:8px;}
-.gate-box .gate-sub{font-size:13px;color:#4a5568;margin-bottom:24px;line-height:1.6;}
-.gate-checks{display:flex;flex-direction:column;gap:12px;margin-bottom:24px;}
-.gate-check label{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#1a1a2e;cursor:pointer;line-height:1.5;}
-.gate-check input[type=checkbox]{margin-top:3px;accent-color:#0d5c5c;width:16px;height:16px;flex-shrink:0;}
-.gate-btn{width:100%;background:#0d5c5c;color:#fff;border:none;padding:14px 24px;border-radius:50px;font-size:13.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:background 0.2s;}
-.gate-btn:hover{background:#1a7a7a;}
-.gate-btn:disabled{background:#94a3b8;cursor:not-allowed;}
-.gate-warning{font-size:11px;color:#718096;text-align:center;margin-top:12px;line-height:1.5;}
-
-/* PAGE */
-.page-hero{background:#fff;border-bottom:1px solid #e2e8f0;padding:40px 28px;}
-.page-hero-inner{max-width:1400px;margin:0 auto;}
-.page-label{font-size:10.5px;font-weight:700;letter-spacing:3.5px;color:#2abfbf;text-transform:uppercase;margin-bottom:8px;}
-.page-title{font-size:clamp(24px,3vw,38px);font-weight:800;color:#1a1a2e;letter-spacing:-0.5px;margin-bottom:8px;}
-.page-sub{font-size:13.5px;color:#4a5568;}
-.research-notice{background:#fff8e1;border:1px solid #f59e0b;border-radius:10px;padding:14px 20px;margin-top:16px;font-size:12.5px;color:#92400e;display:flex;align-items:flex-start;gap:10px;}
-
-/* GRID */
-.catalogue-section{padding:40px 28px;}
-.catalogue-inner{max-width:1400px;margin:0 auto;}
-.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-@media(max-width:1100px){.prod-grid{grid-template-columns:repeat(3,1fr);}}
-@media(max-width:768px){.prod-grid{grid-template-columns:repeat(2,1fr);}.main-nav{display:none;}}
-@media(max-width:480px){.prod-grid{grid-template-columns:1fr;}}
-
-/* PRODUCT CARD */
-.pcard{background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e2e8f0;transition:box-shadow 0.25s,transform 0.25s;display:flex;flex-direction:column;}
-.pcard:hover{box-shadow:0 8px 40px rgba(0,0,0,0.1);transform:translateY(-3px);}
-.pimg{height:200px;background:#f8f9fb;display:flex;align-items:center;justify-content:center;padding:20px;overflow:hidden;}
-.pimg img{height:100%;width:100%;object-fit:contain;}
-.pbody{padding:20px;flex:1;display:flex;flex-direction:column;}
-.pcategory{font-size:9.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#2abfbf;margin-bottom:6px;}
-.pname{font-size:17px;font-weight:800;color:#1a1a2e;margin-bottom:4px;}
-.pdesc{font-size:12.5px;color:#718096;line-height:1.5;margin-bottom:12px;flex:1;}
-.ppurity{font-size:10.5px;font-weight:700;color:#0d5c5c;background:#e8f6f6;padding:3px 10px;border-radius:12px;display:inline-block;margin-bottom:12px;}
-.pprice{font-size:22px;font-weight:800;color:#0d5c5c;margin-bottom:4px;}
-.pprice-sub{font-size:11px;color:#718096;margin-bottom:14px;}
-.pactions{display:flex;gap:8px;flex-direction:column;}
-.btn-request{background:#0d5c5c;color:#fff;padding:11px 16px;border-radius:50px;font-size:12px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;text-align:center;transition:background 0.2s;display:block;}
-.btn-request:hover{background:#1a7a7a;}
-.btn-details{border:1.5px solid #0d5c5c;color:#0d5c5c;padding:9px 16px;border-radius:50px;font-size:12px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;text-align:center;transition:all 0.2s;display:block;}
-.btn-details:hover{background:#0d5c5c;color:#fff;}
-
-/* FOOTER */
-footer{background:#0d1117;color:rgba(255,255,255,0.7);padding:48px 28px 24px;}
-.footer-inner{max-width:1400px;margin:0 auto;}
-.footer-wordmark{font-size:18px;font-weight:700;letter-spacing:8px;color:#2abfbf;text-transform:uppercase;margin-bottom:8px;}
-.footer-disclaimer{font-size:11px;color:rgba(255,255,255,0.5);line-height:1.6;max-width:600px;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,0.1);}
-.footer-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-bottom:32px;}
-@media(max-width:768px){.footer-cols{grid-template-columns:1fr 1fr;}}
-.footer-col h4{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#2abfbf;margin-bottom:12px;}
-.footer-col ul{list-style:none;}
-.footer-col ul li{margin-bottom:8px;}
-.footer-col ul li a{font-size:12.5px;color:rgba(255,255,255,0.6);}
-.footer-col ul li a:hover{color:#fff;}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;font-size:11.5px;color:rgba(255,255,255,0.4);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+:root{--ink:#172323;--muted:#667474;--teal:#0b6664;--soft:#f4f8f7;--line:#dfe8e6;--white:#fff}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.5}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}
+.notice{padding:9px 20px;text-align:center;background:var(--teal);color:#fff;font-size:12px;letter-spacing:.04em}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}.nav{max-width:1180px;margin:auto;height:72px;padding:0 24px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:20px;font-weight:700;letter-spacing:.22em;color:var(--teal)}nav{display:flex;gap:28px;align-items:center}nav a{font-size:14px;color:#425151}.contact{padding:10px 16px;border:1px solid var(--teal);border-radius:6px;color:var(--teal)}
+.hero{max-width:1180px;margin:auto;padding:70px 24px 44px}.eyebrow{color:var(--teal);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:clamp(38px,5vw,58px);letter-spacing:-.04em;line-height:1.05;margin:12px 0}.hero p{max-width:720px;color:var(--muted);font-size:16px;margin:0}
+.toolbar{max-width:1180px;margin:0 auto;padding:0 24px 28px}.toolbar-inner{display:flex;gap:10px;flex-wrap:wrap}.chip{padding:9px 13px;border:1px solid var(--line);border-radius:999px;font-size:12px;background:#fff;color:#425151}.chip.active{background:var(--teal);color:#fff;border-color:var(--teal)}
+.grid{max-width:1180px;margin:auto;padding:0 24px 84px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;transition:.2s}.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(15,70,68,.08)}.product-img{height:230px;background:var(--soft);display:flex;align-items:center;justify-content:center;padding:28px}.product-img img{height:100%;object-fit:contain}.body{padding:17px}.type{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:700}.body h2{font-size:17px;margin:7px 0 4px}.body p{font-size:12px;color:var(--muted);margin:0 0 14px}.view{font-size:13px;font-weight:600;color:var(--teal)}
+.info{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.info-inner{max-width:900px;margin:auto;padding:50px 24px;text-align:center}.info h2{font-size:28px;margin:0 0 12px}.info p{color:var(--muted);font-size:14px;margin:0 auto;max-width:680px}
+footer{background:#122020;color:#d6e0df}.footer{max-width:1180px;margin:auto;padding:48px 24px 28px}.footer-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}.footer-brand{font-weight:700;letter-spacing:.2em;color:#fff}.footer-links{display:flex;gap:22px;flex-wrap:wrap;font-size:12px}.disclaimer{margin-top:34px;padding-top:22px;border-top:1px solid #2b3a39;font-size:11px;color:#91a3a1;max-width:850px}
+@media(max-width:900px){nav a:not(.contact){display:none}.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.nav{height:64px}.brand{font-size:17px}.hero{padding:48px 20px 30px}.toolbar{padding:0 20px 22px}.grid{padding:0 20px 62px;gap:10px}.product-img{height:160px;padding:18px}.body{padding:13px}.body h2{font-size:15px}}
 </style>
 </head>
 <body>
-
-<!-- COMPLIANCE GATE — must be completed before browsing catalogue -->
-<div class="gate-overlay" id="complianceGate">
-  <div class="gate-box">
-    <h2>&#x1F52C; Research Access Confirmation</h2>
-    <p class="gate-sub">This catalogue contains analytical-grade research compounds for in-vitro laboratory use only. Before proceeding, please confirm all of the following:</p>
-    <div class="gate-checks">
-      <div class="gate-check">
-        <label><input type="checkbox" id="chk1"/> I am 18 years of age or older.</label>
-      </div>
-      <div class="gate-check">
-        <label><input type="checkbox" id="chk2"/> I am a qualified researcher, laboratory professional, or academic operating within a lawful research context.</label>
-      </div>
-      <div class="gate-check">
-        <label><input type="checkbox" id="chk3"/> I will use all compounds for in-vitro research purposes only &mdash; not for human or animal administration, cosmetic use, or any therapeutic purpose.</label>
-      </div>
-      <div class="gate-check">
-        <label><input type="checkbox" id="chk4"/> I acknowledge these products are not approved by Health Canada for any therapeutic or consumer use, and are not for human consumption.</label>
-      </div>
-    </div>
-    <button class="gate-btn" id="gateSubmit" disabled>Confirm &amp; Enter Research Catalogue</button>
-    <p class="gate-warning">By confirming, you agree to our <a href="/terms" style="color:#0d5c5c;">Terms of Service</a> and <a href="/privacy" style="color:#0d5c5c;">Privacy Policy</a>. If you do not agree, please leave this site.</p>
-  </div>
-</div>
-
-<!-- GLOBAL HEADER -->
-<header>
-  <div class="header-wrap">
-    <a href="/" style="display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-decoration:none;">
-      <span class="logo-wordmark">VELTRIDE</span>
-      <span class="logo-tagline">Research Compound Catalogue</span>
-    </a>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/shop" class="active">Catalogue</a></li>
-        <li><a href="/quality">Quality / COA</a></li>
-        <li><a href="/faq">FAQ</a></li>
-        <li><a href="/shipping">Shipping</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-<div class="compliance-bar">For In-Vitro Research Purposes Only &bull; Not For Human Consumption &bull; Analytical Reference Standards</div>
-
-<!-- PAGE HERO -->
-<section class="page-hero">
-  <div class="page-hero-inner">
-    <div class="page-label">Research Catalogue</div>
-    <h1 class="page-title">Analytical Research Compounds</h1>
-    <p class="page-sub">12 analytical-grade compounds &bull; &ge;99% HPLC-verified &bull; COA included with every order &bull; Canada-wide shipping</p>
-    <div class="research-notice">
-      <span>&#x26A0;</span>
-      <span>All compounds listed are for in-vitro laboratory and analytical reference use only. Not for human or veterinary use. Not approved by Health Canada for therapeutic use. To request documentation, use the &ldquo;Request Information&rdquo; button or <a href="/contact" style="color:#0d5c5c;font-weight:600;">contact us</a> directly. <!-- TODO [LEGAL-REVIEW — PAYMENT]: Live checkout disabled pending legal review. --></span>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCT GRID -->
-<section class="catalogue-section">
-  <div class="catalogue-inner">
-    <div class="prod-grid">
-
-      <!-- Semaglutide -->
-      <div class="pcard">
-        <div class="pimg"><img src="semaglutide-product.png" alt="VELTRIDE Semaglutide 5mg lyophilized research compound vial" loading="lazy"/></div>
-        <div class="pbody">
-          <div class="pcategory">Metabolic Research</div>
-          <div class="pname">Semaglutide</div>
-          <div class="pdesc">GLP-1 receptor agonist. Analytical reference standard for metabolic pathway and receptor-binding research.</div>
-          <span class="ppurity">&#x2714; 99%+ HPLC Verified</span>
-          <div class="pprice">From $120 CAD</div>
-          <div class="pprice-sub">5mg &bull; Free shipping over $150 CAD</div>
-          <div class="pactions">
-            <a href="https://wa.me/12507189152?text=I+am+interested+in+Semaglutide+research+documentation" class="btn-request">Request Information</a>
-            <a href="/semaglutide" class="btn-details">View Research Details</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tirzepatide -->
-      <div class="pcard">
-        <div class="pimg"><img src="tirzepatide-product.png" alt="VELTRIDE Tirzepatide 10mg lyophilized research compound vial" loading="lazy"/></div>
-        <div class="pbody">
-          <div class="pcategory">Metabolic Research</div>
-          <div class="pname">Tirzepatide</div>
-          <div class="pdesc">Dual GIP/GLP-1 receptor agonist. Advanced metabolic compound for dual incretin receptor pathway research.</div>
-          <span class="ppurity">&#x2714; 99%+ HPLC Verified</span>
-          <div class="pprice">From $149 CAD</div>
-          <div class="pprice-sub">10mg / 15mg / 20mg &bull; Free shipping over $150 CAD</div>
-          <div class="pactions">
-            <a href="https://wa.me/12507189152?text=I+am+interested+in+Tirzepatide+research+documentation" class="btn-request">Request Information</a>
-            <a href="/tirzepatide" class="btn-details">View Research Details</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Retatrutide -->
-      <div class="pcard">
-        <div class="pimg"><img src="retatrutide-product.png" alt="VELTRIDE Retatrutide 8mg lyophilized research compound vial" loading="lazy"/></div>
-        <div class="pbody">
-          <div class="pcategory">Metabolic Research</div>
-          <div class="pname">Retatrutide</div>
-          <div class="pdesc">Triple GIP/GLP-1/glucagon receptor agonist. Next-generation reference compound for multi-receptor research.</div>
-          <span class="ppurity">&#x2714; 99%+ HPLC Verified</span>
-          <div class="pprice">From $179 CAD</div>
-          <div class="pprice-sub">8mg / 10mg &bull; Free shipping over $150 CAD</div>
-          <div class="pactions">
-            <a href="https://wa.me/12507189152?text=I+am+interested+in+Retatrutide+research+documentation" class="btn-request">Request Information</a>
-            <a href="/retatrutide" class="btn-details">View Research Details</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- BPC-157 -->
-      <div class="pcard">
-        <div class="pimg"><img src="bpc-157-product.png" alt="VELTRIDE BPC-157 5mg lyophilized research compound vial" loading="lazy"/></div>
-        <div class="pbody">
-          <div class="pcategory">Recovery Research</div>
-          <div class="pname">BPC-157</div>
-          <div class="pdesc">Body Protection Compound. Cytoprotective pentadecapeptide for tissue regeneration pathway research.</div>
-          <span class="ppurity">&#x2714; 99%+ HPLC Verified</span>
-          <div class="pprice">From $69 CAD</div>
-          <div class="pprice-sub">5mg / 10mg &bull; Free shipping over $150 CAD</div>
-          <div class="pactions">
-            <a href="https://wa.me/12507189152?text=I+am+interested+in+BPC-157+research+documentation" class="btn-request">Request Information</a>
-            <a href="/bpc-157" class="btn-details">View Research Details</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- MK-677 -->
-      <div class="pcard">
-        <div class="pimg"><img src="mk-677-product.png" alt="VELTRIDE MK-677 Ibutamoren 10mg lyophilized research compound vial" loading="lazy"/></div>
-        <div class="pbody">
-          <div class="pcategory">Growth Hormone Research</div>
-          <div class="pname">MK-677</div>
-          <div class="pdesc">Ibutamoren — orally active ghrelin receptor agonist (GHS-R1a). Reference standard for GH secretagogue and IGF-1 axis research.</div>
-          <span class="ppurity">&#x2714; 99%+ HPLC Verified</span>
-          <div class="pprice">From $89 CAD</div>
-          <div class="pprice-sub">10mg / 25mg &bull; Free shipping over $150 CAD</div>
-          <div class="pactions">
-            <a href="https://wa.me/12507189152?text=I+am+interested+in+MK-677+research+documentation" class="btn-request">Request Information</a>
-            <a href="/mk-677" class="btn-details">View Research Details</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Ipamorelin -->
-      <div class="pcard">
-        <div class="pimg"><img src="ipamorelin-product.png" alt="VELTRIDE Ipamorelin 5mg lyophilized research compound vial" loading="lazy"/></div>
-        <div class="pbody">
-          <div class="pcategory">Growth Hormone Research</div>
-          <div class="pname">Ipamorelin</div>
-          <div class="pdesc">Selective pentapeptide growth hormone secretagogue. Reference standard for GH-axis and GHS-R selectivity research.</div>
-          <span class="ppurity">&#x2714; 99%+ HPLC Verified</span>
-          <div class="pprice">From $59 CAD</div>
-          <div class="pprice-sub">5mg / 10mg &bull; Free shipping over $150 CAD</div>
-          <div class="pactions">
-            <a href="https://wa.me/12507189152?text=I+am+interested+in+Ipamorelin+research+documentation" class="btn-request">Request Information</a>
-            <a href="/ipamorelin" class="btn-details">View Research Details</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- GHRP-2 -->
-      <div class="pcard">
-        <div class="pimg"><img src="ghrp-2-product.png" alt="VELTRIDE GHRP-2 5mg lyophilized research compound vial" loading="lazy"/></div>
-        <div class="pbody">
-          <div class="pcategory">Growth Hormone Research</div>
-          <div class="pname">GHRP-2</div>
-          <div class="pdesc">Growth hormone-releasing hexapeptide. Reference compound for pituitary GH secretion and ghrelin receptor agonism research.</div>
-          <span class="ppurity">&#x2714; 99%+ HPLC Verified</span>
-          <div class="pprice">From $55 CAD</div>
-          <div class="pprice-sub">5mg / 10mg &bull; Free shipping over $150 CAD</div>
-          <div class="pactions">
-            <a href="https://wa.me/12507189152?text=I+am+interested+in+GHRP-2+research+documentation" class="btn-request">Request Information</a>
-            <a href="/ghrp-2" class="btn-details">View Research Details</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- GHK-Cu -->
-      <div class="pcard">
-        <div class="pimg"><img src="ghk-cu-product.png" alt="VELTRIDE GHK-Cu copper peptide 50mg lyophilized research compound vial" loading="lazy"/></div>
-        <div class="pbody">
-          <div class="pcategory">Regeneration Research</div>
-          <div class="pname">GHK-Cu</div>
-          <div class="pdesc">Copper peptide complex (Gly-His-Lys:Cu&sup2;&#x207A;). Research standard for collagen synthesis, wound-healing signaling, and TGF-&beta; pathway studies.</div>
-          <span class="ppurity">&#x2714; 99%+ HPLC Verified</span>
-          <div class="pprice">$60 CAD</div>
-          <div class="pprice-sub">50mg &bull; Free shipping over $150 CAD</div>
-          <div class="pactions">
-            <a href="https://wa.me/12507189152?text=I+am+interested+in+GHK-Cu+research+documentation" class="btn-request">Request Information</a>
-            <a href="/ghk-cu" class="btn-details">View Research Details</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- NAD+ -->
-      <div class="pcard">
-        <div class="pimg"><img src="nad-plus-product.png" alt="VELTRIDE NAD+ 500mg lyophilized research compound vial" loading="lazy"/></div>
-        <div class="pbody">
-          <div class="pcategory">Longevity Research</div>
-          <div class="pname">NAD+</div>
-          <div class="pdesc">Nicotinamide adenine dinucleotide. Coenzyme reference standard for cellular energy metabolism, DNA repair (PARP pathway), and sirtuin research.</div>
-          <span class="ppurity">&#x2714; 99%+ HPLC Verified</span>
-          <div class="pprice">$89 CAD</div>
-          <div class="pprice-sub">500mg &bull; Free shipping over $150 CAD</div>
-          <div class="pactions">
-            <a href="https://wa.me/12507189152?text=I+am+interested+in+NAD++research+documentation" class="btn-request">Request Information</a>
-            <a href="/nad-plus" class="btn-details">View Research Details</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Epithalon -->
-      <div class="pcard">
-        <div class="pimg"><img src="epithalon-product.png" alt="VELTRIDE Epithalon 10mg lyophilized research compound vial" loading="lazy"/></div>
-        <div class="pbody">
-          <div class="pcategory">Longevity Research</div>
-          <div class="pname">Epithalon</div>
-          <div class="pdesc">Tetrapeptide telomerase activator (Ala-Glu-Asp-Gly). Reference compound for telomere-length regulation and cellular-aging pathway research.</div>
-          <span class="ppurity">&#x2714; 99%+ HPLC Verified</span>
-          <div class="pprice">$79 CAD</div>
-          <div class="pprice-sub">10mg &bull; Free shipping over $150 CAD</div>
-          <div class="pactions">
-            <a href="https://wa.me/12507189152?text=I+am+interested+in+Epithalon+research+documentation" class="btn-request">Request Information</a>
-            <a href="/epithalon" class="btn-details">View Research Details</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Melanotan-2 -->
-      <div class="pcard">
-        <div class="pimg"><img src="melanotan-2-product.png" alt="VELTRIDE Melanotan-2 10mg lyophilized research compound vial" loading="lazy"/></div>
-        <div class="pbody">
-          <div class="pcategory">Melanocortin Research</div>
-          <div class="pname">Melanotan-2</div>
-          <div class="pdesc">Synthetic melanocortin peptide. Reference standard for MC1-R/MC4-R receptor pathway and melanogenesis mechanism research.</div>
-          <span class="ppurity">&#x2714; 99%+ HPLC Verified</span>
-          <div class="pprice">$59 CAD</div>
-          <div class="pprice-sub">10mg &bull; Free shipping over $150 CAD</div>
-          <div class="pactions">
-            <a href="https://wa.me/12507189152?text=I+am+interested+in+Melanotan-2+research+documentation" class="btn-request">Request Information</a>
-            <a href="/melanotan-2" class="btn-details">View Research Details</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Selank -->
-      <div class="pcard">
-        <div class="pimg"><img src="selank-product.png" alt="VELTRIDE Selank 5mg lyophilized research compound vial" loading="lazy"/></div>
-        <div class="pbody">
-          <div class="pcategory">Cognitive Research</div>
-          <div class="pname">Selank</div>
-          <div class="pdesc">Synthetic heptapeptide analogue of tuftsin. Reference standard for GABA-A modulation and BDNF/neurotrophin signaling research.</div>
-          <span class="ppurity">&#x2714; 99%+ HPLC Verified</span>
-          <div class="pprice">From $59 CAD</div>
-          <div class="pprice-sub">5mg / 10mg &bull; Free shipping over $150 CAD</div>
-          <div class="pactions">
-            <a href="https://wa.me/12507189152?text=I+am+interested+in+Selank+research+documentation" class="btn-request">Request Information</a>
-            <a href="/selank" class="btn-details">View Research Details</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- GLOBAL FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-wordmark">VELTRIDE</div>
-    <p class="footer-disclaimer">VELTRIDE Inc. is a proudly Canadian supplier of analytical-grade research compounds, serving the scientific community and academic institutions across Canada.<br>For In-Vitro Research Purposes Only &bull; Not For Human Consumption &bull; Laboratory Reference Catalogue<br><a href="mailto:support@veltride.ca" style="color:rgba(255,255,255,0.6);">support@veltride.ca</a></p>
-    <div class="footer-cols">
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/shop">Research Catalogue</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/quality">Quality / COA</a></li>
-          <li><a href="/faq">FAQ</a></li>
-          <li><a href="/shipping">Shipping</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Catalogue</h4>
-        <ul>
-          <li><a href="/semaglutide">Semaglutide</a></li>
-          <li><a href="/tirzepatide">Tirzepatide</a></li>
-          <li><a href="/retatrutide">Retatrutide</a></li>
-          <li><a href="/bpc-157">BPC-157</a></li>
-          <li><a href="/mk-677">MK-677</a></li>
-          <li><a href="/ipamorelin">Ipamorelin</a></li>
-          <li><a href="/selank">Selank</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="/privacy">Privacy Policy</a></li>
-          <li><a href="/terms">Terms &amp; Conditions</a></li>
-          <li><a href="/shipping">Shipping Policy</a></li>
-          <li><a href="/quality">Quality / COA</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:support@veltride.ca">support@veltride.ca</a></li>
-          <li><a href="https://wa.me/12507189152">WhatsApp</a></li>
-          <li><a href="/contact">Contact Page</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 VELTRIDE Inc. &mdash; West Kelowna, BC, Canada &mdash; All products are for in-vitro research and analytical reference use only. Not for human consumption.</span>
-      <span>&#x1F1E8;&#x1F1E6; Canada</span>
-    </div>
-  </div>
-</footer>
-
-<script>
-// Compliance gate logic
-const gate = document.getElementById('complianceGate');
-const btn = document.getElementById('gateSubmit');
-const checks = ['chk1','chk2','chk3','chk4'].map(id => document.getElementById(id));
-
-// Check if already confirmed this session
-if (sessionStorage.getItem('veltride_compliance_confirmed') === '1') {
-  gate.style.display = 'none';
-}
-
-function updateBtn() {
-  btn.disabled = !checks.every(c => c.checked);
-}
-checks.forEach(c => c.addEventListener('change', updateBtn));
-
-btn.addEventListener('click', () => {
-  if (checks.every(c => c.checked)) {
-    sessionStorage.setItem('veltride_compliance_confirmed', '1');
-    gate.style.display = 'none';
-  }
-});
-</script>
-
+<div class="notice">FOR LABORATORY RESEARCH USE ONLY · NOT FOR HUMAN OR ANIMAL CONSUMPTION</div>
+<header><div class="nav"><a class="brand" href="/">VELTRIDE</a><nav><a href="/" >Home</a><a href="/quality">Quality / COA</a><a href="/about">About</a><a class="contact" href="/contact">Contact</a></nav></div></header>
+<section class="hero"><div class="eyebrow">VELTRIDE catalogue</div><h1>Research catalogue</h1><p>Browse available research-reference compounds and open any product page for compound information and lot-specific documentation details.</p></section>
+<div class="toolbar"><div class="toolbar-inner"><span class="chip active">All compounds</span><span class="chip">Metabolic</span><span class="chip">Peptide</span><span class="chip">Biochemical</span><span class="chip">Other research</span></div></div>
+<main class="grid">
+<a class="card" href="/semaglutide"><div class="product-img"><img src="semaglutide-product.png" alt="Semaglutide"></div><div class="body"><span class="type">Metabolic research</span><h2>Semaglutide</h2><p>Research reference compound</p><span class="view">View details →</span></div></a>
+<a class="card" href="/tirzepatide"><div class="product-img"><img src="tirzepatide-product.png" alt="Tirzepatide"></div><div class="body"><span class="type">Metabolic research</span><h2>Tirzepatide</h2><p>Research reference compound</p><span class="view">View details →</span></div></a>
+<a class="card" href="/retatrutide"><div class="product-img"><img src="retatrutide-product.png" alt="Retatrutide"></div><div class="body"><span class="type">Metabolic research</span><h2>Retatrutide</h2><p>Research reference compound</p><span class="view">View details →</span></div></a>
+<a class="card" href="/aod-9604"><div class="product-img"><img src="vial-product.png" alt="AOD-9604"></div><div class="body"><span class="type">Peptide research</span><h2>AOD-9604</h2><p>Research reference compound</p><span class="view">View details →</span></div></a>
+<a class="card" href="/bpc-157"><div class="product-img"><img src="bpc-157-product.png" alt="BPC-157"></div><div class="body"><span class="type">Peptide research</span><h2>BPC-157</h2><p>Research reference compound</p><span class="view">View details →</span></div></a>
+<a class="card" href="/cjc-1295"><div class="product-img"><img src="cjc-1295-nodac-product.png" alt="CJC-1295 No DAC"></div><div class="body"><span class="type">Peptide research</span><h2>CJC-1295 No DAC</h2><p>Research reference compound</p><span class="view">View details →</span></div></a>
+<a class="card" href="/ipamorelin"><div class="product-img"><img src="ipamorelin-product.png" alt="Ipamorelin"></div><div class="body"><span class="type">Peptide research</span><h2>Ipamorelin</h2><p>Research reference compound</p><span class="view">View details →</span></div></a>
+<a class="card" href="/tesamorelin"><div class="product-img"><img src="vial-product.png" alt="Tesamorelin"></div><div class="body"><span class="type">Peptide research</span><h2>Tesamorelin</h2><p>Research reference compound</p><span class="view">View details →</span></div></a>
+<a class="card" href="/ghk-cu"><div class="product-img"><img src="ghk-cu-product.png" alt="GHK-Cu"></div><div class="body"><span class="type">Copper peptide research</span><h2>GHK-Cu</h2><p>Research reference compound</p><span class="view">View details →</span></div></a>
+<a class="card" href="/tb-500"><div class="product-img"><img src="tb-500-product.png" alt="TB-500"></div><div class="body"><span class="type">Peptide research</span><h2>TB-500</h2><p>Research reference compound</p><span class="view">View details →</span></div></a>
+<a class="card" href="/mots-c"><div class="product-img"><img src="vial-product.png" alt="MOTS-C"></div><div class="body"><span class="type">Mitochondrial research</span><h2>MOTS-C</h2><p>Research reference compound</p><span class="view">View details →</span></div></a>
+<a class="card" href="/nad-plus"><div class="product-img"><img src="nad-plus-product.png" alt="NAD+"></div><div class="body"><span class="type">Biochemical research</span><h2>NAD+</h2><p>Research reference compound</p><span class="view">View details →</span></div></a>
+<a class="card" href="/epithalon"><div class="product-img"><img src="epithalon-product.png" alt="Epithalon"></div><div class="body"><span class="type">Peptide research</span><h2>Epithalon</h2><p>Research reference compound</p><span class="view">View details →</span></div></a>
+<a class="card" href="/selank"><div class="product-img"><img src="vial-product.png" alt="Selank"></div><div class="body"><span class="type">Neuropeptide research</span><h2>Selank</h2><p>Research reference compound</p><span class="view">View details →</span></div></a>
+<a class="card" href="/semax"><div class="product-img"><img src="vial-product.png" alt="Semax"></div><div class="body"><span class="type">Neuropeptide research</span><h2>Semax</h2><p>Research reference compound</p><span class="view">View details →</span></div></a>
+<a class="card" href="/kpv"><div class="product-img"><img src="vial-product.png" alt="KPV"></div><div class="body"><span class="type">Peptide research</span><h2>KPV</h2><p>Research reference compound</p><span class="view">View details →</span></div></a>
+<a class="card" href="/kisspeptin-10"><div class="product-img"><img src="vial-product.png" alt="Kisspeptin-10"></div><div class="body"><span class="type">Peptide research</span><h2>Kisspeptin-10</h2><p>Research reference compound</p><span class="view">View details →</span></div></a>
+<a class="card" href="/pt-141"><div class="product-img"><img src="vial-product.png" alt="PT-141"></div><div class="body"><span class="type">Melanocortin research</span><h2>PT-141</h2><p>Research reference compound</p><span class="view">View details →</span></div></a>
+<a class="card" href="/melanotan-2"><div class="product-img"><img src="melanotan-2-product.png" alt="Melanotan-2"></div><div class="body"><span class="type">Melanocortin research</span><h2>Melanotan-2</h2><p>Research reference compound</p><span class="view">View details →</span></div></a>
+<a class="card" href="/thymosin-alpha-1"><div class="product-img"><img src="vial-product.png" alt="Thymosin Alpha-1"></div><div class="body"><span class="type">Peptide research</span><h2>Thymosin Alpha-1</h2><p>Research reference compound</p><span class="view">View details →</span></div></a>
+<a class="card" href="/mk-677"><div class="product-img"><img src="mk-677-product.png" alt="MK-677"></div><div class="body"><span class="type">Research compound</span><h2>MK-677</h2><p>Research reference compound</p><span class="view">View details →</span></div></a>
+</main>
+<section class="info"><div class="info-inner"><h2>Need lot-specific documentation?</h2><p>Use the Quality / COA section or contact VELTRIDE with the compound and lot identifier to request available research documentation.</p></div></section>
+<footer><div class="footer"><div class="footer-top"><a class="footer-brand" href="/">VELTRIDE</a><div class="footer-links"><a href="/">Home</a><a href="/quality">Quality / COA</a><a href="/faq">FAQ</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div></div><div class="disclaimer">VELTRIDE catalogue materials are presented for laboratory research and analytical reference purposes only. Products are not intended for human or animal consumption or for therapeutic, diagnostic, medical, cosmetic, or veterinary use.</div></div></footer>
 </body>
 </html>
