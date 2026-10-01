@@ -122,7 +122,7 @@ checkoutButton.addEventListener('click',async()=>{
     'Estimated item subtotal: '+money(subtotal)+' CAD',
     'Please confirm availability, shipping, taxes, and the final total before payment.',
     'I understand this is an order request only; no payment has been taken.'
-  ].join('\\n');
+  ].join('\n');
   location.assign('https://wa.me/12507189152?text='+encodeURIComponent(message));
 });
 async function showReturnStatus(){
