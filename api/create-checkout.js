@@ -56,7 +56,7 @@ module.exports = async (req, res) => {
     if (!/^https:\/\/[^/]+$/.test(origin) || !Number.isSafeInteger(shippingAmount) || shippingAmount < 0) {
       throw new Error("Invalid checkout configuration");
     }
-    const freeShipping = subtotalCents >= VELTRIDE_SHIPPING.freeShippingThreshold * 100;
+    const freeShipping = subtotalCents > VELTRIDE_SHIPPING.freeShippingThreshold * 100;
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       line_items: lineItems,
