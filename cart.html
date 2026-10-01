@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Your cart | VELTRIDE</title>
-<meta name="description" content="Review your VELTRIDE research catalogue items and request your order on WhatsApp.">
+<meta name="description" content="Review your VELTRIDE research catalogue items and continue to secure checkout when available.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -17,9 +17,9 @@
 <div class="notice">FOR LABORATORY RESEARCH USE ONLY · NOT FOR HUMAN OR ANIMAL CONSUMPTION</div>
 <header><div class="nav"><a class="brand" href="/">VELTRIDE</a><div class="links"><a href="/shop">Catalogue</a><a href="/contact">Contact</a></div></div></header>
 <main class="wrap">
-<h1>Your cart</h1><p class="lead">Review your items and quantities, then send an order request to VELTRIDE on WhatsApp.</p>
+<h1>Your cart</h1><p id="cartLead" class="lead">Review your items and quantities, then send an order request to VELTRIDE on WhatsApp.</p>
 <div id="status" class="status" role="status" aria-live="polite"></div>
-<div class="layout"><div id="items" class="items"></div><aside class="summary"><h2>Order summary</h2><div class="row"><span>Subtotal</span><strong id="subtotal">$0.00 CAD</strong></div><div class="row"><span>Standard shipping</span><span id="shipping">Confirmed on WhatsApp</span></div><div class="row total"><span>Items</span><span id="itemCount">0</span></div><button id="checkout" class="checkout" disabled>Request order on WhatsApp</button><p class="small">Shipping is limited to Canada. Free standard shipping on orders over $150 CAD. VELTRIDE will confirm availability, shipping, taxes, and the final total before payment.</p><p class="small">No online payment is taken. Sending your WhatsApp message requests an order; it is not a confirmed purchase.</p></aside></div>
+<div class="layout"><div id="items" class="items"></div><aside class="summary"><h2>Order summary</h2><div class="row"><span>Subtotal</span><strong id="subtotal">$0.00 CAD</strong></div><div class="row"><span>Standard shipping</span><span id="shipping">Confirmed on WhatsApp</span></div><div class="row total"><span>Items</span><span id="itemCount">0</span></div><button id="checkout" class="checkout" disabled>Request order on WhatsApp</button><p id="shippingNote" class="small">Shipping is limited to Canada. Free standard shipping on orders over $150 CAD. VELTRIDE will confirm availability, shipping, taxes, and the final total before payment.</p><p id="paymentNote" class="small">No online payment is taken. Sending your WhatsApp message requests an order; it is not a confirmed purchase.</p></aside></div>
 </main>
 <footer>VELTRIDE · Research use only · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></footer>
 <script src="/products.js"></script>
@@ -30,6 +30,21 @@ const money = cents => new Intl.NumberFormat('en-CA',{style:'currency',currency:
 const status = document.getElementById('status');
 const itemsNode = document.getElementById('items');
 const checkoutButton = document.getElementById('checkout');
+let stripeEnabled = false;
+async function loadCheckoutConfig(){
+  try {
+    const response = await fetch('/api/checkout-config', {cache:'no-store'});
+    if(!response.ok) return;
+    const config = await response.json();
+    if(config.enabled !== true) return;
+    stripeEnabled = true;
+    checkoutButton.textContent = 'Secure checkout';
+    document.getElementById('cartLead').textContent = 'Review your items, then enter your Canadian shipping address and pay securely in one checkout.';
+    document.getElementById('shippingNote').textContent = 'Shipping is limited to Canada. Free standard shipping on orders over $150 CAD. Review the final total before paying.';
+    document.getElementById('paymentNote').textContent = 'Your shipping address and payment details are entered securely at checkout. Need help? Contact VELTRIDE.';
+    render();
+  } catch { /* Keep WhatsApp ordering available if checkout configuration cannot be checked. */ }
+}
 function readCart(){
   try { const value = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); return Array.isArray(value) ? value : []; }
   catch { return []; }
@@ -67,12 +82,32 @@ function render(){
     row.append(img,info,price); itemsNode.append(row);
   }
   document.getElementById('subtotal').textContent=money(subtotal) + ' CAD';
-  document.getElementById('shipping').textContent=subtotal>15000?'Free':'Confirm on WhatsApp';
+  document.getElementById('shipping').textContent=stripeEnabled?(subtotal>15000?'Free':'Calculated at checkout'):(subtotal>15000?'Free':'Confirm on WhatsApp');
   document.getElementById('itemCount').textContent=String(count);
   checkoutButton.disabled=!cart.length;
 }
-checkoutButton.addEventListener('click',()=>{
+checkoutButton.addEventListener('click',async()=>{
   const cart=validCart(); if(!cart.length)return;
+  if(stripeEnabled){
+    checkoutButton.disabled=true;
+    checkoutButton.textContent='Opening secure checkout…';
+    status.textContent='';
+    try{
+      const response=await fetch('/api/create-checkout',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({cartItems:cart.map(({slug,size,quantity})=>({slug,size,quantity}))})
+      });
+      const result=await response.json();
+      if(!response.ok || typeof result.url!=='string') throw new Error(result.error || 'Checkout could not start.');
+      location.assign(result.url);
+    }catch(error){
+      status.textContent=error.message || 'Checkout could not start. Please try again or contact VELTRIDE.';
+      checkoutButton.textContent='Secure checkout';
+      checkoutButton.disabled=false;
+    }
+    return;
+  }
   const lines=cart.map(item=>{
     const product=products.get(item.slug);
     const amount=Math.round(product.prices[item.size]*100)*item.quantity;
@@ -103,7 +138,7 @@ async function showReturnStatus(){
     }catch{status.textContent='We could not confirm payment here. Please check your Stripe receipt or contact us.';}
   }
 }
-render(); showReturnStatus();
+render(); loadCheckoutConfig(); showReturnStatus();
 </script>
 </body>
 </html>

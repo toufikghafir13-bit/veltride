@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
     return res.status(503).json({ error: "Checkout is not available yet. Please contact VELTRIDE." });
   }
   const key = process.env.STRIPE_SECRET_KEY;
-  if ((process.env.VERCEL_ENV === "production" && !key.startsWith("sk_live_")) ||
+  if ((process.env.VERCEL_ENV === "production" && (process.env.STRIPE_LIVE_APPROVED !== "true" || !key.startsWith("sk_live_"))) ||
       (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production" && !key.startsWith("sk_test_"))) {
     return res.status(503).json({ error: "Checkout is not configured for this environment." });
   }
@@ -66,8 +66,6 @@ module.exports = async (req, res) => {
       mode: "payment",
       line_items: lineItems,
       customer_creation: "always",
-      billing_address_collection: "required",
-      phone_number_collection: { enabled: true },
       shipping_address_collection: { allowed_countries: ["CA"] },
       shipping_options: [{ shipping_rate_data: {
         type: "fixed_amount",
