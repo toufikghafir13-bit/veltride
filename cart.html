@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your cart | VELTRIDE</title>
+<meta name="description" content="Review your VELTRIDE research catalogue order before secure checkout.">
+<style>
+:root{--ink:#172323;--muted:#667474;--teal:#0b6664;--line:#dfe8e6;--soft:#f4f8f7}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);line-height:1.5}a{color:var(--teal)}button,select{font:inherit}.notice{padding:9px 20px;text-align:center;background:var(--teal);color:#fff;font-size:12px;letter-spacing:.04em}header{border-bottom:1px solid var(--line)}.nav{max-width:1100px;margin:auto;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-size:20px;font-weight:700;letter-spacing:.22em;text-decoration:none}.links{display:flex;gap:20px}.wrap{max-width:1100px;margin:0 auto;padding:58px 24px 90px}h1{font-size:clamp(32px,5vw,52px);letter-spacing:-.04em;margin:0 0 8px}.lead{color:var(--muted);margin:0 0 34px}.layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:28px}.items{display:grid;gap:14px}.item{border:1px solid var(--line);border-radius:12px;padding:18px;display:grid;grid-template-columns:84px 1fr auto;gap:18px;align-items:center}.item img{width:84px;height:84px;object-fit:contain;background:var(--soft);border-radius:8px}.item h2{font-size:16px;margin:0}.item p{margin:4px 0;color:var(--muted);font-size:13px}.item select{padding:7px;border:1px solid var(--line);border-radius:5px}.remove{background:none;border:0;color:#9a3434;cursor:pointer;padding:6px 0}.price{font-weight:700;white-space:nowrap}.summary{border:1px solid var(--line);border-radius:12px;padding:24px;height:max-content;background:var(--soft)}.summary h2{font-size:20px;margin:0 0 20px}.row{display:flex;justify-content:space-between;gap:12px;margin:10px 0;font-size:14px}.total{border-top:1px solid var(--line);padding-top:14px;margin-top:18px;font-size:18px;font-weight:700}.checkout{display:block;width:100%;padding:14px;border:0;border-radius:6px;background:var(--teal);color:#fff;font-weight:700;cursor:pointer;margin-top:22px}.checkout:disabled{opacity:.55;cursor:not-allowed}.small{font-size:12px;color:var(--muted)}.status{padding:14px;border-radius:8px;margin:0 0 22px;background:var(--soft)}.status:empty{display:none}.empty{padding:36px;border:1px solid var(--line);border-radius:12px;color:var(--muted)}footer{background:#122020;color:#d6e0df;padding:32px 24px;font-size:12px;text-align:center}@media(max-width:750px){.layout{grid-template-columns:1fr}.item{grid-template-columns:64px 1fr}.item img{width:64px;height:64px}.price{grid-column:2}}
+</style>
+</head>
+<body>
+<div class="notice">FOR LABORATORY RESEARCH USE ONLY · NOT FOR HUMAN OR ANIMAL CONSUMPTION</div>
+<header><div class="nav"><a class="brand" href="/">VELTRIDE</a><div class="links"><a href="/shop">Catalogue</a><a href="/contact">Contact</a></div></div></header>
+<main class="wrap">
+<h1>Your cart</h1><p class="lead">Review the compounds and quantities before continuing to secure checkout.</p>
+<div id="status" class="status" role="status" aria-live="polite"></div>
+<div class="layout"><div id="items" class="items"></div><aside class="summary"><h2>Order summary</h2><div class="row"><span>Subtotal</span><strong id="subtotal">$0.00 CAD</strong></div><div class="row"><span>Standard shipping</span><span id="shipping">Calculated at checkout</span></div><div class="row total"><span>Items</span><span id="itemCount">0</span></div><button id="checkout" class="checkout" disabled>Continue to secure checkout</button><p class="small">Shipping is limited to Canada. Free standard shipping on orders of $150 CAD or more. The final total appears in Stripe Checkout.</p><p class="small">Need help? <a href="https://wa.me/12507189152">Chat on WhatsApp</a>.</p></aside></div>
+</main>
+<footer>VELTRIDE · Research use only · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></footer>
+<script src="/products.js"></script>
+<script>
+const STORAGE_KEY = 'veltride_cart_v1';
+const products = new Map(VELTRIDE_PRODUCTS.map(product => [product.slug, product]));
+const money = cents => new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD'}).format(cents/100);
+const status = document.getElementById('status');
+const itemsNode = document.getElementById('items');
+const checkoutButton = document.getElementById('checkout');
+function readCart(){
+  try { const value = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); return Array.isArray(value) ? value : []; }
+  catch { return []; }
+}
+function validCart(){
+  const seen = new Set();
+  return readCart().filter(item => {
+    const product = products.get(item.slug);
+    const key = `${item.slug}:${item.size}`;
+    if (!product || product.stockStatus !== 'in_stock' || !product.vialSizes.includes(item.size) ||
+        !Number.isInteger(item.quantity) || item.quantity < 1 || item.quantity > 10 || seen.has(key)) return false;
+    seen.add(key); return true;
+  }).slice(0,20);
+}
+function saveCart(cart){ localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); render(); }
+function render(){
+  const cart = validCart();
+  itemsNode.replaceChildren();
+  let subtotal = 0; let count = 0;
+  if (!cart.length){ const empty = document.createElement('div'); empty.className='empty'; empty.innerHTML='Your cart is empty. <a href="/shop">Browse the catalogue</a>.'; itemsNode.append(empty); }
+  for (const item of cart){
+    const product = products.get(item.slug);
+    const unitCents = Math.round(product.prices[item.size] * 100);
+    subtotal += unitCents * item.quantity; count += item.quantity;
+    const row = document.createElement('div'); row.className='item';
+    const img = document.createElement('img'); img.src='/' + product.imagePath; img.alt=product.imageAlt || product.name;
+    const info = document.createElement('div'); const title=document.createElement('h2'); title.textContent=product.name + ' · ' + item.size;
+    const caption=document.createElement('p'); caption.textContent='Research reference compound';
+    const select=document.createElement('select'); select.setAttribute('aria-label','Quantity for ' + product.name + ' ' + item.size);
+    for(let n=1;n<=10;n++){ const option=document.createElement('option'); option.value=String(n); option.textContent=String(n); option.selected=n===item.quantity; select.append(option); }
+    select.addEventListener('change',()=>saveCart(cart.map(entry=>entry===item?{...entry,quantity:Number(select.value)}:entry)));
+    const remove=document.createElement('button'); remove.className='remove'; remove.textContent='Remove'; remove.addEventListener('click',()=>saveCart(cart.filter(entry=>entry!==item)));
+    info.append(title,caption,select,document.createTextNode(' '),remove);
+    const price=document.createElement('div'); price.className='price'; price.textContent=money(unitCents * item.quantity);
+    row.append(img,info,price); itemsNode.append(row);
+  }
+  document.getElementById('subtotal').textContent=money(subtotal) + ' CAD';
+  document.getElementById('shipping').textContent=subtotal>=15000?'Free':'Shown at checkout';
+  document.getElementById('itemCount').textContent=String(count);
+  checkoutButton.disabled=!cart.length;
+}
+checkoutButton.addEventListener('click',async()=>{
+  const cart=validCart(); if(!cart.length)return;
+  checkoutButton.disabled=true; checkoutButton.textContent='Opening secure checkout…'; status.textContent='';
+  try{
+    const response=await fetch('/api/create-checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({cartItems:cart})});
+    const data=await response.json();
+    if(!response.ok || !data.url)throw new Error(data.error || 'Checkout could not start.');
+    const destination=new URL(data.url); if(destination.protocol!=='https:' || !destination.hostname.endsWith('.stripe.com'))throw new Error('Unexpected checkout destination.');
+    location.assign(destination.href);
+  }catch(error){status.textContent=error.message || 'Checkout could not start. Please try again.';checkoutButton.disabled=false;checkoutButton.textContent='Continue to secure checkout';}
+});
+async function showReturnStatus(){
+  const params=new URLSearchParams(location.search);
+  if(params.get('checkout')==='cancelled')status.textContent='Checkout was cancelled. Your cart is still here.';
+  if(params.get('checkout')==='success' && params.has('session_id')){
+    status.textContent='Checking your payment…';
+    try{
+      const response=await fetch('/api/checkout-status?session_id='+encodeURIComponent(params.get('session_id')));
+      const data=await response.json();
+      if(response.ok && data.paid){localStorage.removeItem(STORAGE_KEY);status.textContent='Payment received. Thank you. Your order details are available in your Stripe receipt.';render();}
+      else status.textContent='Payment status is still being confirmed. Please check your Stripe receipt or contact us.';
+    }catch{status.textContent='We could not confirm payment here. Please check your Stripe receipt or contact us.';}
+  }
+}
+render(); showReturnStatus();
+</script>
+</body>
+</html>
+
