@@ -40,7 +40,8 @@
     button.addEventListener('click',()=>{
       const size=select.value;const cart=readCart();const item=cart.find(entry=>entry.slug===slug && entry.size===size);
       if(item){item.quantity=Math.min(10,(Number.isInteger(item.quantity)?item.quantity:0)+1);}
-      else cart.push({slug,size,quantity:1});
+      else if(cart.length<20)cart.push({slug,size,quantity:1});
+      else {button.textContent='Cart is full — view cart';return;}
       localStorage.setItem(STORAGE_KEY,JSON.stringify(cart));updateCount();
       button.textContent='Added ✓';setTimeout(()=>{button.textContent='Add to cart';},1600);
     });
