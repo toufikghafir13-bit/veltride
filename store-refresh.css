@@ -71,13 +71,15 @@ nav a:hover,.links a:hover,.footer-links a:hover{text-decoration:underline;text-
   .page-shop .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .reference-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
+@media(max-width:900px){
+  nav a:not([href="/shop"]):not([href="/cart"]){display:none!important}
+  nav a[href="/shop"],nav a[href="/cart"]{display:inline-flex!important;align-items:center;min-height:42px;padding:7px 10px;font-size:12px;white-space:nowrap}
+  nav a[href="/shop"]{color:var(--teal);border:1px solid var(--line);border-radius:8px}
+}
 @media(max-width:750px){
   .nav{height:64px;padding:0 18px;gap:10px}
   .brand{font-size:17px;white-space:nowrap}
   nav{gap:8px}
-  nav a:not([href="/shop"]):not([href="/cart"]){display:none!important}
-  nav a[href="/shop"],nav a[href="/cart"]{display:inline-flex!important;align-items:center;min-height:42px;padding:7px 10px;font-size:12px;white-space:nowrap}
-  nav a[href="/shop"]{color:var(--teal);border:1px solid var(--line);border-radius:8px}
   .page-home .hero{grid-template-columns:1fr;gap:26px;padding:46px 20px 54px}
   .page-home .hero h1{font-size:clamp(38px,9vw,58px)}
   .page-home .hero-art{min-height:280px;padding:25px}
