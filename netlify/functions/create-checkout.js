@@ -12,6 +12,11 @@ exports.handler = async (event) => {
   if (process.env.STRIPE_CHECKOUT_ENABLED !== "true" || !process.env.STRIPE_SECRET_KEY) {
     return json(503, { error: "Checkout is not available yet. Please contact VELTRIDE." });
   }
+  const key = process.env.STRIPE_SECRET_KEY;
+  if ((process.env.CONTEXT === "production" && !key.startsWith("sk_live_")) ||
+      (process.env.CONTEXT && process.env.CONTEXT !== "production" && !key.startsWith("sk_test_"))) {
+    return json(503, { error: "Checkout is not configured for this environment." });
+  }
 
   let cartItems;
   try { cartItems = JSON.parse(event.body || "{}").cartItems; }
