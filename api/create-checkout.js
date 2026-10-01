@@ -13,6 +13,11 @@ module.exports = async (req, res) => {
   if (process.env.STRIPE_CHECKOUT_ENABLED !== "true" || !process.env.STRIPE_SECRET_KEY) {
     return res.status(503).json({ error: "Checkout is not available yet. Please contact VELTRIDE." });
   }
+  const key = process.env.STRIPE_SECRET_KEY;
+  if ((process.env.VERCEL_ENV === "production" && !key.startsWith("sk_live_")) ||
+      (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production" && !key.startsWith("sk_test_"))) {
+    return res.status(503).json({ error: "Checkout is not configured for this environment." });
+  }
 
   const cartItems = req.body && req.body.cartItems;
   if (!Array.isArray(cartItems) || cartItems.length === 0 || cartItems.length > MAX_LINES) {
