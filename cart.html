@@ -16,7 +16,7 @@
 <main class="wrap">
 <h1>Your cart</h1><p class="lead">Review the compounds and quantities before continuing to secure checkout.</p>
 <div id="status" class="status" role="status" aria-live="polite"></div>
-<div class="layout"><div id="items" class="items"></div><aside class="summary"><h2>Order summary</h2><div class="row"><span>Subtotal</span><strong id="subtotal">$0.00 CAD</strong></div><div class="row"><span>Standard shipping</span><span id="shipping">Calculated at checkout</span></div><div class="row total"><span>Items</span><span id="itemCount">0</span></div><button id="checkout" class="checkout" disabled>Continue to secure checkout</button><p class="small">Shipping is limited to Canada. Free standard shipping on orders of $150 CAD or more. The final total appears in Stripe Checkout.</p><p class="small">Need help? <a href="https://wa.me/12507189152">Chat on WhatsApp</a>.</p></aside></div>
+<div class="layout"><div id="items" class="items"></div><aside class="summary"><h2>Order summary</h2><div class="row"><span>Subtotal</span><strong id="subtotal">$0.00 CAD</strong></div><div class="row"><span>Standard shipping</span><span id="shipping">Calculated at checkout</span></div><div class="row total"><span>Items</span><span id="itemCount">0</span></div><button id="checkout" class="checkout" disabled>Continue to secure checkout</button><p class="small">Shipping is limited to Canada. Free standard shipping on orders over $150 CAD. The final total appears in Stripe Checkout.</p><p class="small">Need help? <a href="https://wa.me/12507189152">Chat on WhatsApp</a>.</p></aside></div>
 </main>
 <footer>VELTRIDE · Research use only · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></footer>
 <script src="/products.js"></script>
@@ -64,7 +64,7 @@ function render(){
     row.append(img,info,price); itemsNode.append(row);
   }
   document.getElementById('subtotal').textContent=money(subtotal) + ' CAD';
-  document.getElementById('shipping').textContent=subtotal>=15000?'Free':'Shown at checkout';
+  document.getElementById('shipping').textContent=subtotal>15000?'Free':'Shown at checkout';
   document.getElementById('itemCount').textContent=String(count);
   checkoutButton.disabled=!cart.length;
 }
