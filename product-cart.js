@@ -53,7 +53,8 @@
     else {button.textContent='Cart is full — view cart';return;}
     localStorage.setItem(cartKey,JSON.stringify(cart));button.textContent='Added to cart ✓';updateHeaderCart();
   });
-  panel.append(title,label,price,button,link);
+  if (variantRadios.length) panel.append(title,button,link);
+  else panel.append(title,label,price,button,link);
   if(target.matches('.prod-price-box')){
     const help=target.querySelector('.btn-order');
     if(help){help.textContent='Questions? Chat on WhatsApp';help.before(panel);}else target.append(panel);
