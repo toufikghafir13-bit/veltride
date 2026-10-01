@@ -94,7 +94,6 @@ nav a:hover,.links a:hover,.footer-links a:hover{text-decoration:underline;text-
   .reference-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
   .page-cart .wrap{padding:36px 18px 64px}
   .page-cart .layout{grid-template-columns:1fr}
-  .page-cart .summary{order:-1}
 }
 @media(max-width:560px){
   .notice{padding:7px 14px;font-size:9px}
