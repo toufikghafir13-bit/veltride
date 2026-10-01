@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Your cart | VELTRIDE</title>
-<meta name="description" content="Review your VELTRIDE research catalogue order before secure checkout.">
+<meta name="description" content="Review your VELTRIDE research catalogue items and request your order on WhatsApp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -17,9 +17,9 @@
 <div class="notice">FOR LABORATORY RESEARCH USE ONLY · NOT FOR HUMAN OR ANIMAL CONSUMPTION</div>
 <header><div class="nav"><a class="brand" href="/">VELTRIDE</a><div class="links"><a href="/shop">Catalogue</a><a href="/contact">Contact</a></div></div></header>
 <main class="wrap">
-<h1>Your cart</h1><p class="lead">Review the compounds and quantities before continuing to secure checkout.</p>
+<h1>Your cart</h1><p class="lead">Review your items and quantities, then send an order request to VELTRIDE on WhatsApp.</p>
 <div id="status" class="status" role="status" aria-live="polite"></div>
-<div class="layout"><div id="items" class="items"></div><aside class="summary"><h2>Order summary</h2><div class="row"><span>Subtotal</span><strong id="subtotal">$0.00 CAD</strong></div><div class="row"><span>Standard shipping</span><span id="shipping">Calculated at checkout</span></div><div class="row total"><span>Items</span><span id="itemCount">0</span></div><button id="checkout" class="checkout" disabled>Continue to secure checkout</button><p class="small">Shipping is limited to Canada. Free standard shipping on orders over $150 CAD. The final total appears in Stripe Checkout.</p><p class="small">Need help? <a href="https://wa.me/12507189152">Chat on WhatsApp</a>.</p></aside></div>
+<div class="layout"><div id="items" class="items"></div><aside class="summary"><h2>Order summary</h2><div class="row"><span>Subtotal</span><strong id="subtotal">$0.00 CAD</strong></div><div class="row"><span>Standard shipping</span><span id="shipping">Confirmed on WhatsApp</span></div><div class="row total"><span>Items</span><span id="itemCount">0</span></div><button id="checkout" class="checkout" disabled>Request order on WhatsApp</button><p class="small">Shipping is limited to Canada. Free standard shipping on orders over $150 CAD. VELTRIDE will confirm availability, shipping, taxes, and the final total before payment.</p><p class="small">No online payment is taken. Sending your WhatsApp message requests an order; it is not a confirmed purchase.</p></aside></div>
 </main>
 <footer>VELTRIDE · Research use only · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></footer>
 <script src="/products.js"></script>
@@ -67,20 +67,28 @@ function render(){
     row.append(img,info,price); itemsNode.append(row);
   }
   document.getElementById('subtotal').textContent=money(subtotal) + ' CAD';
-  document.getElementById('shipping').textContent=subtotal>15000?'Free':'Shown at checkout';
+  document.getElementById('shipping').textContent=subtotal>15000?'Free':'Confirm on WhatsApp';
   document.getElementById('itemCount').textContent=String(count);
   checkoutButton.disabled=!cart.length;
 }
-checkoutButton.addEventListener('click',async()=>{
+checkoutButton.addEventListener('click',()=>{
   const cart=validCart(); if(!cart.length)return;
-  checkoutButton.disabled=true; checkoutButton.textContent='Opening secure checkout…'; status.textContent='';
-  try{
-    const response=await fetch('/api/create-checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({cartItems:cart})});
-    const data=await response.json().catch(()=>({}));
-    if(!response.ok || !data.url)throw new Error(data.error || 'Checkout could not start.');
-    const destination=new URL(data.url); if(destination.protocol!=='https:' || !destination.hostname.endsWith('.stripe.com'))throw new Error('Unexpected checkout destination.');
-    location.assign(destination.href);
-  }catch(error){status.textContent=error.message || 'Checkout could not start. Please try again.';checkoutButton.disabled=false;checkoutButton.textContent='Continue to secure checkout';}
+  const lines=cart.map(item=>{
+    const product=products.get(item.slug);
+    const amount=Math.round(product.prices[item.size]*100)*item.quantity;
+    return '- '+product.name+' '+item.size+' x '+item.quantity+' — '+money(amount);
+  });
+  const subtotal=cart.reduce((sum,item)=>sum+Math.round(products.get(item.slug).prices[item.size]*100)*item.quantity,0);
+  const message=[
+    'Hello VELTRIDE, I would like to request an order:',
+    '',
+    ...lines,
+    '',
+    'Estimated item subtotal: '+money(subtotal)+' CAD',
+    'Please confirm availability, shipping, taxes, and the final total before payment.',
+    'I understand this is an order request only; no payment has been taken.'
+  ].join('\n');
+  location.assign('https://wa.me/12507189152?text='+encodeURIComponent(message));
 });
 async function showReturnStatus(){
   const params=new URLSearchParams(location.search);
