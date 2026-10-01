@@ -57,4 +57,6 @@ function handleOrder(){const d=getDose();const msg=encodeURIComponent('Hi, I’d
 function handleEmail(e){e.preventDefault();const d=getDose();const sub=encodeURIComponent('Order: MK-677 '+d.dose);const bod=encodeURIComponent('Hello,\nProduct: Veltride MK-677 (Ibutamoren)\nDosage: '+d.dose+'\nPrice: $'+d.price+' CAD\nThank you.');window.location.href='mailto:support@veltride.ca?subject='+sub+'&body='+bod;}
 function toggleMenu(){const nav=document.getElementById('mobileNav');nav.classList.contains('open')?nav.classList.remove('open'):nav.classList.add('open');}
 document.addEventListener('click',function(e){const nav=document.getElementById('mobileNav');const btn=document.getElementById('hamburgerBtn');if(nav&&nav.classList.contains('open')&&!nav.contains(e.target)&&btn&&!btn.contains(e.target))nav.classList.remove('open');});
-</script></body></html>
+</script><script src="/products.js"></script>
+<script src="/product-cart.js"></script>
+</body></html>

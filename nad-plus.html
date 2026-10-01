@@ -66,4 +66,6 @@ function handleEmail(e){e.preventDefault();const d=getDose();const sub=encodeURI
 function toggleMenu(){const nav=document.getElementById('mobileNav');nav.classList.contains('open')?nav.classList.remove('open'):nav.classList.add('open');}
 document.addEventListener('click',function(e){const nav=document.getElementById('mobileNav');const btn=document.getElementById('hamburgerBtn');if(nav&&nav.classList.contains('open')&&!nav.contains(e.target)&&btn&&!btn.contains(e.target))nav.classList.remove('open');});
 </script>
+<script src="/products.js"></script>
+<script src="/product-cart.js"></script>
 </body></html>

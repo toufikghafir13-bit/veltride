@@ -1,49 +1,58 @@
 # VELTRIDE — Setup Checklist
 
-## 🚨 REQUIRED: Activate Stripe Payments
+## Current storefront status
 
-Your checkout is built and ready. To accept real payments, you need to add your Stripe secret key to Vercel.
+Live checkout should remain disabled until payment processing and legal/compliance requirements have been reviewed and approved.
 
-### Steps:
-1. Go to [https://dashboard.stripe.com/apikeys](https://dashboard.stripe.com/apikeys)
-2. Copy your **Secret key** (starts with `sk_live_...`)
-3. Go to [https://vercel.com/dashboard](https://vercel.com/dashboard) → your `veltride` project
-4. Click **Settings** → **Environment Variables**
-5. Add: `STRIPE_SECRET_KEY` = your secret key (set for Production + Preview)
-6. Click **Save**, then **Redeploy** the latest deployment
-
-Once done, the cart → checkout → Stripe payment flow is live.
+### Ordering flow currently shown on the site
+1. Customer browses the research catalogue.
+2. Customer contacts VELTRIDE by WhatsApp or email.
+3. Research-use requirements and order details are reviewed.
+4. Payment instructions are provided only after review.
 
 ---
 
-## ✅ Netlify Forms (Email Capture)
+## Shipping settings
 
-The email capture forms submit to Netlify Forms. To receive notifications:
-1. Go to [https://app.netlify.com](https://app.netlify.com) → your site → **Forms**
-2. Find `email-signup` and `popup-email`
-3. Click **Form notifications** → add your email
-
----
-
-## ✅ What's Live
-
-| Feature | Status |
-|---------|--------|
-| Stripe checkout (/api/create-checkout) | ✅ Built — needs STRIPE_SECRET_KEY in Vercel |
-| Email capture (Netlify Forms) | ✅ Live — activate notifications in Netlify |
-| 10% off popup (first visit) | ✅ Live |
-| Free shipping progress bar ($150 threshold) | ✅ Live |
-| Urgency/social proof ticker | ✅ Live |
-| Product page deep links | ✅ Live |
-| Low stock urgency badges | ✅ Live |
-| Blog (5 SEO articles) | ✅ Live |
-| Sitemap with blog URLs | ✅ Live |
-| All 22 product pages with reviews + CTAs | ✅ Live |
+- Free standard shipping threshold: **$150 CAD**
+- Same-business-day dispatch cutoff: **1:00 PM PT, Monday–Friday**
+- Orders after the cutoff ship the next business day.
+- Canada-only shipping unless the public shipping policy is updated.
 
 ---
 
-## 📱 WhatsApp Orders (Backup)
+## Vercel
 
-If Stripe isn't set up yet, customers can still order via WhatsApp: **+1 (250) 718-9152**
+This repository includes `vercel.json` and is designed for Vercel deployment.
 
-The checkout error state shows a WhatsApp fallback automatically.
+Before enabling any live checkout flow:
+- Confirm the production Vercel project and domain.
+- Confirm all required environment variables.
+- Review payment-provider terms and applicable legal/compliance requirements.
+- Test checkout only in a preview or test environment first.
+
+Do not commit secret API keys to this repository.
+
+---
+
+## Site consistency checks
+
+Before each production release, verify:
+- Homepage and catalogue prices match.
+- Shipping threshold and dispatch cutoff match across Home, FAQ, Shipping, Terms, and product pages.
+- Age/research-use language is consistent.
+- Purity claims match current batch documentation.
+- Product images are served from VELTRIDE-owned assets or an approved source.
+- Contact email and WhatsApp details are correct.
+
+## Cart and Stripe Checkout setup
+
+The draft storefront now contains a cart and a server-side Checkout Session endpoint. Only products with prices in `products.js` can be added to the cart. Stripe never receives a price supplied by the shopper's browser; the server looks up each product, vial size, and CAD price again.
+
+1. Sign in to the Stripe account that owns `acct_1T8qyHKxYkJWEy55`. Use **test mode** first. Confirm that the account is allowed to process payments for the exact products being sold.
+2. In the Vercel project for this repository, add environment variables for the preview environment (or in Netlify if that is the host you intend to use): `STRIPE_SECRET_KEY` (the account's test secret key), `STORE_ORIGIN` (the full HTTPS URL of the Vercel preview with no trailing slash), `STANDARD_SHIPPING_CENTS` (for example `1200`), and `STRIPE_CHECKOUT_ENABLED=true`. Keep secret keys in Vercel only, never in GitHub or chat.
+3. Redeploy the preview on the same host where the variables were added. Add an item to the cart, change its quantity, and complete a Stripe test payment. Confirm the payment, line items, and Canadian shipping address in the Stripe test dashboard. Check the return page and the cancellation path.
+4. For production, review product eligibility and Stripe account approval, then set the equivalent production variables in the chosen host with the live secret key and production `STORE_ORIGIN`. Redeploy production only when ready to accept real payments. The checkout endpoint returns an unavailable message if the enable flag or secret key is absent.
+5. Configure Stripe receipt emails and internal payment notifications in Stripe. Staff can use the Stripe Dashboard to review paid orders and shipping details; this site does not yet automate fulfillment or inventory deductions.
+
+The customer can use WhatsApp from the cart page if checkout fails or they have a question. Do not ask customers to send payment card details over WhatsApp.
