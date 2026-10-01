@@ -86,7 +86,8 @@ nav a:hover,.links a:hover,.footer-links a:hover{text-decoration:underline;text-
   .page-home .products{grid-template-columns:repeat(2,minmax(0,1fr))}
   .page-shop .hero{margin:12px 14px 0;padding:28px 22px;border-radius:14px}
   .page-shop .toolbar{padding:22px 16px 18px}
-  .page-shop .toolbar-inner{display:flex;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px;scrollbar-width:thin}
+  .page-shop .toolbar-inner{display:flex;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px;scrollbar-width:none}
+  .page-shop .toolbar-inner::-webkit-scrollbar{display:none}
   .page-shop .chip{flex:none}
   .catalogue-heading{padding:6px 16px 18px}
   .page-shop .grid{padding:0 16px 46px;gap:14px}
