@@ -66,8 +66,6 @@ module.exports = async (req, res) => {
       mode: "payment",
       line_items: lineItems,
       customer_creation: "always",
-      billing_address_collection: "required",
-      phone_number_collection: { enabled: true },
       shipping_address_collection: { allowed_countries: ["CA"] },
       shipping_options: [{ shipping_rate_data: {
         type: "fixed_amount",
