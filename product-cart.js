@@ -2,7 +2,8 @@
   const slug = location.pathname.split('/').filter(Boolean).pop()?.replace(/\.html$/,'');
   const product = VELTRIDE_PRODUCTS.find(entry => entry.slug === slug && entry.stockStatus === 'in_stock');
   if (!product) return;
-  const target = document.querySelector('.prod-price-box, .cta-group, .product-info, .prod-info');
+  const target = document.querySelector('.prod-price-box') || document.querySelector('.cta-group') ||
+    document.querySelector('.product-info') || document.querySelector('.prod-info');
   if (!target) return;
 
   const panel = document.createElement('section');
@@ -27,7 +28,14 @@
     localStorage.setItem('veltride_cart_v1',JSON.stringify(cart));button.textContent='Added to cart ✓';
   });
   panel.append(title,label,price,button,link);
-  if(target.matches('.cta-group'))target.before(panel);
+  if(target.matches('.prod-price-box')){
+    const help=target.querySelector('.btn-order');
+    if(help){help.textContent='Questions? Chat on WhatsApp';help.before(panel);}else target.append(panel);
+  }
+  else if(target.matches('.cta-group')){
+    const help=target.querySelector('.btn-whatsapp');if(help)help.textContent='Questions? Chat on WhatsApp';
+    target.before(panel);
+  }
   else if(target.matches('.product-info, .prod-info'))target.prepend(panel);
   else target.after(panel);
 })();
