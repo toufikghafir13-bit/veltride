@@ -1,89 +1,82 @@
 const Stripe = require("stripe");
+const { VELTRIDE_PRODUCTS, VELTRIDE_SHIPPING } = require("../products.js");
+
+const MAX_LINES = 20;
+const MAX_QUANTITY = 10;
 
 module.exports = async (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "https://veltride.com");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-    res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  if (req.method !== "POST") {
+    res.setHeader("Allow", "POST");
+    return res.status(405).json({ error: "Method not allowed" });
+  }
 
-    if (req.method === "OPTIONS") {
-          return res.status(200).end();
+  if (process.env.STRIPE_CHECKOUT_ENABLED !== "true" || !process.env.STRIPE_SECRET_KEY) {
+    return res.status(503).json({ error: "Checkout is not available yet. Please contact VELTRIDE." });
+  }
+
+  const cartItems = req.body && req.body.cartItems;
+  if (!Array.isArray(cartItems) || cartItems.length === 0 || cartItems.length > MAX_LINES) {
+    return res.status(400).json({ error: "Please review your cart." });
+  }
+
+  const seen = new Set();
+  const lineItems = [];
+  let subtotalCents = 0;
+  for (const item of cartItems) {
+    const slug = typeof item?.slug === "string" ? item.slug : "";
+    const size = typeof item?.size === "string" ? item.size : "";
+    const quantity = item?.quantity;
+    const key = `${slug}:${size}`;
+    const product = VELTRIDE_PRODUCTS.find((entry) => entry.slug === slug);
+    if (seen.has(key) || !product || product.stockStatus !== "in_stock" ||
+        !product.vialSizes.includes(size) || !Number.isInteger(quantity) ||
+        quantity < 1 || quantity > MAX_QUANTITY) {
+      return res.status(400).json({ error: "A cart item is unavailable. Please review your cart." });
     }
-
-    if (req.method !== "POST") {
-          return res.status(405).json({ error: "Method not allowed" });
+    seen.add(key);
+    const unitAmount = Math.round(product.prices[size] * 100);
+    if (!Number.isSafeInteger(unitAmount) || unitAmount <= 0) {
+      return res.status(503).json({ error: "Checkout is not available yet. Please contact VELTRIDE." });
     }
+    subtotalCents += unitAmount * quantity;
+    lineItems.push({
+      price_data: {
+        currency: "cad",
+        product_data: { name: `${product.name} ${size}`, description: "For laboratory research use only" },
+        unit_amount: unitAmount,
+      },
+      quantity,
+    });
+  }
 
-    try {
-          const { cartItems } = req.body;
-
-      if (!cartItems || cartItems.length === 0) {
-              return res.status(400).json({ error: "Cart is empty" });
-      }
-
-      const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
-      const line_items = cartItems.map((item) => ({
-              price_data: {
-                        currency: "cad",
-                        product_data: {
-                                    name: item.name,
-                                    description:
-                                                  item.lotNum && item.lotNum !== "BUNDLE"
-                                        ? `${item.dose} · Lot ${item.lotNum} — Research use only. >=98% HPLC purity. COA included.`
-                                                    : `${item.dose} — Research use only.`,
-                        },
-                        unit_amount: Math.round(item.price * 100),
-              },
-              quantity: item.qty,
-      }));
-
-      const session = await stripe.checkout.sessions.create({
-              payment_method_types: ["card"],
-              line_items,
-              mode: "payment",
-              success_url: "https://veltride.com/?order=success",
-              cancel_url: "https://veltride.com/?order=cancelled",
-              shipping_address_collection: {
-                        allowed_countries: ["CA"],
-              },
-              shipping_options: [
-                {
-                            shipping_rate_data: {
-                                          type: "fixed_amount",
-                                          fixed_amount: { amount: 1200, currency: "cad" },
-                                          display_name: "Standard Shipping (3-7 business days)",
-                                          delivery_estimate: {
-                                                          minimum: { unit: "business_day", value: 3 },
-                                                          maximum: { unit: "business_day", value: 7 },
-                                          },
-                            },
-                },
-                {
-                            shipping_rate_data: {
-                                          type: "fixed_amount",
-                                          fixed_amount: { amount: 2200, currency: "cad" },
-                                          display_name: "Expedited Shipping (1-2 business days)",
-                                          delivery_estimate: {
-                                                          minimum: { unit: "business_day", value: 1 },
-                                                          maximum: { unit: "business_day", value: 2 },
-                                          },
-                            },
-                },
-                      ],
-              custom_text: {
-                        submit: {
-                                    message:
-                                                  "For research purposes only. Must be 18+. By completing this order you confirm you are a qualified researcher and agree to our Terms of Service.",
-                        },
-              },
-              metadata: {
-                        source: "veltride-shop",
-              },
-      });
-
-      return res.status(200).json({ url: session.url });
-    } catch (err) {
-          console.error("Stripe error:", err.message);
-          return res.status(500).json({ error: err.message });
+  try {
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+    const origin = process.env.STORE_ORIGIN || "https://veltride.vercel.app";
+    const shippingAmount = Number.parseInt(process.env.STANDARD_SHIPPING_CENTS || "1200", 10);
+    if (!/^https:\/\/[^/]+$/.test(origin) || !Number.isSafeInteger(shippingAmount) || shippingAmount < 0) {
+      throw new Error("Invalid checkout configuration");
     }
+    const freeShipping = subtotalCents >= VELTRIDE_SHIPPING.freeShippingThreshold * 100;
+    const session = await stripe.checkout.sessions.create({
+      mode: "payment",
+      line_items: lineItems,
+      customer_creation: "always",
+      billing_address_collection: "required",
+      phone_number_collection: { enabled: true },
+      shipping_address_collection: { allowed_countries: ["CA"] },
+      shipping_options: [{ shipping_rate_data: {
+        type: "fixed_amount",
+        fixed_amount: { amount: freeShipping ? 0 : shippingAmount, currency: "cad" },
+        display_name: freeShipping ? "Free standard shipping" : "Standard shipping",
+      } }],
+      success_url: `${origin}/cart?checkout=success&session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${origin}/cart?checkout=cancelled`,
+      metadata: { source: "veltride-web-store" },
+    });
+    return res.status(200).json({ url: session.url });
+  } catch (error) {
+    console.error("Checkout session creation failed", error);
+    return res.status(502).json({ error: "Checkout could not start. Please try again or contact VELTRIDE." });
+  }
 };
+
