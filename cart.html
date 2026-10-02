@@ -31,6 +31,7 @@ const status = document.getElementById('status');
 const itemsNode = document.getElementById('items');
 const checkoutButton = document.getElementById('checkout');
 let stripeEnabled = false;
+let promotionActive = false;
 async function loadCheckoutConfig(){
   try {
     const response = await fetch('/api/checkout-config', {cache:'no-store'});
@@ -38,9 +39,12 @@ async function loadCheckoutConfig(){
     const config = await response.json();
     if(config.enabled !== true) return;
     stripeEnabled = true;
+    promotionActive = config.promotion?.discountPercent === 20 && config.promotion?.freeShipping === true;
     checkoutButton.textContent = 'Secure checkout';
     document.getElementById('cartLead').textContent = 'Review your items, then enter your Canadian shipping address and pay securely in one checkout.';
-    document.getElementById('shippingNote').textContent = 'Shipping is limited to Canada. Free standard shipping on orders over $150 CAD. Review the final total before paying.';
+    document.getElementById('shippingNote').textContent = promotionActive
+      ? '20% off items and free standard shipping across Canada during this test ad. Offer ends October 3 at 3:34 p.m. PDT. Review the final total before paying.'
+      : 'Shipping is limited to Canada. Free standard shipping on orders over $150 CAD. Review the final total before paying.';
     document.getElementById('paymentNote').textContent = 'Your shipping address and payment details are entered securely at checkout. Need help? Contact VELTRIDE.';
     render();
   } catch { /* Keep WhatsApp ordering available if checkout configuration cannot be checked. */ }
@@ -68,7 +72,8 @@ function render(){
   for (const item of cart){
     const product = products.get(item.slug);
     const unitCents = Math.round(product.prices[item.size] * 100);
-    subtotal += unitCents * item.quantity; count += item.quantity;
+    const checkoutUnitCents = promotionActive ? Math.round(unitCents * 0.8) : unitCents;
+    subtotal += checkoutUnitCents * item.quantity; count += item.quantity;
     const row = document.createElement('div'); row.className='item';
     const img = document.createElement('img'); img.src='/' + product.imagePath; img.alt=product.name + ' ' + item.size + ' research vial';
     const info = document.createElement('div'); const title=document.createElement('h2'); title.textContent=product.name + ' · ' + item.size;
@@ -78,11 +83,11 @@ function render(){
     select.addEventListener('change',()=>saveCart(cart.map(entry=>entry===item?{...entry,quantity:Number(select.value)}:entry)));
     const remove=document.createElement('button'); remove.className='remove'; remove.textContent='Remove'; remove.addEventListener('click',()=>saveCart(cart.filter(entry=>entry!==item)));
     info.append(title,caption,select,document.createTextNode(' '),remove);
-    const price=document.createElement('div'); price.className='price'; price.textContent=money(unitCents * item.quantity);
+    const price=document.createElement('div'); price.className='price'; price.textContent=money(checkoutUnitCents * item.quantity) + (promotionActive ? ' · 20% off' : '');
     row.append(img,info,price); itemsNode.append(row);
   }
   document.getElementById('subtotal').textContent=money(subtotal) + ' CAD';
-  document.getElementById('shipping').textContent=stripeEnabled?(subtotal>15000?'Free':'Calculated at checkout'):(subtotal>15000?'Free':'Confirm on WhatsApp');
+  document.getElementById('shipping').textContent=stripeEnabled?(promotionActive||subtotal>15000?'Free':'Calculated at checkout'):(subtotal>15000?'Free':'Confirm on WhatsApp');
   document.getElementById('itemCount').textContent=String(count);
   checkoutButton.disabled=!cart.length;
 }
