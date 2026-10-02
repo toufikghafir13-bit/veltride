@@ -59,7 +59,8 @@ module.exports = async (req, res) => {
 
   try {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-    const origin = process.env.STORE_ORIGIN || "https://veltride.vercel.app";
+    const origin = process.env.STORE_ORIGIN ||
+      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://veltride.vercel.app");
     const shippingAmount = Number.parseInt(process.env.STANDARD_SHIPPING_CENTS || "1200", 10);
     if (!/^https:\/\/[^/]+$/.test(origin) || !Number.isSafeInteger(shippingAmount) || shippingAmount < 0) {
       throw new Error("Invalid checkout configuration");
