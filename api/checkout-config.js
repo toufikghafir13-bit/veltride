@@ -1,3 +1,5 @@
+const PROMO_END_AT = Date.parse("2026-10-03T22:34:00Z");
+
 module.exports = (req, res) => {
   if (req.method !== "GET") {
     res.setHeader("Allow", "GET");
@@ -10,5 +12,9 @@ module.exports = (req, res) => {
     ((process.env.VERCEL_ENV === "production" && process.env.STRIPE_LIVE_APPROVED === "true" && key.startsWith("sk_live_")) ||
       (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production" && key.startsWith("sk_test_")));
 
-  return res.status(200).json({ enabled });
+  const promotion = enabled && Date.now() < PROMO_END_AT
+    ? { discountPercent: 20, freeShipping: true, endsAt: "2026-10-03T22:34:00Z" }
+    : null;
+
+  return res.status(200).json({ enabled, promotion });
 };

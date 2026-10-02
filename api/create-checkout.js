@@ -3,6 +3,7 @@ const { VELTRIDE_PRODUCTS, VELTRIDE_SHIPPING } = require("../products.js");
 
 const MAX_LINES = 20;
 const MAX_QUANTITY = 10;
+const PROMO_END_AT = Date.parse("2026-10-03T22:34:00Z");
 
 module.exports = async (req, res) => {
   if (req.method !== "POST") {
@@ -24,6 +25,7 @@ module.exports = async (req, res) => {
     return res.status(400).json({ error: "Please review your cart." });
   }
 
+  const promotionActive = Date.now() < PROMO_END_AT;
   const seen = new Set();
   const lineItems = [];
   let subtotalCents = 0;
@@ -43,12 +45,13 @@ module.exports = async (req, res) => {
     if (!Number.isSafeInteger(unitAmount) || unitAmount <= 0) {
       return res.status(503).json({ error: "Checkout is not available yet. Please contact VELTRIDE." });
     }
-    subtotalCents += unitAmount * quantity;
+    const checkoutAmount = promotionActive ? Math.round(unitAmount * 0.8) : unitAmount;
+    subtotalCents += checkoutAmount * quantity;
     lineItems.push({
       price_data: {
         currency: "cad",
-        product_data: { name: `${product.name} ${size}`, description: "For laboratory research use only" },
-        unit_amount: unitAmount,
+        product_data: { name: `${product.name} ${size}`, description: promotionActive ? "Research use only · 20% ad offer" : "For laboratory research use only" },
+        unit_amount: checkoutAmount,
       },
       quantity,
     });
@@ -56,12 +59,13 @@ module.exports = async (req, res) => {
 
   try {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-    const origin = process.env.STORE_ORIGIN || "https://veltride.vercel.app";
+    const origin = process.env.STORE_ORIGIN ||
+      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://veltride.vercel.app");
     const shippingAmount = Number.parseInt(process.env.STANDARD_SHIPPING_CENTS || "1200", 10);
     if (!/^https:\/\/[^/]+$/.test(origin) || !Number.isSafeInteger(shippingAmount) || shippingAmount < 0) {
       throw new Error("Invalid checkout configuration");
     }
-    const freeShipping = subtotalCents > VELTRIDE_SHIPPING.freeShippingThreshold * 100;
+    const freeShipping = promotionActive || subtotalCents > VELTRIDE_SHIPPING.freeShippingThreshold * 100;
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       line_items: lineItems,
@@ -74,7 +78,7 @@ module.exports = async (req, res) => {
       } }],
       success_url: `${origin}/cart?checkout=success&session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/cart?checkout=cancelled`,
-      metadata: { source: "veltride-web-store" },
+      metadata: { source: "veltride-web-store", promotion: promotionActive ? "20pct-storewide-free-shipping" : "none" },
     });
     return res.status(200).json({ url: session.url });
   } catch (error) {
