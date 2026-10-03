@@ -1,0 +1,65 @@
+/* VELTRIDE product photography: one clearly labelled vial per product. */
+.page-home .hero-art{
+  min-height:440px;
+  padding:0;
+  overflow:hidden;
+  background:#dce9e8;
+  border:1px solid #d3e3df;
+  box-shadow:0 22px 48px rgba(10,67,65,.10);
+}
+.page-home .hero-art img{
+  width:100%;
+  height:100%;
+  min-height:440px;
+  max-height:none;
+  object-fit:cover;
+  object-position:62% center;
+  filter:none;
+}
+.page-home .product-img,
+.page-shop .product-img{
+  height:auto;
+  aspect-ratio:1.12;
+  padding:0;
+  overflow:hidden;
+  background:#dce5e8;
+}
+.page-home .product-img img,
+.page-shop .product-img img{
+  width:100%;
+  height:100%;
+  max-width:none;
+  object-fit:cover;
+  object-position:center;
+  transition:transform .35s ease;
+}
+.page-home .card:hover .product-img img,
+.page-shop .card:hover .product-img img{transform:scale(1.025)}
+.page-home .card,
+.page-shop .card{border-color:#d9e6e3;box-shadow:0 8px 24px rgba(12,55,53,.045)}
+.page-shop .hero{background:linear-gradient(120deg,#e7f3f0,#f8fbfa)}
+.page-shop .card .body h2{letter-spacing:-.025em}
+.page-shop .card .type{letter-spacing:.1em}
+.reference-grid .product-img{aspect-ratio:1.12;height:auto;padding:0}
+.prod-img-wrap{padding:0!important;overflow:hidden;background:#dce5e8!important}
+.prod-img-wrap img{width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:cover!important}
+.prod-thumb{padding:0!important;overflow:hidden}
+.prod-thumb img{width:100%;height:100%;object-fit:cover}
+.related-card img{object-fit:cover}
+.page-cart .item img{object-fit:cover}
+.reference-product-visual{display:block;width:min(100%,340px);margin:24px auto;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.16);box-shadow:0 20px 48px rgba(0,0,0,.22)}
+.reference-product-visual img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover}
+@media(max-width:750px){
+  .page-home .hero-art{min-height:300px}
+  .page-home .hero-art img{min-height:300px}
+}
+@media(max-width:560px){
+  .page-home .hero-art{min-height:250px}
+  .page-home .hero-art img{min-height:250px}
+  .page-home .product-img,.page-shop .product-img{height:auto;aspect-ratio:1.12}
+  .reference-grid .product-img{aspect-ratio:auto;height:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .page-home .product-img img,.page-shop .product-img img{transition:none}
+}
+
