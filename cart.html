@@ -70,7 +70,7 @@ function render(){
     const unitCents = Math.round(product.prices[item.size] * 100);
     subtotal += unitCents * item.quantity; count += item.quantity;
     const row = document.createElement('div'); row.className='item';
-    const img = document.createElement('img'); img.src='/' + product.imagePath; img.alt=product.name + ' ' + item.size + ' research vial';
+    const img = document.createElement('img'); img.src=product.imagePath; img.alt=product.name + ' ' + item.size + ' research vial';
     const info = document.createElement('div'); const title=document.createElement('h2'); title.textContent=product.name + ' · ' + item.size;
     const caption=document.createElement('p'); caption.textContent='Research reference compound';
     const select=document.createElement('select'); select.setAttribute('aria-label','Quantity for ' + product.name + ' ' + item.size);
