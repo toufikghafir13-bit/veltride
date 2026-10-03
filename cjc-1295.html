@@ -46,7 +46,7 @@ footer{background:#0a1628;padding:32px 28px 24px;}.footer-inner{max-width:1400px
 @media(max-width:900px){.prod-layout{grid-template-columns:1fr;}.prod-img-panel{position:static;}.related-grid{grid-template-columns:1fr 1fr;}.main-nav{display:none;}.hamburger-btn{display:flex;}}
 @media(max-width:600px){.prod-name{font-size:28px;}.related-grid{grid-template-columns:1fr;}.trust-badges{grid-template-columns:1fr;}}
 </style>
-</head>
+<link rel="stylesheet" href="/store-image-refresh.css"></head>
 <body>
 <div class="top-bar"><div class="top-bar-inner"><div class="ticker-wrap"><div class="ticker"><span>99%+ Purity HPLC Verified</span>&nbsp;&bull;&nbsp;<span>COA Included Every Order</span>&nbsp;&bull;&nbsp;<span>Free Shipping Over $150 CAD</span>&nbsp;&bull;&nbsp;<span>Canada-Wide Delivery</span>&nbsp;&bull;&nbsp;<span>Kelowna, BC</span>&nbsp;&bull;&nbsp;<span>For Research Use Only</span>&nbsp;&bull;&nbsp;<span>99%+ Purity HPLC Verified</span>&nbsp;&bull;&nbsp;<span>COA Included</span></div></div></div></div>
 <header><div class="header-wrap">
@@ -61,8 +61,8 @@ footer{background:#0a1628;padding:32px 28px 24px;}.footer-inner{max-width:1400px
 <div class="product-main">
   <div class="prod-layout">
     <div class="prod-img-panel">
-      <div class="prod-img-wrap"><img src="cjc-1295-nodac-product.png" alt="CJC-1295 No DAC research compound vial" id="mainProductImg" onerror="this.src='vial-product.png'"></div>
-      <div class="prod-img-thumbnails"><div class="prod-thumb active"><img src="cjc-1295-nodac-product.png" onerror="this.src='vial-product.png'"></div></div>
+      <div class="prod-img-wrap"><img src="/images/vials/cjc-1295.png" alt="CJC-1295 No DAC research compound vial" id="mainProductImg" onerror="this.src='vial-product.png'"></div>
+      <div class="prod-img-thumbnails"><div class="prod-thumb active"><img src="/images/vials/cjc-1295.png" onerror="this.src='vial-product.png'"></div></div>
       <div class="trust-badges">
         <div class="trust-badge"><span class="trust-badge-icon">&#128300;</span><div class="trust-badge-text">HPLC Verified<br>99%+ Purity</div></div>
         <div class="trust-badge"><span class="trust-badge-icon">&#128196;</span><div class="trust-badge-text">COA Included<br>Every Order</div></div>
@@ -97,7 +97,7 @@ footer{background:#0a1628;padding:32px 28px 24px;}.footer-inner{max-width:1400px
         <div class="dose-box-title">&#9881; Select Dosage</div>
         <div class="dose-options">
           <div class="dose-opt">
-            <input type="radio" name="dose" id="d-5mg" value="5mg" data-price="79" data-img="cjc-1295-nodac-product.png" checked>
+            <input type="radio" name="dose" id="d-5mg" value="5mg" data-price="79" data-img="/images/vials/cjc-1295.png" checked>
             <label for="d-5mg"><span class="dose-name">5mg</span><span class="dose-price">$79 CAD</span></label>
           </div>
         </div>
@@ -154,9 +154,9 @@ footer{background:#0a1628;padding:32px 28px 24px;}.footer-inner{max-width:1400px
   <div class="related-section">
     <h2>Related Research Compounds</h2>
     <div class="related-grid">
-      <a href="ipamorelin.html" class="related-card"><img src="ipamorelin-product.png" alt="Ipamorelin" onerror="this.src='vial-product.png'"><div class="related-card-info"><div class="related-card-name">Ipamorelin</div><div class="related-card-price">From $59 CAD</div></div></a>
-      <a href="ghrp-2.html" class="related-card"><img src="ghrp-2-product.png" alt="GHRP-2" onerror="this.src='vial-product.png'"><div class="related-card-info"><div class="related-card-name">GHRP-2</div><div class="related-card-price">From $55 CAD</div></div></a>
-      <a href="mk-677.html" class="related-card"><img src="mk-677-product.png" alt="MK-677" onerror="this.src='vial-product.png'"><div class="related-card-info"><div class="related-card-name">MK-677</div><div class="related-card-price">From $89 CAD</div></div></a>
+      <a href="ipamorelin.html" class="related-card"><img src="/images/vials/ipamorelin.png" alt="Illustrative VELTRIDE Ipamorelin vial" onerror="this.src='vial-product.png'" loading="lazy" decoding="async"><div class="related-card-info"><div class="related-card-name">Ipamorelin</div><div class="related-card-price">From $59 CAD</div></div></a>
+      <a href="ghrp-2.html" class="related-card"><img src="/images/vials/ghrp-2.png" alt="Illustrative VELTRIDE GHRP-2 vial" onerror="this.src='vial-product.png'" loading="lazy" decoding="async"><div class="related-card-info"><div class="related-card-name">GHRP-2</div><div class="related-card-price">From $55 CAD</div></div></a>
+      <a href="mk-677.html" class="related-card"><img src="/images/vials/mk-677.png" alt="Illustrative VELTRIDE MK-677 vial" onerror="this.src='vial-product.png'" loading="lazy" decoding="async"><div class="related-card-info"><div class="related-card-name">MK-677</div><div class="related-card-price">From $89 CAD</div></div></a>
     </div>
   </div>
 </div>
@@ -170,7 +170,7 @@ footer{background:#0a1628;padding:32px 28px 24px;}.footer-inner{max-width:1400px
 const PHONE = '12507189152';
 function getDose() {
   const ch = document.querySelector('input[name="dose"]:checked');
-  return ch ? {dose: ch.value, price: ch.dataset.price, img: ch.dataset.img} : {dose: '5mg', price: '79', img: 'cjc-1295-nodac-product.png'};
+  return ch ? {dose: ch.value, price: ch.dataset.price, img: ch.dataset.img} : {dose: '5mg', price: '79', img: '/images/vials/cjc-1295.png'};
 }
 function handleOrder() {
   const d = getDose();
