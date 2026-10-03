@@ -46,6 +46,7 @@
 .prod-thumb{padding:0!important;overflow:hidden}
 .prod-thumb img{width:100%;height:100%;object-fit:cover}
 .related-card img{object-fit:cover}
+.page-cart .items{align-content:start}
 .page-cart .item img{object-fit:cover}
 .reference-product-visual{display:block;width:min(100%,340px);margin:24px auto;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.16);box-shadow:0 20px 48px rgba(0,0,0,.22)}
 .reference-product-visual img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover}
