@@ -1,20 +1,6 @@
 [build]
-  publish = "."
-    functions = "netlify/functions"
-      command = "cd netlify/functions && npm install"
+  command = "npm run build"
+  publish = ".next"
 
-      [functions]
-        node_bundler = "esbuild"
-          external_node_modules = ["stripe"]
-
-          [[redirects]]
-            from = "/api/*"
-              to = "/.netlify/functions/:splat"
-                status = 200
-
-                [[headers]]
-                  for = "/*"
-                    [headers.values]
-                        X-Frame-Options = "DENY"
-                            X-Content-Type-Options = "nosniff"
-                                Referrer-Policy = "strict-origin-when-cross-origin"
+# Netlify detects Next.js and supplies its OpenNext adapter.
+# The old standalone function redirects must not shadow Next.js API routes.

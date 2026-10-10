@@ -58,3 +58,8 @@ The draft storefront now contains a cart and a server-side Checkout Session endp
 The customer enters a Canada-only shipping address on Stripe Checkout **before payment**. Checkout collects only the payment and shipping details Stripe requires; the cart does not request a separate billing address or phone number. The Stripe order record contains the shipping details for fulfillment.
 
 Keep `STRIPE_CHECKOUT_ENABLED` and `STRIPE_LIVE_APPROVED` unset or `false` in production until Stripe approves the actual catalog, the payout account is connected directly in Stripe, tax and shipping obligations are reviewed, live keys are configured, and an end-to-end test succeeds. When disabled, the cart continues to offer a clearly labelled WhatsApp **order request**, not a paid checkout. Contact remains available for help. Never ask customers to send card details over WhatsApp.
+
+
+## Next.js migration
+
+See [README.md](README.md) for local commands, automated checks and hosting instructions. The Next.js storefront preserves the current product source, old product URLs and payment gates. The migrated checkout handlers live in `pages/api/`; public endpoint URLs remain unchanged. This migration does not authorize enabling live payments.

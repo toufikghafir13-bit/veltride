@@ -1,0 +1,8 @@
+node_modules/
+.next/
+public/
+.env*
+!.env.example
+.vercel/
+playwright-report/
+test-results/
