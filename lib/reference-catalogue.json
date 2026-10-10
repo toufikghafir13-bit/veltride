@@ -1,0 +1,134 @@
+[
+  {
+    "slug": "semaglutide",
+    "name": "Semaglutide",
+    "category": "Metabolic research",
+    "imagePath": "/images/vials/semaglutide.png"
+  },
+  {
+    "slug": "tirzepatide",
+    "name": "Tirzepatide",
+    "category": "Metabolic research",
+    "imagePath": "/images/vials/tirzepatide.png"
+  },
+  {
+    "slug": "retatrutide",
+    "name": "Retatrutide",
+    "category": "Metabolic research",
+    "imagePath": "/images/vials/retatrutide.png"
+  },
+  {
+    "slug": "aod-9604",
+    "name": "AOD-9604",
+    "category": "Peptide research",
+    "imagePath": "/images/vials/aod-9604.png"
+  },
+  {
+    "slug": "bpc-157",
+    "name": "BPC-157",
+    "category": "Peptide research",
+    "imagePath": "/images/vials/bpc-157.png"
+  },
+  {
+    "slug": "cjc-1295",
+    "name": "CJC-1295 No DAC",
+    "category": "Peptide research",
+    "imagePath": "/images/vials/cjc-1295.png"
+  },
+  {
+    "slug": "ipamorelin",
+    "name": "Ipamorelin",
+    "category": "Peptide research",
+    "imagePath": "/images/vials/ipamorelin.png"
+  },
+  {
+    "slug": "ghrp-2",
+    "name": "GHRP-2",
+    "category": "Peptide research",
+    "imagePath": "/images/vials/ghrp-2.png"
+  },
+  {
+    "slug": "tesamorelin",
+    "name": "Tesamorelin",
+    "category": "Peptide research",
+    "imagePath": "/images/vials/tesamorelin.png"
+  },
+  {
+    "slug": "ghk-cu",
+    "name": "GHK-Cu",
+    "category": "Copper peptide research",
+    "imagePath": "/images/vials/ghk-cu.png"
+  },
+  {
+    "slug": "tb-500",
+    "name": "TB-500",
+    "category": "Peptide research",
+    "imagePath": "/images/vials/tb-500.png"
+  },
+  {
+    "slug": "mots-c",
+    "name": "MOTS-C",
+    "category": "Mitochondrial research",
+    "imagePath": "/images/vials/mots-c.png"
+  },
+  {
+    "slug": "nad-plus",
+    "name": "NAD+",
+    "category": "Biochemical research",
+    "imagePath": "/images/vials/nad-plus.png"
+  },
+  {
+    "slug": "epithalon",
+    "name": "Epithalon",
+    "category": "Peptide research",
+    "imagePath": "/images/vials/epithalon.png"
+  },
+  {
+    "slug": "selank",
+    "name": "Selank",
+    "category": "Neuropeptide research",
+    "imagePath": "/images/vials/selank.png"
+  },
+  {
+    "slug": "semax",
+    "name": "Semax",
+    "category": "Neuropeptide research",
+    "imagePath": "/images/vials/semax.png"
+  },
+  {
+    "slug": "kpv",
+    "name": "KPV",
+    "category": "Peptide research",
+    "imagePath": "/images/vials/kpv.png"
+  },
+  {
+    "slug": "kisspeptin-10",
+    "name": "Kisspeptin-10",
+    "category": "Peptide research",
+    "imagePath": "/images/vials/kisspeptin-10.png"
+  },
+  {
+    "slug": "pt-141",
+    "name": "PT-141",
+    "category": "Melanocortin research",
+    "imagePath": "/images/vials/pt-141.png"
+  },
+  {
+    "slug": "melanotan-2",
+    "name": "Melanotan-2",
+    "category": "Melanocortin research",
+    "imagePath": "/images/vials/melanotan-2.png"
+  },
+  {
+    "slug": "thymosin-alpha-1",
+    "name": "Thymosin Alpha-1",
+    "category": "Peptide research",
+    "imagePath": "/images/vials/thymosin-alpha-1.png"
+  },
+  {
+    "slug": "mk-677",
+    "name": "MK-677",
+    "category": "Research compound",
+    "imagePath": "/images/vials/mk-677.png"
+  }
+]

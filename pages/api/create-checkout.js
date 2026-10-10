@@ -1,5 +1,5 @@
 const Stripe = require("stripe");
-const { VELTRIDE_PRODUCTS, VELTRIDE_SHIPPING } = require("../products.js");
+const { VELTRIDE_PRODUCTS, VELTRIDE_SHIPPING } = require("../../products.js");
 
 const MAX_LINES = 20;
 const MAX_QUANTITY = 10;
@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
     return res.status(503).json({ error: "Checkout is not available yet. Please contact VELTRIDE." });
   }
   const key = process.env.STRIPE_SECRET_KEY;
-  if ((process.env.VERCEL_ENV === "production" && (process.env.STRIPE_LIVE_APPROVED !== "true" || !key.startsWith("sk_live_"))) ||
+  if (!process.env.VERCEL_ENV || (process.env.VERCEL_ENV === "production" && (process.env.STRIPE_LIVE_APPROVED !== "true" || !key.startsWith("sk_live_"))) ||
       (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production" && !key.startsWith("sk_test_"))) {
     return res.status(503).json({ error: "Checkout is not configured for this environment." });
   }
