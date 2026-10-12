@@ -51,29 +51,12 @@ footer{background:#0d1117;color:rgba(255,255,255,0.7);padding:48px 28px 24px;}
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;font-size:11.5px;color:rgba(255,255,255,0.4);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
 @media(max-width:768px){.footer-cols{grid-template-columns:1fr 1fr;}}
 </style>
+<link rel="stylesheet" href="/reference-refresh.css">
 </head>
 <body>
 
 <!-- GLOBAL HEADER -->
-<header>
-  <div class="header-wrap">
-    <a href="/" class="logo">
-      <span class="logo-wordmark">VELTRIDE</span>
-      <span class="logo-tagline">Research Compound Catalogue</span>
-    </a>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/shop">Catalogue</a></li>
-        <li><a href="/quality">Quality / COA</a></li>
-        <li><a href="/faq">FAQ</a></li>
-        <li><a href="/shipping">Shipping</a></li>
-        <li><a href="/about" class="active">About</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<div class="vr-announcement"><a href="/shipping" data-shipping-announcement>Canadian catalogue · View shipping information →</a></div><header class="vr-header"><div class="vr-nav"><a class="vr-brand" href="/">VELTRIDE<span>RESEARCH COMPOUNDS · CANADA</span></a><nav class="vr-links" aria-label="Main navigation"><a href="/shop">Shop</a><a href="/quality">Lab documentation</a><a href="/blog/">Research</a><a href="/about">About</a><a href="/contact">Contact</a></nav><div class="vr-tools"><a class="vr-cart" href="/cart" aria-label="View cart">Cart <span data-cart-count>0</span></a><button class="vr-menu" type="button" aria-controls="vr-mobile" aria-expanded="false" aria-label="Toggle menu">☰</button></div></div><nav id="vr-mobile" class="vr-mobile" aria-label="Mobile navigation" hidden><a href="/shop">Shop compounds</a><a href="/quality">Lab documentation</a><a href="/blog/">Research library</a><a href="/shipping">Shipping</a><a href="/about">About</a><a href="/contact">Contact</a></nav><div class="vr-search-wrap"><form class="vr-search" role="search"><label class="vr-sr" for="vr-search-input">Search products, batch references, and pages</label><span aria-hidden="true">⌕</span><input id="vr-search-input" type="search" placeholder="Search compounds, batch references, or documentation…" autocomplete="off" aria-controls="vr-search-results" aria-expanded="false"><button type="submit">Search</button></form><div id="vr-search-results" class="vr-search-results" hidden><p class="vr-search-status" role="status"></p><div class="vr-search-items"></div></div></div></header>
 <div class="compliance-bar">For In-Vitro Research Purposes Only &bull; Not For Human Consumption &bull; Analytical Reference Standards</div>
 
 <!-- PAGE HERO -->
@@ -160,61 +143,9 @@ footer{background:#0d1117;color:rgba(255,255,255,0.7);padding:48px 28px 24px;}
 </section>
 
 <!-- GLOBAL FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="footer-wordmark">VELTRIDE</div>
-      <p class="footer-disclaimer">VELTRIDE Inc. is a proudly Canadian supplier of analytical-grade research compounds, serving the scientific community and academic institutions across Canada since 2024.<br>For In-Vitro Research Purposes Only &bull; Not For Human Consumption &bull; Laboratory Reference Catalogue<br><a href="mailto:support@veltride.ca" style="color:rgba(255,255,255,0.6);">support@veltride.ca</a></p>
-    </div>
-    <div class="footer-cols">
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/shop">Research Catalogue</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/quality">Quality / COA</a></li>
-          <li><a href="/faq">FAQ</a></li>
-          <li><a href="/shipping">Shipping</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Catalogue</h4>
-        <ul>
-          <li><a href="/shop">All Compounds</a></li>
-          <li><a href="/semaglutide">Semaglutide</a></li>
-          <li><a href="/tirzepatide">Tirzepatide</a></li>
-          <li><a href="/retatrutide">Retatrutide</a></li>
-          <li><a href="/bpc-157">BPC-157</a></li>
-          <li><a href="/mk-677">MK-677</a></li>
-          <li><a href="/selank">Selank</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="/privacy">Privacy Policy</a></li>
-          <li><a href="/terms">Terms &amp; Conditions</a></li>
-          <li><a href="/shipping">Shipping Policy</a></li>
-          <li><a href="/quality">Quality / COA</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:support@veltride.ca">support@veltride.ca</a></li>
-          <li><a href="https://wa.me/12507189152">WhatsApp</a></li>
-          <li><a href="/contact">Contact Page</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 VELTRIDE Inc. &mdash; West Kelowna, BC, Canada &mdash; All products are for in-vitro research and analytical reference use only. Not for human consumption.</span>
-      <span>&#x1F1E8;&#x1F1E6; Canada</span>
-    </div>
-  </div>
-</footer>
+<footer class="vr-footer"><div class="vr-footer-grid"><div><a class="vr-brand" href="/">VELTRIDE<span>RESEARCH COMPOUNDS · CANADA</span></a><p>Clear product information.<br>Traceable research documentation.</p><a href="mailto:support@veltride.ca">support@veltride.ca</a></div><div><h2>Explore</h2><a href="/shop">All compounds</a><a href="/quality">Quality / COA</a><a href="/blog/">Research library</a></div><div><h2>Help</h2><a href="/shipping">Shipping information</a><a href="/faq">Common questions</a><a href="/contact">Contact VELTRIDE</a></div><div><h2>Company</h2><a href="/about">About VELTRIDE</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div></div><div class="vr-footer-bottom"><p>For in-vitro laboratory and analytical reference use only. Not for human or animal consumption. Not for therapeutic, diagnostic, medical, cosmetic, or veterinary use.</p><span>© 2026 VELTRIDE · Canada</span></div></footer>
 
+<script src="/products.js"></script>
+<script src="/reference-refresh.js"></script>
 </body>
 </html>

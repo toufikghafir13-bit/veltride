@@ -46,15 +46,11 @@ footer{background:#0a1628;padding:32px 28px 24px;}.footer-inner{max-width:1400px
 @media(max-width:900px){.prod-layout{grid-template-columns:1fr;}.prod-img-panel{position:static;}.related-grid{grid-template-columns:1fr 1fr;}.main-nav{display:none;}.hamburger-btn{display:flex;}}
 @media(max-width:600px){.prod-name{font-size:28px;}.related-grid{grid-template-columns:1fr;}.trust-badges{grid-template-columns:1fr;}}
 </style>
-<link rel="stylesheet" href="/store-image-refresh.css"></head>
+<link rel="stylesheet" href="/store-image-refresh.css"><link rel="stylesheet" href="/reference-refresh.css">
+</head>
 <body>
-<div class="top-bar"><div class="top-bar-inner"><div class="ticker-wrap"><div class="ticker"><span>99%+ Purity HPLC Verified</span>&nbsp;&bull;&nbsp;<span>COA Included Every Order</span>&nbsp;&bull;&nbsp;<span>Free Shipping Over $150 CAD</span>&nbsp;&bull;&nbsp;<span>Canada-Wide Delivery</span>&nbsp;&bull;&nbsp;<span>Kelowna, BC</span>&nbsp;&bull;&nbsp;<span>For Research Use Only</span>&nbsp;&bull;&nbsp;<span>99%+ Purity HPLC Verified</span>&nbsp;&bull;&nbsp;<span>COA Included</span></div></div></div></div>
-<header><div class="header-wrap">
-  <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
-  <a href="index.html" class="logo"><div class="logo-wordmark">VELTRIDE</div><div class="logo-accent"></div><div class="logo-tagline">Research Compound Catalogue</div></a>
-  <nav class="main-nav"><ul><li><a href="index.html">Home</a></li><li><a href="shop.html" class="active">Catalogue</a></li><li><a href="about.html">About</a></li><li><a href="faq.html">FAQ</a></li><li><a href="shipping.html">Shipping</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
-</div></header>
-<nav class="mobile-nav" id="mobileNav"><a href="index.html">Home<span>&rsaquo;</span></a><a href="shop.html">Catalogue<span>&rsaquo;</span></a><a href="faq.html">FAQ<span>&rsaquo;</span></a><a href="contact.html">Contact<span>&rsaquo;</span></a></nav>
+<div class="vr-announcement"><a href="/shipping" data-shipping-announcement>Canadian catalogue · View shipping information →</a></div><header class="vr-header"><div class="vr-nav"><a class="vr-brand" href="/">VELTRIDE<span>RESEARCH COMPOUNDS · CANADA</span></a><nav class="vr-links" aria-label="Main navigation"><a href="/shop">Shop</a><a href="/quality">Lab documentation</a><a href="/blog/">Research</a><a href="/about">About</a><a href="/contact">Contact</a></nav><div class="vr-tools"><a class="vr-cart" href="/cart" aria-label="View cart">Cart <span data-cart-count>0</span></a><button class="vr-menu" type="button" aria-controls="vr-mobile" aria-expanded="false" aria-label="Toggle menu">☰</button></div></div><nav id="vr-mobile" class="vr-mobile" aria-label="Mobile navigation" hidden><a href="/shop">Shop compounds</a><a href="/quality">Lab documentation</a><a href="/blog/">Research library</a><a href="/shipping">Shipping</a><a href="/about">About</a><a href="/contact">Contact</a></nav><div class="vr-search-wrap"><form class="vr-search" role="search"><label class="vr-sr" for="vr-search-input">Search products, batch references, and pages</label><span aria-hidden="true">⌕</span><input id="vr-search-input" type="search" placeholder="Search compounds, batch references, or documentation…" autocomplete="off" aria-controls="vr-search-results" aria-expanded="false"><button type="submit">Search</button></form><div id="vr-search-results" class="vr-search-results" hidden><p class="vr-search-status" role="status"></p><div class="vr-search-items"></div></div></div></header>
+
 <div class="compliance-bar">For Research Purposes Only &bull; Not For Human Consumption</div>
 <div class="breadcrumb-bar"><div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="shop.html">Catalogue</a> &rsaquo; CJC-1295 No DAC</div></div>
 
@@ -161,10 +157,7 @@ footer{background:#0a1628;padding:32px 28px 24px;}.footer-inner{max-width:1400px
   </div>
 </div>
 
-<footer><div class="footer-inner"><div class="footer-bottom">
-  <p class="footer-copy">&copy; 2025 VELTRIDE Research. Kelowna, BC, Canada. For research use only.</p>
-  <div class="footer-links"><a href="shop.html">Catalogue</a><a href="faq.html">FAQ</a><a href="shipping.html">Shipping</a><a href="contact.html">Contact</a></div>
-</div></div></footer>
+<footer class="vr-footer"><div class="vr-footer-grid"><div><a class="vr-brand" href="/">VELTRIDE<span>RESEARCH COMPOUNDS · CANADA</span></a><p>Clear product information.<br>Traceable research documentation.</p><a href="mailto:support@veltride.ca">support@veltride.ca</a></div><div><h2>Explore</h2><a href="/shop">All compounds</a><a href="/quality">Quality / COA</a><a href="/blog/">Research library</a></div><div><h2>Help</h2><a href="/shipping">Shipping information</a><a href="/faq">Common questions</a><a href="/contact">Contact VELTRIDE</a></div><div><h2>Company</h2><a href="/about">About VELTRIDE</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div></div><div class="vr-footer-bottom"><p>For in-vitro laboratory and analytical reference use only. Not for human or animal consumption. Not for therapeutic, diagnostic, medical, cosmetic, or veterinary use.</p><span>© 2026 VELTRIDE · Canada</span></div></footer>
 
 <script>
 const PHONE = '12507189152';
@@ -194,5 +187,7 @@ document.addEventListener('click', function(e) {
   if (nav && nav.classList.contains('open') && !nav.contains(e.target) && btn && !btn.contains(e.target)) nav.classList.remove('open');
 });
 </script>
+<script src="/products.js"></script>
+<script src="/reference-refresh.js"></script>
 </body>
 </html>

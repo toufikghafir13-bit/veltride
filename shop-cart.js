@@ -2,10 +2,10 @@
   const STORAGE_KEY = 'veltride_cart_v1';
   const products = new Map(VELTRIDE_PRODUCTS.map(product => [product.slug, product]));
   const money = amount => new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD'}).format(amount);
-  const cartLink = document.createElement('a');
+  const cartLink = document.querySelector('.vr-cart') || document.createElement('a');
   cartLink.href = '/cart';
-  cartLink.className = 'cart-link';
-  document.querySelector('header nav')?.append(cartLink);
+  if (!cartLink.classList.contains('vr-cart')) cartLink.className = 'cart-link';
+  if (!cartLink.isConnected) document.querySelector('header nav')?.append(cartLink);
 
   function readCart(){
     try { const value=JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]'); return Array.isArray(value)?value:[]; }
@@ -13,7 +13,7 @@
   }
   function updateCount(){
     const count=readCart().reduce((sum,item)=>sum+(Number.isInteger(item.quantity)?item.quantity:0),0);
-    cartLink.textContent=`Cart (${Math.max(0,count)})`;
+    const badge=cartLink.querySelector('[data-cart-count]'); if (badge) badge.textContent=Math.max(0,count); else cartLink.textContent='Cart ('+Math.max(0,count)+')';
   }
 
   for(const original of document.querySelectorAll('.grid > .card')){
